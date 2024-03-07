@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+header {
+    font-family: "Poppins", sans-serif;
+}
+
+header a:active {
+    text-decoration: underline;
+}
+
+header a:hover {
+    text-decoration: wavy;
+
+}
+
+button a {
+    color: black;
+    text-decoration: none;
+}
+
+.blob {
+    margin-top: -50px;
+     animation:vibrate-4 40s infinite forwards; 
+    fill: rgba(15, 15, 15);
+  }
+
+  .tracking-in-contract {
+    animation: tracking-in-contract 1.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  }
+
+  .focus-in-expand {
+    animation: focus-in-expand-fwd 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  }
+
+  .text-pop-up-top {
+    animation: text-pop-up-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  }  
+
+    @-webkit-keyframes tracking-in-contract{0%{letter-spacing:1em;opacity:0}40%{opacity:.6}100%{letter-spacing:normal;opacity:1}}@keyframes tracking-in-contract{0%{letter-spacing:1em;opacity:0}40%{opacity:.6}100%{letter-spacing:normal;opacity:1}}
+
+    @keyframes focus-in-expand-fwd{0%{letter-spacing:-.5em;transform:translateZ(-800px);filter:blur(12px);opacity:0}100%{transform:translateZ(0);filter:blur(0);opacity:1}}
+
+    @keyframes text-pop-up-top{0%{transform:translateY(0);transform-origin:50% 50%;text-shadow:none}100%{transform:translateY(-50px);transform-origin:50% 50%;text-shadow:0 1px 0 #ccc,0 2px 0 #ccc,0 3px 0 #ccc,0 4px 0 #ccc,0 5px 0 #ccc,0 6px 0 #ccc,0 7px 0 #ccc,0 8px 0 #ccc,0 9px 0 #ccc,0 50px 30px rgba(0,0,0,.3)}}
+
+
+    @keyframes vibrate-4 {
+    0% {
+      -webkit-transform: translate(0);
+              transform: translate(0);
+    }
+    10% {
+      -webkit-transform: translate(-15px, -15px);
+              transform: translate(-15px, -15px);
+    }
+    20% {
+      -webkit-transform: translate(15px, -15px);
+              transform: translate(15px, -15px);
+    }
+    30% {
+      -webkit-transform: translate(-15px, 15px);
+              transform: translate(-15px, 15px);
+    }
+    40% {
+      -webkit-transform: translate(15px, 15px);
+              transform: translate(15px, 15px);
+    }
+    50% {
+      -webkit-transform: translate(-15px, -15px);
+              transform: translate(-15px, -15px);
+    }
+    60% {
+      -webkit-transform: translate(15px, -15px);
+              transform: translate(15px, -15px);
+    }
+    70% {
+      -webkit-transform: translate(-15px, 15px);
+              transform: translate(-15px, 15px);
+    }
+    80% {
+      -webkit-transform: translate(-15px, -15px);
+              transform: translate(-15px, -15px);
+    }
+    90% {
+      -webkit-transform: translate(15px, -15px);
+              transform: translate(15px, -15px);
+    }
+    100% {
+      -webkit-transform: translate(0);
+              transform: translate(0);
+    }
+  }
+  
