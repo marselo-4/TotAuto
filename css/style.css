@@ -18,6 +18,27 @@ button a {
     text-decoration: none;
 }
 
+/* Carrousel Infinito */
+.marcas {
+  overflow: hidden;
+}
+
+.wrapper {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 15rem;
+
+  justify-items: stretch;
+  animation: scroll 10s linear infinite;
+}
+
+@keyframes scroll {
+  to {
+    translate: calc(-4 * 15rem);
+  }
+}
+
+
 .blob {
     margin-top: -50px;
      animation:vibrate-4 40s infinite forwards; 
