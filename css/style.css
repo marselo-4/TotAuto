@@ -4,6 +4,10 @@ header {
     font-family: "Poppins", sans-serif;
 }
 
+.poppins {
+  font-family: "Poppins", sans-serif;
+}
+
 header a:active {
     text-decoration: underline;
 }
@@ -12,10 +16,21 @@ header a:hover {
     text-decoration: wavy;
 
 }
+body a {
+  text-decoration: none;
+}
 
 button a {
     color: black;
     text-decoration: none;
+}
+
+.zoomcards {
+  transition: transform .5s ease;
+}
+
+.zoomcards:hover {
+  transform: scale(1.02);
 }
 
 /* Carrousel Infinito */
