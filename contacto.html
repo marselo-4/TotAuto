@@ -35,7 +35,7 @@
             <div class="offcanvas-body">
               <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
+                  <a class="nav-link" aria-current="page" href="index.html">Inicio</a>
                 </li>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -54,13 +54,13 @@
                   </ul>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="contacto.html">Contacto</a>
+                  <a class="nav-link active" href="contacto.html">Contacto</a>
                 </li>
 
 
               </ul>
               <form class="d-flex mt-3 mt-lg-0" role="search">
-                <input class="form-control me-2 " type="search" placeholder="Buscar" aria-label="Search">
+                <input class="form-control me-2 " name="Buscador" type="search" placeholder="Buscar" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
               </form>
             </div>
@@ -70,7 +70,7 @@
     </header>
 
     <main class="d-flex align-items-center py-4 form-signin w-100 m-auto">
-      <form class="container mb-4 mt-5" >
+      <section class="container mb-4 mt-5" >
 
         <!--Section heading-->
         <h2 class="h1-responsive font-weight-bold text-center my-4">Contacto</h2>
@@ -81,7 +81,7 @@
       
             <!--Grid column-->
             <div class="col-md-9 mb-md-0 mb-5">
-                <section id="contact-form" name="contact-form" action="enviarContacto.php" method="POST">
+                <form id="contact-form" name="contact-form" action="mail.php" method="POST">
       
                     <!--Grid row-->
                     <div class="row">
@@ -89,7 +89,7 @@
                         <!--Grid column-->
                         <div class="col-md-6">
                             <div class="md-form mb-4">
-                                <input type="text" id="name" name="name" class="form-control" placeholder="Nombre">
+                                <input type="text" id="name" name="name" autocomplete="name" class="form-control" placeholder="Nombre">
                             </div>
                         </div>
                         <!--Grid column-->
@@ -97,7 +97,7 @@
                         <!--Grid column-->
                         <div class="col-md-6">
                             <div class="md-form mb-4">
-                                <input type="email" id="email" name="email" class="form-control" placeholder="E-Mail">
+                                <input type="email" id="email" name="email" autocomplete="email" class="form-control" placeholder="E-Mail">
                             </div>
                         </div>
       
@@ -109,7 +109,7 @@
                     <div class="row">
                       <div class="col-md-6">
                           <div class="md-form mb-4">
-                              <input type="tlf" id="tel" name="tel" class="form-control" placeholder="Teléfono">
+                              <input type="text" id="telefono" name="telefono" autocomplete="mobile" class="form-control" placeholder="Teléfono">
                           </div>
                       </div>
                     <!--Grid column-->
@@ -117,7 +117,7 @@
                     <!--Grid column-->
                       <div class="col-md-6">
                           <div class="md-form mb-4">
-                              <input type="text" id="empresa" name="empresa" class="form-control" placeholder="Empresa">
+                              <input type="text" id="empresa" name="empresa" autocomplete="organization" class="form-control" placeholder="Empresa (Opcional)">
                           </div>
                       </div>
                     </div>
@@ -146,10 +146,10 @@
                     </div>
                     <!--Grid row-->
       
-                </section>
+                </form>
       
                 <div class="text-center text-md-left">
-                    <a class="btn btn-dark" onclick="document.getElementById('contact-form').submit();">Enviar</a>
+                  <a class="btn btn-dark" onclick="validateForm();">Enviar</a>
                 </div>
                 <div class="status"></div>
             </div>
@@ -175,8 +175,48 @@
       
         </div>
       
-      </form>
+      </section>
     </main>
+
+    <script>
+    function validateForm() {
+    var name =  document.getElementById('name').value;
+    if (name == "") {
+      errorform();
+        return false;
+    }
+    var email =  document.getElementById('email').value;
+    if (email == "") {
+      errorform();
+        return false;
+    } else {
+        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        if(!re.test(email)){
+          errorform();
+            return false;
+        }
+    }
+    var telefono =  document.getElementById('telefono').value;
+    if (telefono == "") {
+      errorform();
+        return false;
+    }
+    var subject =  document.getElementById('subject').value;
+    if (subject == "") {
+      errorform();
+        return false;
+    }
+    var message =  document.getElementById('message').value;
+    if (message == "") {
+      errorform();
+      console.error("Ha ocurrido algun error en la validación Client-Side o error humano.");
+        return false;
+    }
+    enviandoForm();
+    console.log("El mensaje se esta enviando.");
+
+    }
+    </script>
 
     
     <!--Section: Contact v.2-->
