@@ -48,6 +48,27 @@ button a {
   animation: scroll 10s linear infinite;
 }
 
+.ocultarMovil {
+  @media screen and (max-width: 980px) {
+    display: none;
+  }
+}
+
+#ocultarMovil {
+  @media screen and (max-width: 980px) {
+    display: none;
+  }
+}
+
+.destaca:hover {
+  text-decoration: underline;
+}
+
+#quitarEnlace a {
+  text-decoration: none;
+  color: black;
+}
+
 @keyframes scroll {
   to {
     translate: calc(-4 * 15rem);
@@ -65,7 +86,7 @@ button a {
   }
 
   .focus-in-expand {
-    animation: focus-in-expand-fwd 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: focus-in-expand-fwd 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
   }
 
   .text-pop-up-top {
