@@ -61,7 +61,7 @@
 
               </ul>
               <form class="d-flex mt-3 mt-lg-0" role="search">
-                <input class="form-control me-2 " name="Buscador" type="search" placeholder="Buscar" aria-label="Search">
+                <input class="form-control me-2 " name="buscador" type="search" placeholder="Buscar" aria-label="Search" id="inputBusqueda">
                 <button class="btn btn-outline-success" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
               </form>
             </div>
@@ -106,6 +106,13 @@
         </button>
       </div>
     </section>
+
+    <div class="search" id="search">
+      <table class="search-tabla" id="searchTabla">
+        <thead><tr><td></td></tr></thead>
+        <tbody id="tabla"></tbody>
+      </table>
+    </div>
 
     <div class="px-4 pt-5 my-5 text-center border-bottom">
       <h1 class="display-4 fw-bold focus-in-expand">Nuestros Productos</h1>
@@ -180,9 +187,10 @@
     </div>
     
     <!-- Contacto -->
+    <script src="js/buscador.js"></script>
     
 
-    <footer>
+    <footer class="ocultarMovil">
       <div class="container">
         <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
           <p class="col-md-4 mb-0 text-muted"><a href="https://marselo-4.github.io/ms-portfolio/" class="text-muted">© 2024 Carlos Martínez</a></p>
