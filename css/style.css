@@ -69,6 +69,11 @@ button a {
   color: black;
 }
 
+.quickFix img {
+  width: 1000px;
+  height: 750px;
+}
+
 @keyframes scroll {
   to {
     translate: calc(-4 * 15rem);
