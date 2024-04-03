@@ -27,8 +27,7 @@ function barra_busqueda() {
     const Contenido_Existente = Contenido.filter(item => item.nombre.toLowerCase().includes(query));
 
     if (query !== '' && Contenido_Existente.length === 0) {
-        Resultado.innerHTML = 'No existe este contenido';
-        Resultado.style.color = 'white';
+        noexiste();
     } else if (query !== '') {
 
         const Lista_Resultados = document.createElement('ul');

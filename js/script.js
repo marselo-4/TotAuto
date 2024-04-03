@@ -31,3 +31,36 @@ function errorform() {
         text: "Revisa que hayas completado los campos necesarios!",
       });
 }
+
+
+function noexiste() {
+  Swal.fire({
+      icon: "error",
+      title: "No se ha encontrado ningun resultado",
+    });
+}
+
+function noexiste() {
+  let timerInterval;
+  Swal.fire({
+    icon: "error",
+    title: "No se han encontrado resultados",
+    timer: 2000,
+    timerProgressBar: false,
+    didOpen: () => {
+      Swal.showLoading();
+      const timer = Swal.getPopup().querySelector("b");
+      timerInterval = setInterval(() => {
+        timer.textContent = `${Swal.getTimerLeft()}`;
+      }, 100);
+    },
+    willClose: () => {
+      clearInterval(timerInterval);
+    }
+  }).then((result) => {
+    /* Read more about handling dismissals below */
+    if (result.dismiss === Swal.DismissReason.timer) {
+      console.log("Ha acabado el temporizador SwAl");
+    }
+  });
+}
