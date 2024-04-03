@@ -54,6 +54,12 @@ button a {
   }
 }
 
+.mostrarMovil {
+  @media screen and (min-width: 980px) {
+    display: none;
+  }
+}
+
 #ocultarMovil {
   @media screen and (max-width: 980px) {
     display: none;

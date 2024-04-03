@@ -60,15 +60,16 @@
 
 
               </ul>
-              <form class="d-flex mt-3 mt-lg-0" role="search">
-                <input class="form-control me-2 " name="Buscador" type="search" placeholder="Buscar" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-              </form>
+              <div class="d-flex mt-3 mt-lg-0">
+                <input class="form-control me-2" placeholder="Buscar" id="InsertarTextoBarra" aria-label="Search" onkeypress="Enter(event)">
+                <button class="btn btn-outline-success" onclick="barra_busqueda()"><i class="fa-solid fa-magnifying-glass"></i></button>
+              </div>
             </div>
           </div>
         </div>
       </nav>
     </header>
+    <div class="d-flex m-5 text-center" id="resultadoBusqueda"></div>
     
     
     <div class="px-4 pt-5 my-5 text-center border-bottom">
@@ -76,9 +77,17 @@
     </div>
 
 
-    <div class="busqueda" id="resultadoBuscador">
-        <p class="text-center px-4 pt-5 my-5">Aqui insertarem el output del buscador</p>
+    <div class="d-flex m-5 text-center" id="resultadoBusqueda">
+        
     </div>
+
+<!-- <div class="d-flex mt-3 mt-lg-0">
+      <input class="form-control me-2 " type="text" placeholder="Buscar" id="InsertarTextoBarra" aria-label="Search" onkeypress="Enter(event)">
+      <button class="btn btn-outline-success" onclick="barra_busqueda()"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </div> -->
+
+    <div id="resultadoBusqueda"></div>
+    <!-- FIN -->
 
     <footer class="fixed-bottom ocultarMovil">
       <div class="container">
@@ -97,5 +106,6 @@
         </footer>
       </div>
     </footer>
+    <script src="js/buscador.js"></script>
 </body>
 </html>
