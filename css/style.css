@@ -26,6 +26,11 @@ button a {
     text-decoration: none;
 }
 
+.imagenProd img {
+  width: 600px;
+  height: 700px;
+}
+
 .zoomcards {
   transition: transform .5s ease;
 }
