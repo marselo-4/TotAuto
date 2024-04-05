@@ -26,6 +26,11 @@ button a {
     text-decoration: none;
 }
 
+li a{
+  text-decoration: none;
+  color: black;
+}
+
 .imagenProd img {
   width: 600px;
   height: 700px;
@@ -90,6 +95,42 @@ button a {
     translate: calc(-4 * 15rem);
   }
 }
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 11px;
+  height: 11px;
+}
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background: #303030;
+  border: 0px none #870303;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #212121;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #0f0f0f;
+}
+::-webkit-scrollbar-track {
+  background: #4f4f4f;
+  border: 0px none #eb0f0f;
+  border-radius: 1px;
+}
+::-webkit-scrollbar-track:hover {
+  background: #4f4f4f;
+}
+::-webkit-scrollbar-track:active {
+  background: #4f4f4f;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+/* Fin */
 
 
   .blob {
