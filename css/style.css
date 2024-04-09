@@ -44,6 +44,14 @@ li a{
   transform: scale(1.02);
 }
 
+.zoom {
+  transition: transform .5s ease;
+}
+
+.zoom:hover {
+  transform: scale(1.08);
+}
+
 /* Carrousel Infinito */
 .marcas {
   overflow: hidden;
