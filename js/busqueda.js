@@ -2,9 +2,11 @@
 function barra_busqueda() {
     const query = document.getElementById('InsertarTextoBarra').value.trim().toLowerCase();
     const Contenido = [
-        {nombre: "Ronal R69", enlace: "../catalogo/llantas/ronal_r69.html"},
-        {nombre: "Ronal R70", enlace: "../catalogo/llantas/ronal_r70.html"},
-        {nombre: "Ronal R66", enlace: "../catalogo/llantas/ronal_r66.html"}
+        {nombre: "Ronal R66", enlace: "../catalogo/llantas/ronal_r66.html"},
+        {nombre: "Ronal R69", enlace: "../catalogo/llantas/ronal_r69_mg.html"},
+        {nombre: "Ronal R70", enlace: "../catalogo/llantas/ronal_r70_blueog.html"},
+        {nombre: "Ronal R71", enlace: "../catalogo/llantas/ronal_r71-jbcm.html"},
+        {nombre: "Evus DD575A", enlace: "../catalogo/multimedia/dd575a.html"}
     ];
   
     const Resultado = document.getElementById('resultadoBusqueda');
