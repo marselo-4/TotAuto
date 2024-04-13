@@ -3,9 +3,19 @@ function barra_busqueda() {
     const query = document.getElementById('InsertarTextoBarra').value.trim().toLowerCase();
     const Contenido = [
         {nombre: "Ronal R66", enlace: "../catalogo/llantas/ronal_r66.html"},
-        {nombre: "Ronal R69", enlace: "../catalogo/llantas/ronal_r69_mg.html"},
-        {nombre: "Ronal R70", enlace: "../catalogo/llantas/ronal_r70_blueog.html"},
-        {nombre: "Ronal R71", enlace: "../catalogo/llantas/ronal_r71-jbcm.html"},
+        {nombre: "Ronal R66 JBBT", enlace: "../catalogo/llantas/ronal_r66-jbbt.html"},
+        {nombre: "Ronal R68 HG", enlace: "../catalogo/llantas/ronal_r68-hg.html"},
+        {nombre: "Ronal R68 JB", enlace: "../catalogo/llantas/ronal_r68-jb.html"},
+        {nombre: "Ronal R69 JMB", enlace: "../catalogo/llantas/ronal_R69_jmb.html"},
+        {nombre: "Ronal R69 MCR JBRR", enlace: "../catalogo/llantas/ronal_r69_mcr_jbrr.html"},
+        {nombre: "Ronal R69 MG", enlace: "../catalogo/llantas/ronal_r69_mg.html"},
+        {nombre: "Ronal R69 PS", enlace: "../catalogo/llantas/ronal_r69_ps.html"},
+        {nombre: "Ronal R70 Blue JBWT", enlace: "../catalogo/llantas/ronal_r70_blue_jbwt.html"},
+        {nombre: "Ronal R70 Blue OG", enlace: "../catalogo/llantas/ronal_r70_blueog.html"},
+        {nombre: "Ronal R70 Blue PS", enlace: "../catalogo/llantas/ronal_r70_blueps.html"},
+        {nombre: "Ronal R71 JBCM", enlace: "../catalogo/llantas/ronal_r71-jbcm.html"},
+        {nombre: "Ronal R71 OGMFC", enlace: "../catalogo/llantas/ronal_r71-ogmfc.html"},
+        {nombre: "Ronal R71 PS", enlace: "../catalogo/llantas/ronal_r71-ps.html"},
         {nombre: "Evus DD575A", enlace: "../catalogo/multimedia/dd575a.html"}
     ];
   
