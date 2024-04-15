@@ -61,15 +61,16 @@
 
 
               </ul>
-              <form class="d-flex mt-3 mt-lg-0" role="search">
-                <input class="form-control me-2 " name="Buscador" type="search" placeholder="Buscar" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-              </form>
+              <div class="d-flex mt-3 mt-lg-0 ocultarMovil" role="search">
+                <input class="form-control me-2" placeholder="Buscar" id="InsertarTextoBarra" aria-label="Search" onkeypress="Enter(event)">
+                <button class="btn btn-outline-success" onclick="barra_busqueda()"><i class="fa-solid fa-magnifying-glass"></i></button>
+              </div>
             </div>
           </div>
         </div>
       </nav>
     </header>
+<div class="" id="resultadoBusqueda"></div>
 
     <main class="d-flex align-items-center py-4 form-signin w-100 m-auto">
       <section class="container mb-4 mt-5" >
@@ -209,7 +210,7 @@
     
     <footer class="fixed-bottom ocultarMovil">
       <div class="container">
-        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+        <div class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
           <p class="col-md-4 mb-0 text-muted"><a href="https://marselo-4.github.io/ms-portfolio/" class="text-muted">© 2024 Carlos Martínez</a></p>
       
           <a href="index.html" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
@@ -221,7 +222,7 @@
             <li class="nav-item"><a href="catalogo.html" class="nav-link px-2 text-muted">Catálogo</a></li>
             <li class="nav-item"><a href="contacto.html" class="nav-link px-2 text-muted">Contacto</a></li>
           </ul>
-        </footer>
+        </div>
       </div>
     </footer>
     <script src="js/geo.js"></script>

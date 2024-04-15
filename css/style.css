@@ -36,6 +36,13 @@ li a{
   height: 700px;
 }
 
+.contenedor2 {
+  transition: 
+    opacity 0.25s ease-in,
+    filter 0.25s ease-in;
+  transition-delay: 1s;
+}
+
 .zoomcards {
   transition: transform .5s ease;
 }
@@ -50,6 +57,12 @@ li a{
 
 .zoom:hover {
   transform: scale(1.08);
+}
+
+.contenedor:has(.contenedor2:hover) .contenedor2:not(:hover) {
+  opacity: 0.8;
+  filter: blur(2px);
+  /* transition-delay: 1s; */
 }
 
 /* Carrousel Infinito */

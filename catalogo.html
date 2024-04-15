@@ -60,23 +60,24 @@
 
 
               </ul>
-              <form class="d-flex mt-3 mt-lg-0" role="search">
-                <input class="form-control me-2 " name="Buscador" type="search" placeholder="Buscar" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-              </form>
+              <div class="d-flex mt-3 mt-lg-0 ocultarMovil" role="search">
+                <input class="form-control me-2" placeholder="Buscar" id="InsertarTextoBarra" aria-label="Search" onkeypress="Enter(event)">
+                <button class="btn btn-outline-success" onclick="barra_busqueda()"><i class="fa-solid fa-magnifying-glass"></i></button>
+              </div>
             </div>
           </div>
         </div>
       </nav>
     </header>
+<div class="" id="resultadoBusqueda"></div>
 
     <div class="container px-4 py-5 mt-5" id="custom-cards">
         <h1 class="pb-1 text-center poppins fw-bold">Categorías</h1>
     
-        <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5 scale-in-center">
+        <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5 scale-in-center contenedor">
 
           <a href="catalogo/llantas.html">
-            <div class="col zoomcards ">
+            <div class="col zoomcards contenedor2">
                 <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('assets/img/cards/llantas.png');">
                   <div class="d-flex flex-column h-100 p-5 pb-4 text-shadow-1">
                     <h3 class="pt-5 mt-5 mb-5 display-6 lh-1 fw-bold">Llantas</h3>
@@ -86,7 +87,7 @@
         </a>
 
             <a href="catalogo/multimedia.html">
-                <div class="col zoomcards ">
+                <div class="col zoomcards contenedor2">
                     <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('assets/img/cards/multimedia.png');">
                       <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
                         <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Dispositivos Multimedia</h3>
@@ -97,7 +98,7 @@
 
     
             <a href="catalogo/detectores-de-radar.html">
-                <div class="col zoomcards ">
+                <div class="col zoomcards contenedor2">
                     <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('assets/img/cards/detectores.png');">
                       <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
                         <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Detectores de Radar</h3>
@@ -107,7 +108,7 @@
             </a>
 
             <a href="catalogo/sonido.html">
-                <div class="col zoomcards ">
+                <div class="col zoomcards contenedor2">
                     <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('assets/img/cards/sonido.png');">
                       <div class="d-flex flex-column h-100 p-5 pb-4 text-white text-shadow-1">
                         <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold ">Sonido</h3>
@@ -117,7 +118,7 @@
             </a>
 
             <a href="catalogo/control-cruise.html">
-                <div class="col zoomcards ">
+                <div class="col zoomcards contenedor2">
                     <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('assets/img/cards/cruise.png');">
                       <div class="d-flex flex-column h-100 p-5 pb-4 text-white text-shadow-1">
                         <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Control Cruise</h3>
@@ -127,7 +128,7 @@
             </a>
 
             <a href="catalogo/accesorios.html">
-                <div class="col zoomcards ">
+                <div class="col zoomcards contenedor2">
                     <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('assets/img/cards/accesorios.png');">
                       <div class="d-flex flex-column h-100 p-5 pb-4 text-white text-shadow-1">
                         <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Accesorios</h3>

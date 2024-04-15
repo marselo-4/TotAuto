@@ -13,7 +13,7 @@ Para optimizar el desarrollo y mejorar la apariencia y funcionalidad de la pági
 
 - **FontAwesome**: Un conjunto de iconos vectoriales que pueden ser fácilmente integrados en el diseño de la página web, proporcionando una amplia variedad de opciones para mejorar la experiencia visual.
 - **Bootstrap**: Un framework front-end que facilita la creación de diseños responsivos y atractivos, con componentes predefinidos y estilos CSS listos para usar.
-- **Vue.js**: Un framework progresivo de JavaScript para la construcción de interfaces de usuario interactivas y dinámicas.
+- **SweetAlert2**: Una librería de alertas interactivas y dinámicas en JavaScript totalmente configurables.
 
 Se realizará una evaluación detallada de estos frameworks, así como de otros recursos disponibles, para determinar cuáles son los más adecuados para las necesidades específicas del proyecto.
 

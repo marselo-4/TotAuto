@@ -21,22 +21,27 @@ function barra_busqueda() {
   
     const Resultado = document.getElementById('resultadoBusqueda');
     Resultado.innerHTML = '';
-    Resultado.style.position = 'fixed';
-    Resultado.style.top = '3.2%';
-    Resultado.style.right = '10px';
-    Resultado.style.transform = 'translateY(-50%)';
-    Resultado.style.backgroundColor = 'black';
     Resultado.style.width = '235px';
-    Resultado.style.padding = '20px';
+    Resultado.style.position = 'fixed';
+    Resultado.style.transform = 'translateY(10%)';
+    Resultado.style.right = '100px';
     Resultado.style.borderBottomLeftRadius = '10px';
     Resultado.style.borderBottomRightRadius = '10px';
     Resultado.style.color = 'white';
     Resultado.style.overflow = 'auto';
-    // Resultado.style.backgroundColor = 'rgba(0, 0, 0)';
-    // Resultado.style.width = '200px';
-    // Resultado.style.padding = '10px';
-    // Resultado.style.borderRadius = '10px';
-  
+    Resultado.style.backgroundColor = 'black';
+    Resultado.style.width = '200px';
+    Resultado.style.padding = '20px';
+    Resultado.style.borderRadius = '10px';
+    Resultado.style.zIndex = '50';
+
+    
+    document.addEventListener('click', function(event) {
+        if (!Resultado.contains(event.target)) {
+            Resultado.innerHTML = '';
+        }
+    });
+
     const Contenido_Existente = Contenido.filter(item => item.nombre.toLowerCase().includes(query));
   
     if (query !== '' && Contenido_Existente.length === 0) {
@@ -46,7 +51,10 @@ function barra_busqueda() {
         const Lista_Resultados = document.createElement('ul');
         Lista_Resultados.style.listStyleType = 'none';
         Lista_Resultados.style.padding = '0';
-        Lista_Resultados.style.marginTop = '50%';
+        Lista_Resultados.style.scrollBehavior = 'initial';
+        Lista_Resultados.style.scrollSnapAlign = 'center';
+        Lista_Resultados.style.maxHeight = '300px';
+        Lista_Resultados.style.overflow = 'auto';
   
         Contenido_Existente.forEach(item => {
             const Listado = document.createElement('li');

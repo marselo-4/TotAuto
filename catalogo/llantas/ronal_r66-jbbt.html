@@ -59,15 +59,16 @@
 
 
               </ul>
-              <form class="d-flex mt-3 mt-lg-0" role="search">
-                <input class="form-control me-2 " name="Buscador" type="search" placeholder="Buscar" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-              </form>
+              <div class="d-flex mt-3 mt-lg-0 ocultarMovil" role="search">
+                <input class="form-control me-2" placeholder="Buscar" id="InsertarTextoBarra" aria-label="Search" onkeypress="Enter(event)">
+                <button class="btn btn-outline-success" onclick="barra_busqueda()"><i class="fa-solid fa-magnifying-glass"></i></button>
+              </div>
             </div>
           </div>
         </div>
       </nav>
     </header>
+<div class="" id="resultadoBusqueda"></div>
     
     <!-- Product section-->
     <section class="py-5 border-bottom p-3">
@@ -261,5 +262,6 @@
       </div>
     </footer>
     <script src="../../js/script.js"></script>
+<script src="../../js/busqueda.js"></script>
 </body>
 </html>
