@@ -21,16 +21,15 @@ function barra_busqueda() {
   
     const Resultado = document.getElementById('resultadoBusqueda');
     Resultado.innerHTML = '';
-    Resultado.style.width = '235px';
+    Resultado.style.width = '230px';
     Resultado.style.position = 'fixed';
     Resultado.style.transform = 'translateY(10%)';
-    Resultado.style.right = '100px';
+    Resultado.style.right = '60px';
     Resultado.style.borderBottomLeftRadius = '10px';
     Resultado.style.borderBottomRightRadius = '10px';
     Resultado.style.color = 'white';
     Resultado.style.overflow = 'auto';
     Resultado.style.backgroundColor = 'black';
-    Resultado.style.width = '200px';
     Resultado.style.padding = '20px';
     Resultado.style.borderRadius = '10px';
     Resultado.style.zIndex = '50';
