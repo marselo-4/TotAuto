@@ -16,7 +16,7 @@ function barra_busqueda() {
         {nombre: "Ronal R71 JBCM", enlace: "../catalogo/llantas/ronal_r71-jbcm.html"},
         {nombre: "Ronal R71 OGMFC", enlace: "../catalogo/llantas/ronal_r71-ogmfc.html"},
         {nombre: "Ronal R71 PS", enlace: "../catalogo/llantas/ronal_r71-ps.html"},
-        {nombre: "Evus DD575A", enlace: "../catalogo/multimedia/dd575a.html"}
+        {nombre: "Evus DD575A", enlace: "../catalogo/multimedia/evus_dd575a.html"}
     ];
   
     const Resultado = document.getElementById('resultadoBusqueda');
