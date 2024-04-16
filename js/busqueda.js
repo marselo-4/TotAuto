@@ -16,7 +16,13 @@ function barra_busqueda() {
         {nombre: "Ronal R71 JBCM", enlace: "../catalogo/llantas/ronal_r71-jbcm.html"},
         {nombre: "Ronal R71 OGMFC", enlace: "../catalogo/llantas/ronal_r71-ogmfc.html"},
         {nombre: "Ronal R71 PS", enlace: "../catalogo/llantas/ronal_r71-ps.html"},
-        {nombre: "Evus DD575A", enlace: "../catalogo/multimedia/evus_dd575a.html"}
+        {nombre: "Evus DD220R", enlace: "../catalogo/multimedia/evus_dd220r.html"},
+        {nombre: "Evus DD503A", enlace: "../catalogo/multimedia/evus_dd503a.html"},
+        {nombre: "Evus DD575A", enlace: "../catalogo/multimedia/evus_dd575a.html"},
+        {nombre: "Evus UD122A", enlace: "../catalogo/multimedia/evus_ud122a.html"},
+        {nombre: "Kermes Pro IV", enlace: "../catalogo/detectores-de-radar/kermes_pro_iv.html"},
+        {nombre: "WFP DSP", enlace: "../catalogo/detectores-de-radar/wfp_dsp.html"},
+        {nombre: "WFP Eclipse DSP", enlace: "../catalogo/detectores-de-radar/wfp_eclipse_dsp.html"},
     ];
   
     const Resultado = document.getElementById('resultadoBusqueda');

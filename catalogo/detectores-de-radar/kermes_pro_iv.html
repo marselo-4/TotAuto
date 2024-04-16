@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="github" content="https://github.com/marselo-4/TotAuto">
+    <meta name="author" content="Carlos Martínez">
+    <meta name="keywords" content="accesorios de automoviles, Tàrrega, Lleida, tienda de accesorios de coches, accesorios para vehiculos, tuning, repuestos para autos, equipamiento para coches, repuestos de automóviles, Lleida, venta de accesorios de automoviles en Tàrrega, complementos para coches, tienda de tuning en Lleida, repuestos de autos en Tàrrega, tienda de accesorios para vehiculos en Lleida, equipamiento para automoviles, tienda de repuestos de coches, Lleida, accesorios para autos en Tàrrega, tienda de accesorios de automoviles en Lleida, repuestos para vehiculos en Tàrrega, tienda de accesorios de coches en Lleida, tienda de complementos para automoviles, Tàrrega, tienda de repuestos para autos en Lleida">
+    <meta name="description" content="Descubre la mejor selección de accesorios para automóviles en Tàrrega, Lleida. En nuestra tienda encontrarás una amplia gama de accesorios, repuestos y equipamiento para coches. Visítanos para encontrar todo lo que necesitas para personalizar, mejorar y mantener tu vehículo. ¡Compra ahora y mejora tu experiencia de conducción con nosotros!">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet/scss" href="../../css/style.scss" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> <!-- Bootstrap JS + Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://kit.fontawesome.com/d75a3fdaa4.js" crossorigin="anonymous"></script> <!-- FontAwesome 6.5.1 (Latest) -->
+    <title>Kermes Pro IV - TotAuto</title>
+    <link rel="icon" type="image/x-icon" href="../../assets/img/favicon.ico">
+</head>
+<body>
+    <header>
+      <nav class="navbar shadow-lg navbar-expand-lg navbar-dark fixed-top bg-black  " aria-label="Offcanvas navbar large">
+        <div class="container-fluid">
+          <div class="placeholder-wave">
+            <a class="navbar-brand" href="../../index.html"><img src="../../assets/img/logoheader.png" alt="..."></a>
+          </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar2" aria-controls="offcanvasNavbar2">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbar2" aria-labelledby="offcanvasNavbar2Label">
+            <div class="offcanvas-header">
+              <img class="offcanvas-title" id="offcanvasNavbar2Label" src="../../assets/img/logoheader.png" alt=" . . .">
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="../../index.html">Inicio</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Catálogo
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="../llantas.html">Llantas</a></li>
+                    <li><a class="dropdown-item" href="../multimedia.html">Dispositivos Multimedia</a></li>
+                    <li><a class="dropdown-item" href="../detectores-de-radar.html"><b>Detectores de Radar</b></a></li>
+                    <li><a class="dropdown-item" href="../sonido.html">Sonido</a></li>
+                    <li><a class="dropdown-item" href="../control-cruise.html">Control Cruise</a></li>
+                    <li><a class="dropdown-item" href="../accesorios.html">Accesorios</a></li>
+                    <li>
+                      <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="../otros.html">Otros</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../../contacto.html">Contacto</a>
+                </li>
+
+
+              </ul>
+              <div class="d-flex mt-3 mt-lg-0 ocultarMovil" role="search">
+                <input class="form-control me-2" placeholder="Buscar" autocomplete="off" id="InsertarTextoBarra" aria-label="Search" onkeypress="Enter(event)">
+                <button class="btn btn-outline-success" onclick="barra_busqueda()"><i class="fa-solid fa-magnifying-glass"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+<div class="" id="resultadoBusqueda"></div>
+    
+    <!-- Product section-->
+    <section class="py-5 border-bottom p-3">
+        <nav data-mdb-navbar-init class="navbar navbar-expand-lg">
+            <div class="container-fluid mt-3">
+              <nav aria-label="breadcrumb" class="ocultarMovil">
+                <ol class="breadcrumb poppins text-dark" id="quitarEnlace">
+                  <li class="breadcrumb-item destaca"><a href="../../index.html">Inicio</a></li>
+                  <li class="breadcrumb-item destaca"><a href="../../catalogo.html">Catálogo</a></li>
+                  <li class="breadcrumb-item destaca"><a href="../detectores-de-radar.html">Detectores de Radar</a></li>
+                  <li class="breadcrumb-item active" aria-current="page"><a href="kermes_pro_iv.html"><b>Kermes PRO IV</b></a></li>
+                </ol>
+              </nav>
+            </div>
+        </nav>
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="row gx-4 gx-lg-5 align-items-center ">
+                <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0 focus-in-expand imagenProd" src="https://wfinderpro.com/sp/wp-content/uploads/2018/06/K4-1024x577.jpg" alt="..." /></div>
+                <div class="col-md-6 scale-in-center">
+                    <div class="small mb-1">Ref: PRO IV</div>
+                    <h1 class="display-5 fw-bolder">Kermes PRO IV</h1>
+                    <div class="fs-5 mb-2">
+                        <span>199€</span>
+                    </div>
+                    <p class="lead">Avisador GPS de radares y más puntos sancionadores Kermes Plus IV.</p>
+                    <div class="d-flex">
+                        <input class="form-control text-center me-3" id="inputQuantity" type="number" value="1" style="max-width: 3rem" />
+                        <button class="btn btn-outline-dark flex-shrink-0" type="button" onclick="comprar()">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            Añadir al carrito
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-5">
+        <div class="container px-3 px-lg-2 mt-4">
+            <h2 class="mb-3">Descripción</h2>
+            <p class="lead">Sistema de seguridad en carretera y aviso de <strong>todo tipo de controles sancionadores</strong> Kermes Plus IV. Con más de <strong>16 años de actualizaciones</strong> de la base de datos y la gama más completa de<strong> avisos diferenciados</strong> del mercado, evitando así distracciones en la conducción. Nuevo sistema de actualización (únicamente para PC) más sencillo, y más <strong>personalizable</strong> (pudiendo seleccionar los avisos que desee recibir, incluso dependiendo de la velocidad a la que circule).</p>
+            <h2 class="mt-4 mb-3">Especificaciones:</h2>
+            <table class="table">
+                <tbody><tr>
+                <th>Software actualizable</th>
+                <td><p>Si (Base de datos, firmware y voces)</p>
+                </td>
+                </tr>
+                <tr>
+                <th>Actualizaciones gratuitas de la base de datos</th>
+                <td><p>Si, variando de las necesidades, entre 1 o 2 meses. Siempre dispondrá de los controles sancionadores</p>
+                </td>
+                </tr>
+                <tr>
+                <th>Tipos de avisos</th>
+                <td><p>Visuales (en display) y sonoros (con avisos específicos). Está diseñado para no distraer al conductor</p>
+                </td>
+                </tr>
+                <tr>
+                <th>Sistemas avisados</th>
+                <td><p>Radares fijos, móviles, semáforos, tramo, cinturón y móvil, circulación restringida (APR, ACIRE,…), stop</p>
+                </td>
+                </tr>
+                <tr>
+                <th>Incluido en el pack</th>
+                <td><p>Kermes Plus IV, cable de actualización, cable de alimentación e imán de salpicadero</p>
+                </td>
+                </tr>
+                <tr>
+                <th>Voltaje de uso</th>
+                <td><p>12 voltios (puede usar un adaptador de 5V USB a 12V mechero)</p>
+                </td>
+                </tr>
+                <tr>
+                <th>Ordenador de a bordo</th>
+                <td><p>Si</p>
+                </td>
+                </tr>
+                <tr>
+                <th>Cobertura</th>
+                <td><p>España (Todas las islas, Ceuta, Melilla y Gibraltar), Portugal, Andorra, Francia e Italia.</p>
+                </td>
+                </tr>
+                <tr>
+                <th>Idioma</th>
+                <td><p>Español</p>
+                </td>
+                </tr>
+                <tr>
+                <th>Marca</th>
+                <td><p>WFinder Pro, Kermes</p>
+                </td>
+                </tr>
+                <tr>
+                <th>Compatibilidad otros modelos</th>
+                <td><p>Cable de alimentación: Puede usar el antiguo si tiene instalación en el vehículo<br>
+                Cable de actualización: NO compatible con otros modelos</p>
+            </td>
+            </tr>
+        </tbody></table>
+        </div>
+    </section>
+    <!-- Related items section-->
+    <section class="py-5 bg-dark">
+        <div class="container px-3 px-lg-2 mt-4">
+            <h2 class="fw-bolder mb-4 text-light">Productos relacionados</h2>
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4">
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Product image-->
+                        <img class="card-img-top" src="../../assets/img/productos/radar/wfinderpro_eclipse_dsp.jpg" alt="..." style=" margin: 10% auto;"/>
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="d-flex justify-content-between">
+                                <!-- Product name-->
+                                <h5 class="fw-bold">WFP Eclipse DSP</h5><h5 class="fw-bold">1.379€</h5>
+                            </div>
+                            <div class="d-flex small text-warning">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <div class="text-center p-3"><a class="btn btn-danger" href="wfp_eclipse_dsp.html">Ver Producto</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Product image-->
+                        <img class="card-img-top" src="../../assets/img/productos/radar/wfinderpro_dsp.jpg" alt="..." style=" margin: 10% auto;"/>
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="d-flex justify-content-between">
+                                <!-- Product name-->
+                                <h5 class="fw-bold">WFinderPRO DSP</h5><h5 class="fw-bold">1.125€</h5>
+                            </div>
+                            <div class="d-flex small text-warning">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star text-muted"></i>
+                            </div>
+                            <div class="text-center p-3"><a class="btn btn-danger" href="wfp_dsp.html">Ver Producto</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="ocultarMovil">
+      <div class="container">
+        <div class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4">
+          <p class="col-md-4 mb-0 text-muted"><a href="https://marselo-4.github.io/ms-portfolio/" class="text-muted">© 2024 Carlos Martínez</a></p>
+      
+          <a href="../../index.html" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+            <img class="bi me-2" width="50" height="50" src="../../assets/img/favicon.ico" alt="logo-footer">
+          </a>
+      
+          <ul class="nav col-md-4 justify-content-end">
+            <li class="nav-item"><a href="../../index.html" class="nav-link px-2 text-muted">Inicio</a></li>
+            <li class="nav-item"><a href="../../catalogo.html" class="nav-link px-2 text-muted">Catálogo</a></li>
+            <li class="nav-item"><a href="../../contacto.html" class="nav-link px-2 text-muted">Contacto</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <script src="../../js/script.js"></script>
+<script src="../../js/busqueda.js"></script>
+</body>
+</html>
