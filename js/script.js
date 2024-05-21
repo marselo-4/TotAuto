@@ -69,10 +69,3 @@ function noexiste() {
     }
   });
 }
-
-
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-NPE0S5B82H');
