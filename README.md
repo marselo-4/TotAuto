@@ -15,7 +15,7 @@ Para optimizar el desarrollo y mejorar la apariencia y funcionalidad de la pági
 - **Bootstrap**: Un framework front-end que facilita la creación de diseños responsivos y atractivos, con componentes predefinidos y estilos CSS listos para usar.
 - **SweetAlert2**: Una librería de alertas interactivas y dinámicas en JavaScript totalmente configurables.
 
-Se realizará una evaluación detallada de estos frameworks, así como de otros recursos disponibles, para determinar cuáles son los más adecuados para las necesidades específicas del proyecto.
+Se realizará una evaluación detallada de estos frameworks, así como de otros recursos disponibles, para determinar cuáles son los más adecuados para las necesidades específicas.
 
 ## Contacto
 Si tiene alguna pregunta o sugerencia sobre el proyecto, no dude en ponerse en contacto a través de [Linkedin](https://www.linkedin.com/in/carlosmartinezguixa/)
