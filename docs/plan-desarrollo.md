@@ -2,6 +2,26 @@
 
 _Aprobado por Carlos el 21/10/2026. Fuente de verdad del proyecto; se actualiza al cerrar cada fase._
 
+## Estado (22/10/2026)
+
+| Fase | Estado | Dónde está |
+|---|---|---|
+| F0 · Arranque y spike 3D | Hecha | Base Next 16 + Supabase, logo A, hero 3D sobre el escaneo (`docs/hero-3d.md`, `docs/spike-3d-escaneo.md`, `docs/logo-propuestas.md`) |
+| F1 · Web pública | Hecha | Home, stock con filtros, ficha con formulario, importación, vende tu coche, showroom con explorador 3D, nosotros, contacto; ES y CA |
+| F2 · Panel y servicios | Hecha | `/admin`: login, coches, fotos, leads, CSV (`docs/panel-admin.md`). Cuenta de Miquel pendiente de su email |
+| F3 · Cierre | Hecha | Legales, cookies con Consent Mode, SEO, accesibilidad, Lighthouse móvil 90+ (`docs/f3-legales-seo-rendimiento.md`) |
+| F4 · Publicación | **Pendiente del dominio** | Vercel + totauto.net (DNS hoy en GitHub Pages), Resend con dominio verificado, Search Console |
+
+**Falta de Carlos:** CIF, domicilio social y datos registrales de GUIXAGILS SL (`lib/legal/types.ts`); número de WhatsApp del showroom (`NEXT_PUBLIC_WHATSAPP`); `SUPABASE_SECRET_KEY` en `.env.local` para que los formularios guarden; portal y formulario de HubSpot; horarios reales; email de Miquel; fotos reales de los coches. Nada de esto bloquea el despliegue salvo la clave secreta.
+
+**Checklist de F4 (cuando llegue el dominio):**
+1. Proyecto en Vercel desde `marselo-4/TotAuto`, variables de `.env.example` con `NEXT_PUBLIC_SITE_URL=https://totauto.net`.
+2. Dominio totauto.net en Vercel; quitar el A/CNAME de GitHub Pages.
+3. Verificar totauto.net en Resend y poner `LEADS_FROM` con ese dominio.
+4. Añadir `https://totauto.net` a la lista de redirecciones permitidas de Supabase Auth (panel).
+5. Search Console: enviar `sitemap.xml`; comprobar las 301 de las URLs viejas.
+6. Lighthouse en producción y revisar el canonical.
+
 ## Contexto
 
 Tot Auto (empresa del padre de Carlos, Tàrrega) reconvierte su local de Av. Raval del Carme 79 en un showroom de deportivos y alta gama en colaboración con Miquel (importador). La web vieja (catálogo de accesorios 2024, HTML estático) se vació el 21/10/2026; el repo `/Users/carlos/totauto` solo conserva `.git` y `docs/contexto-web-anterior.md`. Hace falta una web nueva que venda los coches del showroom, capte encargos de importación a medida y presente el local, lista para la apertura antes de fin de 2026 (≈10 semanas).
