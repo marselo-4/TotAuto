@@ -21,7 +21,7 @@ export const SPOTS: Array<{ pos: [number, number, number]; yaw: number }> = [
  * la rueda acerca (campo de visión). Nunca atraviesa paredes porque no se desplaza libremente.
  */
 function LookAround({ spot }: { spot: number }) {
-  const { camera, gl } = useThree();
+  const domElement = useThree((s) => s.gl.domElement);
   const yaw = useRef(SPOTS[0].yaw);
   const pitch = useRef(-0.04);
   const fov = useRef(60);
@@ -36,12 +36,12 @@ function LookAround({ spot }: { spot: number }) {
   }, [spot]);
 
   useEffect(() => {
-    const el = gl.domElement;
-    el.style.cursor = "grab";
+    const el = domElement;
+    el.style.setProperty("cursor", "grab");
     const down = (e: PointerEvent) => {
       dragging.current = { x: e.clientX, y: e.clientY };
       el.setPointerCapture(e.pointerId);
-      el.style.cursor = "grabbing";
+      el.style.setProperty("cursor", "grabbing");
     };
     const move = (e: PointerEvent) => {
       if (!dragging.current) return;
@@ -54,7 +54,7 @@ function LookAround({ spot }: { spot: number }) {
     const up = (e: PointerEvent) => {
       dragging.current = null;
       el.releasePointerCapture(e.pointerId);
-      el.style.cursor = "grab";
+      el.style.setProperty("cursor", "grab");
     };
     const wheel = (e: WheelEvent) => {
       e.preventDefault();
@@ -72,13 +72,13 @@ function LookAround({ spot }: { spot: number }) {
       el.removeEventListener("pointercancel", up);
       el.removeEventListener("wheel", wheel);
     };
-  }, [gl]);
+  }, [domElement]);
 
-  useFrame((_, delta) => {
+  useFrame((state, delta) => {
     const k = 1 - Math.exp(-delta * 4);
-    camera.position.lerp(target.current, k);
-    camera.rotation.set(pitch.current, yaw.current, 0, "YXZ");
-    const cam = camera as THREE.PerspectiveCamera;
+    const cam = state.camera as THREE.PerspectiveCamera;
+    cam.position.lerp(target.current, k);
+    cam.rotation.set(pitch.current, yaw.current, 0, "YXZ");
     if (Math.abs(cam.fov - fov.current) > 0.05) {
       cam.fov += (fov.current - cam.fov) * k;
       cam.updateProjectionMatrix();
