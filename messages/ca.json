@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "siteName": "Tot Auto",
+    "defaultTitle": "Tot Auto · Showroom d'esportius i alta gamma a Tàrrega",
+    "defaultDescription": "Pocs cotxes, tots triats. Esportius i alta gamma seleccionats, importació a mida i 40 anys d'ofici al motor. Tàrrega, Lleida."
+  },
+  "nav": {
+    "stock": "Estoc",
+    "showroom": "Showroom",
+    "import": "Importació a mida",
+    "sell": "Ven el teu cotxe",
+    "about": "Nosaltres",
+    "contact": "Contacte",
+    "cta": "Demanar cita",
+    "menu": "Menú",
+    "close": "Tancar",
+    "language": "Idioma"
+  },
+  "home": {
+    "eyebrow": "Showroom · Tàrrega",
+    "title": "Pocs cotxes. Tots triats.",
+    "lead": "Esportius i alta gamma seleccionats un a un, verificats i a punt per conduir. Si no el tenim, el trobem.",
+    "ctaStock": "Veure l'estoc",
+    "ctaVisit": "Visitar el showroom",
+    "scroll": "Llisca",
+    "captions": {
+      "0": {
+        "eyebrow": "Av. Raval del Carme 79",
+        "title": "Entra.",
+        "text": "Dues façanes de vidre a la cantonada de la plaça. A dins, un cotxe a cada plaça."
+      },
+      "1": {
+        "eyebrow": "Sala principal",
+        "title": "Cada cotxe, una peça.",
+        "text": "Llum de galeria, fons neutre i espai al voltant. Res que distregui."
+      },
+      "2": {
+        "eyebrow": "Cap a la sala del darrere",
+        "title": "N'hi ha més al darrere.",
+        "text": "Rere l'envà, la segona sala: la zona de fotos i els cotxes que arriben."
+      },
+      "3": {
+        "eyebrow": "Tàrrega · Lleida",
+        "title": "Vine a veure'ls.",
+        "text": "Visita privada amb cita. Si no tenim el que busques, el trobem."
+      }
+    }
+  },
+  "pages": {
+    "stock": {
+      "title": "Estoc",
+      "lead": "Unitats disponibles ara mateix al showroom."
+    },
+    "showroom": {
+      "title": "El showroom",
+      "lead": "Av. Raval del Carme 79, Tàrrega. Dues sales, dues façanes de vidre, un cotxe a cada plaça."
+    },
+    "import": {
+      "title": "El cotxe que busques, trobat.",
+      "lead": "Cerca europea sota comanda. Seleccionem, verifiquem i gestionem la importació de principi a fi."
+    },
+    "sell": {
+      "title": "Ven el teu cotxe",
+      "lead": "Comprem esportius i alta gamma. Taxació en 24 hores."
+    },
+    "about": {
+      "title": "Quaranta anys al motor",
+      "lead": "Un nom de confiança a Lleida des de 1986. Més de 250 concessionaris han estat clients."
+    },
+    "contact": {
+      "title": "Contacte",
+      "lead": "Truca'ns, escriu-nos o demana cita per a una visita privada."
+    },
+    "legalNotice": {
+      "title": "Avís legal"
+    },
+    "privacy": {
+      "title": "Política de privacitat"
+    },
+    "cookies": {
+      "title": "Política de galetes"
+    }
+  },
+  "footer": {
+    "address": "Av. Raval del Carme 79 · 25300 Tàrrega (Lleida)",
+    "rights": "Tot Auto. Tots els drets reservats.",
+    "legalNotice": "Avís legal",
+    "privacy": "Privacitat",
+    "cookies": "Galetes"
+  },
+  "common": {
+    "soon": "Molt aviat",
+    "whatsapp": "WhatsApp",
+    "call": "Trucar",
+    "email": "Email"
+  },
+  "stock": {
+    "empty": "Ara mateix no hi ha unitats publicades. Pregunta'ns pel que busques.",
+    "featured": "Destacat",
+    "reserved": "Reservat",
+    "sold": "Venut",
+    "available": "Disponible",
+    "vatDeductible": "IVA deduïble",
+    "imported": "Importat",
+    "viewCar": "Veure el cotxe",
+    "askFor": "Preguntar per aquest cotxe",
+    "year": "Any",
+    "fuel": {
+      "gasolina": "Gasolina",
+      "diesel": "Dièsel",
+      "hibrido": "Híbrid",
+      "hibrido_enchufable": "Híbrid endollable",
+      "electrico": "Elèctric"
+    },
+    "gearbox": {
+      "manual": "Manual",
+      "automatico": "Automàtic"
+    }
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "siteName": "Tot Auto",
+    "defaultTitle": "Tot Auto · Showroom de deportivos y alta gama en Tàrrega",
+    "defaultDescription": "Pocos coches, todos elegidos. Deportivos y alta gama seleccionados, importación a medida y 40 años de oficio en el motor. Tàrrega, Lleida."
+  },
+  "nav": {
+    "stock": "Stock",
+    "showroom": "Showroom",
+    "import": "Importación a medida",
+    "sell": "Vende tu coche",
+    "about": "Nosotros",
+    "contact": "Contacto",
+    "cta": "Pedir cita",
+    "menu": "Menú",
+    "close": "Cerrar",
+    "language": "Idioma"
+  },
+  "home": {
+    "eyebrow": "Showroom · Tàrrega",
+    "title": "Pocos coches. Todos elegidos.",
+    "lead": "Deportivos y alta gama seleccionados uno a uno, verificados y listos para conducir. Si no lo tenemos, lo encontramos.",
+    "ctaStock": "Ver el stock",
+    "ctaVisit": "Visitar el showroom",
+    "scroll": "Desliza",
+    "captions": {
+      "0": {
+        "eyebrow": "Av. Raval del Carme 79",
+        "title": "Entra.",
+        "text": "Dos fachadas de vidrio en la esquina de la plaza. Dentro, un coche en cada plaza."
+      },
+      "1": {
+        "eyebrow": "Sala principal",
+        "title": "Cada coche, una pieza.",
+        "text": "Luz de galería, fondo neutro y espacio alrededor. Nada que distraiga."
+      },
+      "2": {
+        "eyebrow": "Hacia la sala trasera",
+        "title": "Hay más detrás.",
+        "text": "Tras el tabique, la segunda sala: la zona de fotos y los coches que llegan."
+      },
+      "3": {
+        "eyebrow": "Tàrrega · Lleida",
+        "title": "Ven a verlos.",
+        "text": "Visita privada con cita. Si no tenemos lo que buscas, lo encontramos."
+      }
+    }
+  },
+  "pages": {
+    "stock": {
+      "title": "Stock",
+      "lead": "Unidades disponibles ahora mismo en el showroom."
+    },
+    "showroom": {
+      "title": "El showroom",
+      "lead": "Av. Raval del Carme 79, Tàrrega. Dos salas, dos fachadas de vidrio, un coche en cada plaza."
+    },
+    "import": {
+      "title": "El coche que buscas, encontrado.",
+      "lead": "Búsqueda europea bajo pedido. Seleccionamos, verificamos y gestionamos la importación de principio a fin."
+    },
+    "sell": {
+      "title": "Vende tu coche",
+      "lead": "Compramos deportivos y alta gama. Tasación en 24 horas."
+    },
+    "about": {
+      "title": "Cuarenta años en el motor",
+      "lead": "Un nombre de confianza en Lleida desde 1986. Más de 250 concesionarios han sido clientes."
+    },
+    "contact": {
+      "title": "Contacto",
+      "lead": "Llámanos, escríbenos o pide cita para una visita privada."
+    },
+    "legalNotice": {
+      "title": "Aviso legal"
+    },
+    "privacy": {
+      "title": "Política de privacidad"
+    },
+    "cookies": {
+      "title": "Política de cookies"
+    }
+  },
+  "footer": {
+    "address": "Av. Raval del Carme 79 · 25300 Tàrrega (Lleida)",
+    "rights": "Tot Auto. Todos los derechos reservados.",
+    "legalNotice": "Aviso legal",
+    "privacy": "Privacidad",
+    "cookies": "Cookies"
+  },
+  "common": {
+    "soon": "Muy pronto",
+    "whatsapp": "WhatsApp",
+    "call": "Llamar",
+    "email": "Email"
+  },
+  "stock": {
+    "empty": "Ahora mismo no hay unidades publicadas. Pregúntanos por lo que buscas.",
+    "featured": "Destacado",
+    "reserved": "Reservado",
+    "sold": "Vendido",
+    "available": "Disponible",
+    "vatDeductible": "IVA deducible",
+    "imported": "Importado",
+    "viewCar": "Ver el coche",
+    "askFor": "Preguntar por este coche",
+    "year": "Año",
+    "fuel": {
+      "gasolina": "Gasolina",
+      "diesel": "Diésel",
+      "hibrido": "Híbrido",
+      "hibrido_enchufable": "Híbrido enchufable",
+      "electrico": "Eléctrico"
+    },
+    "gearbox": {
+      "manual": "Manual",
+      "automatico": "Automático"
+    }
+  }
+}

@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+/* ---------- Tokens de diseño (sistema oscuro, galería) ---------- */
+:root {
+  /* Superficies */
+  --bg: #0b0b0c;          /* grafito profundo */
+  --bg-elev: #141416;     /* tarjetas, cabecera */
+  --bg-elev-2: #1c1c1f;
+  --line: rgba(255, 255, 255, 0.08);
+  --line-strong: rgba(255, 255, 255, 0.16);
+
+  /* Texto */
+  --fg: #f3f1ec;          /* blanco roto */
+  --fg-muted: #a3a29e;
+  --fg-faint: #6c6b68;
+
+  /* Acento: champán del logo (propuesta A) */
+  --accent: #c9a96e;
+  --accent-ink: #0b0b0c;
+
+  /* Tipografía */
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-bodoni), Georgia, serif;
+
+  /* Ritmo */
+  --gutter: clamp(1rem, 4vw, 3rem);
+  --radius: 0.75rem;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-elev: var(--bg-elev);
+  --color-bg-elev-2: var(--bg-elev-2);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-fg-faint: var(--fg-faint);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --font-sans: var(--font-sans);
+  --font-display: var(--font-display);
+  --radius-card: var(--radius);
+  --ease-out: var(--ease-out);
+}
+
+/* ---------- Base ---------- */
+html {
+  color-scheme: dark;
+  scroll-behavior: auto; /* Lenis se encarga del scroll suave */
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+/* Lenis */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* ---------- Utilidades propias ---------- */
+@utility container-x {
+  padding-inline: var(--gutter);
+  margin-inline: auto;
+  max-width: 90rem;
+}
+
+@utility eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+}
+
+@utility display {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-variation-settings: "opsz" 96;
+  line-height: 1;
+  letter-spacing: 0;
+  text-wrap: balance;
+}
+
+/* Respeta "reducir movimiento" */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
