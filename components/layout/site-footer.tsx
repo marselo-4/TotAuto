@@ -2,6 +2,7 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { site } from "@/lib/site";
 import { Logo } from "@/components/layout/logo";
+import { CookieSettingsLink } from "@/components/providers/cookie-consent";
 
 export function SiteFooter() {
   const t = useTranslations("footer");
@@ -27,7 +28,7 @@ export function SiteFooter() {
           <li><a href={`mailto:${site.email}`} className="hover:text-fg">{site.email}</a></li>
           <li className="pt-2"><Link href="/legal/aviso-legal" className="hover:text-fg">{t("legalNotice")}</Link></li>
           <li><Link href="/legal/privacidad" className="hover:text-fg">{t("privacy")}</Link></li>
-          <li><Link href="/legal/cookies" className="hover:text-fg">{t("cookies")}</Link></li>
+          <li><Link href="/legal/cookies" className="hover:text-fg">{t("cookies")}</Link> · <CookieSettingsLink className="hover:text-fg" /></li>
         </ul>
       </div>
       <div className="container-x border-t border-line py-5 text-xs text-fg-faint">

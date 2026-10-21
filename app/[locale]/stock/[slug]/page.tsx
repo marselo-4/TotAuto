@@ -16,6 +16,7 @@ import {
   vehicleTitle,
 } from "@/lib/vehicles";
 import { site, whatsappLink } from "@/lib/site";
+import { seoAlternates } from "@/lib/seo";
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
 
@@ -29,6 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title,
     description: t("metaDescription", { title, year: v.year, km: formatKm(v.km, locale), price: formatPrice(v.price_eur, locale) }),
+    alternates: seoAlternates(locale, `/stock/${slug}`),
     openGraph: cover ? { images: [{ url: imageUrl(cover.path) }] } : undefined,
   };
 }

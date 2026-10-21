@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useSyncExternalStore } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import gsap from "gsap";
@@ -52,6 +52,32 @@ export function ShowroomHero({ copy }: { copy: HeroCopy }) {
   const mode = useSyncExternalStore(subscribe, getMode, getServerMode);
   const [stage, setStage] = useState(0);
   const [active, setActive] = useState(true);
+  const [ready, setReady] = useState(false);
+
+  // Cuándo montar el canvas: en escritorio tras la carga y un hueco de inactividad; en móvil o
+  // pantallas táctiles, en la primera interacción (scroll, toque, tecla). Así el 3D nunca penaliza
+  // la primera pintura ni bloquea el hilo principal antes de que el usuario haga nada.
+  useEffect(() => {
+    if (mode !== "3d-high" && mode !== "3d-low") return;
+    let cancelled = false;
+    const go = () => {
+      if (!cancelled) setReady(true);
+    };
+    if (mode === "3d-high") {
+      const idle = () => ("requestIdleCallback" in window ? window.requestIdleCallback(go, { timeout: 2500 }) : setTimeout(go, 800));
+      if (document.readyState === "complete") idle();
+      else window.addEventListener("load", idle, { once: true });
+      return () => {
+        cancelled = true;
+      };
+    }
+    const events = ["scroll", "touchstart", "pointerdown", "keydown", "wheel"] as const;
+    events.forEach((e) => window.addEventListener(e, go, { once: true, passive: true }));
+    return () => {
+      cancelled = true;
+      events.forEach((e) => window.removeEventListener(e, go));
+    };
+  }, [mode]);
 
   // Progreso de scroll → cámara y etapa de texto
   useGSAP(
@@ -97,7 +123,7 @@ export function ShowroomHero({ copy }: { copy: HeroCopy }) {
       <div className="sticky top-0 h-svh overflow-hidden">
         {/* Póster debajo mientras carga el canvas */}
         <Image src="/img/hero-poster.jpg" alt="" fill priority sizes="100vw" className="object-cover opacity-40" />
-        <ShowroomScene progress={progress} quality={mode === "3d-high" ? "high" : "low"} active={active} />
+        {ready && <ShowroomScene progress={progress} quality={mode === "3d-high" ? "high" : "low"} active={active} />}
         <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-t from-bg/90 via-transparent to-bg/30" />
 
         {/* Intro (etapa 0) */}

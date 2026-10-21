@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageIntro } from "@/components/ui/page-intro";
+import { seoAlternates } from "@/lib/seo";
 import { Reveal } from "@/components/ui/reveal";
 import { LeadForm } from "@/components/vehicle/lead-form";
 
@@ -10,7 +11,7 @@ type Props = { params: Promise<{ locale: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "pages.import" });
-  return { title: t("title"), description: t("lead") };
+  return { title: t("title"), description: t("lead"), alternates: seoAlternates(locale, "/importacion") };
 }
 
 export default async function ImportPage({ params }: Props) {

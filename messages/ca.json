@@ -517,5 +517,20 @@
     "okTitle": "Rebut.",
     "okText": "Et contactem aviat per telèfon o email.",
     "errorText": "No s'ha pogut enviar. Prova per WhatsApp o torna-ho a intentar."
+  },
+  "legal": {
+    "eyebrow": "Legal",
+    "updated": "Darrera actualització: {date}"
+  },
+  "cookies": {
+    "title": "Galetes",
+    "text": "Fem servir galetes d'analítica (Google Analytics) per millorar el web. Només s'activen si les acceptes.",
+    "accept": "Acceptar",
+    "reject": "Rebutjar",
+    "more": "Política de galetes",
+    "manage": "Galetes"
+  },
+  "a11y": {
+    "skip": "Salta al contingut"
   }
 }

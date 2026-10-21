@@ -1,18 +1,14 @@
-import { use } from "react";
-import { useTranslations } from "next-intl";
-import { setRequestLocale } from "next-intl/server";
-import { PageIntro } from "@/components/ui/page-intro";
+import type { Metadata } from "next";
+import { LegalPage, legalMetadata } from "@/components/legal/legal-page";
 
-export default function Page({ params }: { params: Promise<{ locale: string }> }) {
-  const { locale } = use(params);
-  setRequestLocale(locale);
-  const t = useTranslations("pages.cookies");
+type Props = { params: Promise<{ locale: string }> };
 
-  return (
-    <>
-      <PageIntro title={t("title")} />
-      {/* Texto legal a nombre de GUIXAGILS SL: pendiente de CIF, dirección y email */}
-      <section className="container-x prose prose-invert max-w-3xl pb-32 text-fg-muted">Pendiente.</section>
-    </>
-  );
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  return legalMetadata(locale, "cookies");
+}
+
+export default async function Page({ params }: Props) {
+  const { locale } = await params;
+  return <LegalPage locale={locale} docKey="cookies" />;
 }

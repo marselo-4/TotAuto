@@ -3,6 +3,7 @@ import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { PageIntro } from "@/components/ui/page-intro";
+import { seoAlternates } from "@/lib/seo";
 import { Reveal } from "@/components/ui/reveal";
 import { Showroom3D } from "@/components/showroom/showroom-3d";
 import { site } from "@/lib/site";
@@ -12,7 +13,7 @@ type Props = { params: Promise<{ locale: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "pages.showroom" });
-  return { title: t("title"), description: t("lead") };
+  return { title: t("title"), description: t("lead"), alternates: seoAlternates(locale, "/showroom") };
 }
 
 const mapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${site.address.lat},${site.address.lng}`;

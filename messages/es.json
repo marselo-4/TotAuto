@@ -517,5 +517,20 @@
     "okTitle": "Recibido.",
     "okText": "Te contactamos en breve por teléfono o email.",
     "errorText": "No se ha podido enviar. Prueba por WhatsApp o inténtalo de nuevo."
+  },
+  "legal": {
+    "eyebrow": "Legal",
+    "updated": "Última actualización: {date}"
+  },
+  "cookies": {
+    "title": "Cookies",
+    "text": "Usamos cookies de analítica (Google Analytics) para mejorar la web. Solo se activan si las aceptas.",
+    "accept": "Aceptar",
+    "reject": "Rechazar",
+    "more": "Política de cookies",
+    "manage": "Cookies"
+  },
+  "a11y": {
+    "skip": "Saltar al contenido"
   }
 }

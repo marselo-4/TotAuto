@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageIntro } from "@/components/ui/page-intro";
+import { seoAlternates } from "@/lib/seo";
 import { VehicleCard } from "@/components/vehicle/vehicle-card";
 import { StockFiltersBar } from "@/components/stock/stock-filters";
 import { listMakes, listVehicles, parseStockFilters } from "@/lib/vehicles";
@@ -14,7 +15,7 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "pages.stock" });
-  return { title: t("title"), description: t("lead") };
+  return { title: t("title"), description: t("lead"), alternates: seoAlternates(locale, "/stock") };
 }
 
 export default async function StockPage({ params, searchParams }: Props) {
@@ -41,7 +42,7 @@ export default async function StockPage({ params, searchParams }: Props) {
           <ul className="grid gap-5 pt-8 sm:grid-cols-2 lg:grid-cols-3">
             {vehicles.map((v) => (
               <li key={v.id}>
-                <VehicleCard vehicle={v} />
+                <VehicleCard vehicle={v} headingLevel="h2" />
               </li>
             ))}
           </ul>

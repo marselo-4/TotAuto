@@ -15,7 +15,7 @@
   /* Texto */
   --color-fg: #f3f1ec;          /* blanco roto */
   --color-fg-muted: #a3a29e;
-  --color-fg-faint: #6c6b68;
+  --color-fg-faint: #8d8c88;   /* ≥ 4.5:1 sobre el fondo */
 
   /* Acento: champán del logo (propuesta A) */
   --color-accent: #c9a96e;
@@ -46,6 +46,11 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
 }
 
 ::selection {

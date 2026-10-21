@@ -3,7 +3,8 @@ import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { coverOf, formatKm, formatPrice, imageUrl, type VehicleWithImages } from "@/lib/vehicle-format";
 
-export function VehicleCard({ vehicle }: { vehicle: VehicleWithImages }) {
+export function VehicleCard({ vehicle, headingLevel = "h3" }: { vehicle: VehicleWithImages; headingLevel?: "h2" | "h3" }) {
+  const Heading = headingLevel;
   const t = useTranslations("stock");
   const locale = useLocale();
   const cover = coverOf(vehicle);
@@ -34,10 +35,10 @@ export function VehicleCard({ vehicle }: { vehicle: VehicleWithImages }) {
         </div>
         <div className="p-5">
           <p className="eyebrow">{vehicle.make}</p>
-          <h3 className="mt-1 font-display text-2xl">
+          <Heading className="mt-1 font-display text-2xl">
             {vehicle.model}
             {vehicle.version && <span className="text-fg-muted"> · {vehicle.version}</span>}
-          </h3>
+          </Heading>
           <dl className="mt-4 flex flex-wrap gap-x-4 gap-y-1 text-sm text-fg-muted">
             <div><dd>{vehicle.year}</dd></div>
             <div><dd>{formatKm(vehicle.km, locale)}</dd></div>
