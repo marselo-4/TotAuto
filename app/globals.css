@@ -1,48 +1,37 @@
 @import "tailwindcss";
 
-/* ---------- Tokens de diseño (sistema oscuro, galería) ---------- */
-:root {
+/* ---------- Tokens de diseño (sistema oscuro, galería) ----------
+   Definidos una sola vez en el tema de Tailwind: generan las utilidades
+   (bg-bg, text-fg, border-line, text-accent, font-display, rounded-card…)
+   y las variables --color-*, --font-*, etc. para usarlas en CSS. */
+@theme {
   /* Superficies */
-  --bg: #0b0b0c;          /* grafito profundo */
-  --bg-elev: #141416;     /* tarjetas, cabecera */
-  --bg-elev-2: #1c1c1f;
-  --line: rgba(255, 255, 255, 0.08);
-  --line-strong: rgba(255, 255, 255, 0.16);
+  --color-bg: #0b0b0c;          /* grafito profundo */
+  --color-bg-elev: #141416;     /* tarjetas, cabecera */
+  --color-bg-elev-2: #1c1c1f;
+  --color-line: rgba(255, 255, 255, 0.08);
+  --color-line-strong: rgba(255, 255, 255, 0.16);
 
   /* Texto */
-  --fg: #f3f1ec;          /* blanco roto */
-  --fg-muted: #a3a29e;
-  --fg-faint: #6c6b68;
+  --color-fg: #f3f1ec;          /* blanco roto */
+  --color-fg-muted: #a3a29e;
+  --color-fg-faint: #6c6b68;
 
   /* Acento: champán del logo (propuesta A) */
-  --accent: #c9a96e;
-  --accent-ink: #0b0b0c;
+  --color-accent: #c9a96e;
+  --color-accent-ink: #0b0b0c;
 
-  /* Tipografía */
+  /* Tipografía: las variables --font-geist-sans y --font-bodoni las pone next/font en <html> */
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-bodoni), Georgia, serif;
 
   /* Ritmo */
-  --gutter: clamp(1rem, 4vw, 3rem);
-  --radius: 0.75rem;
+  --radius-card: 0.75rem;
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-@theme inline {
-  --color-bg: var(--bg);
-  --color-bg-elev: var(--bg-elev);
-  --color-bg-elev-2: var(--bg-elev-2);
-  --color-line: var(--line);
-  --color-line-strong: var(--line-strong);
-  --color-fg: var(--fg);
-  --color-fg-muted: var(--fg-muted);
-  --color-fg-faint: var(--fg-faint);
-  --color-accent: var(--accent);
-  --color-accent-ink: var(--accent-ink);
-  --font-sans: var(--font-sans);
-  --font-display: var(--font-display);
-  --radius-card: var(--radius);
-  --ease-out: var(--ease-out);
+:root {
+  --gutter: clamp(1rem, 4vw, 3rem);
 }
 
 /* ---------- Base ---------- */
@@ -52,16 +41,16 @@ html {
 }
 
 body {
-  background: var(--bg);
-  color: var(--fg);
+  background: var(--color-bg);
+  color: var(--color-fg);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
 ::selection {
-  background: var(--accent);
-  color: var(--accent-ink);
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
 }
 
 /* Lenis */
@@ -90,7 +79,7 @@ html.lenis body {
   font-size: 0.75rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--fg-muted);
+  color: var(--color-fg-muted);
 }
 
 @utility display {

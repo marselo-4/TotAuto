@@ -13,7 +13,7 @@ Web del showroom de deportivos y alta gama de Tot Auto (Tàrrega). Next.js 16 (A
 - Enlaces internos con `Link` de `@/i18n/navigation`, nunca `next/link`.
 - Datos fijos del negocio en `lib/site.ts`. Secretos solo en `.env.local` (plantilla en `.env.example`).
 - Supabase: `lib/supabase/{client,server,admin}.ts`. `admin` salta RLS: solo en servidor y solo cuando haga falta. Esquema en `supabase/migrations/`, datos de ejemplo en `supabase/seed.sql`.
-- Diseño: tokens en `app/globals.css` (`--bg`, `--fg`, `--accent`, `--font-display`…). Oscuro, galería, un solo acento. Utilidades propias: `container-x`, `eyebrow`, `display`.
+- Diseño: tokens en el `@theme` de `app/globals.css` (`--color-bg`, `--color-fg`, `--color-accent`, `--font-display`…), definidos una sola vez; nunca redeclarar una variable del tema en `:root` con el mismo nombre (referencia circular). Oscuro, galería, un solo acento. Utilidades propias: `container-x`, `eyebrow`, `display`.
 - Movimiento: scroll suave con Lenis (`components/providers/smooth-scroll.tsx`) sincronizado con el ticker de GSAP; ScrollTrigger para scroll; `motion` para UI. Nunca animar el mismo nodo con los dos. Respetar `prefers-reduced-motion`. Contenido (precios, textos) siempre en HTML, nunca solo dentro del canvas.
 - 3D: componentes de cliente cargados con `next/dynamic` y `ssr: false` tras el LCP, con póster. Modelos en `public/models/`. Presupuesto móvil en el plan.
 - Skills del proyecto en `.claude/skills/` (R3F, Three.js, GSAP, Motion, Blender→web, diseño web). Úsalas cuando toque su tema.

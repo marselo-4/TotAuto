@@ -44,6 +44,72 @@
         "title": "Ven a verlos.",
         "text": "Visita privada con cita. Si no tenemos lo que buscas, lo encontramos."
       }
+    },
+    "featured": {
+      "eyebrow": "Ahora en el showroom",
+      "title": "Seleccionados.",
+      "all": "Ver todo el stock"
+    },
+    "import": {
+      "eyebrow": "Importación a medida",
+      "title": "El coche que buscas, encontrado.",
+      "lead": "Si no está en el showroom, lo buscamos en toda Europa. Lo verificamos, lo traemos y lo matriculamos. Tú solo eliges.",
+      "imageAlt": "Sala trasera del showroom, zona de fotos",
+      "steps": {
+        "0": {
+          "title": "Nos cuentas qué quieres",
+          "text": "Modelo, versión, año, kilómetros, color. O una idea y te asesoramos."
+        },
+        "1": {
+          "title": "Buscamos y verificamos",
+          "text": "Rastreamos el mercado europeo, revisamos historial y estado real del coche."
+        },
+        "2": {
+          "title": "Lo traemos listo para conducir",
+          "text": "Transporte, IVA, matriculación y papeles. Precio cerrado antes de empezar."
+        }
+      },
+      "cta": "Encargar una búsqueda"
+    },
+    "stats": {
+      "years": "años en el motor",
+      "dealers": "concesionarios clientes",
+      "rooms": "salas de exposición",
+      "valuation": "para tasar tu coche"
+    },
+    "showroom": {
+      "eyebrow": "El showroom",
+      "title": "Un local en esquina, dos salas, luz de galería.",
+      "lead": "Av. Raval del Carme 79, en Tàrrega. Reformado para ver los coches como lo que son: piezas.",
+      "images": {
+        "facade": "Fachada del showroom de noche",
+        "main": "Sala principal con un coche expuesto",
+        "reception": "Vista de la sala principal desde la recepción"
+      },
+      "facts": {
+        "0": {
+          "value": "300 m²",
+          "label": "en dos plantas"
+        },
+        "1": {
+          "value": "5–6",
+          "label": "coches expuestos"
+        },
+        "2": {
+          "value": "Cita privada",
+          "label": "sin prisas ni esperas"
+        }
+      },
+      "cta": "Visitar el showroom"
+    },
+    "contact": {
+      "eyebrow": "Contacto",
+      "title": "Hablemos de tu próximo coche.",
+      "lead": "Escríbenos por WhatsApp, llámanos o pide cita para una visita privada.",
+      "whatsapp": "Escribir ahora",
+      "whatsappMessage": "Hola, me interesa un coche del showroom de Tot Auto.",
+      "phone": "Teléfono",
+      "cta": "Pedir cita"
     }
   },
   "pages": {

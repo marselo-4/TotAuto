@@ -14,6 +14,8 @@ const eslintConfig = defineConfig([
     "next-env.d.ts",
     // Worktrees de sesiones paralelas y skills del proyecto
     ".claude/**",
+    // Scripts auxiliares de documentación (no forman parte de la web)
+    "docs/**",
   ]),
 ]);
 
