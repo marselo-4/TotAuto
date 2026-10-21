@@ -21,7 +21,7 @@ export function Reveal({
 }: {
   children: ReactNode;
   className?: string;
-  as?: "div" | "section" | "ul" | "li" | "article";
+  as?: "div" | "section" | "ul" | "ol" | "li" | "article";
   delay?: number;
   y?: number;
   stagger?: number;

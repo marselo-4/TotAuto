@@ -119,23 +119,287 @@
     },
     "showroom": {
       "title": "El showroom",
-      "lead": "Av. Raval del Carme 79, Tàrrega. Dos salas, dos fachadas de vidrio, un coche en cada plaza."
+      "lead": "Av. Raval del Carme 79, Tàrrega. Un local en esquina con dos fachadas de vidrio, reformado como una galería: fondo neutro, luz sobre cada coche y espacio para verlos sin prisa.",
+      "explore": {
+        "start": "Explorar en 3D",
+        "hint": "Arrastra para mirar alrededor · rueda para acercar",
+        "posterAlt": "Sala principal del showroom vista desde la recepción",
+        "note": "Modelo 3D construido a partir del escaneo del local. Los coches son siluetas orientativas.",
+        "spots": {
+          "main": "Sala principal",
+          "passage": "El paso",
+          "back": "Sala trasera"
+        }
+      },
+      "spaces": {
+        "eyebrow": "Los espacios",
+        "title": "Dos salas y una oficina con vistas.",
+        "items": {
+          "0": {
+            "title": "Sala principal",
+            "text": "La que ves desde la plaza: tres o cuatro coches expuestos bajo proyectores, suelo de terrazo pulido y mesa de atención junto al escaparate."
+          },
+          "1": {
+            "title": "Sala trasera",
+            "text": "Tras el tabique, la zona de fotos y los coches recién llegados. Fondo gris antracita, logo retroiluminado y luz LED hexagonal."
+          },
+          "2": {
+            "title": "La esquina",
+            "text": "Fachada larga acristalada a la plaza y acceso lateral para entrar y sacar coches. De noche, el rótulo de letras corpóreas."
+          }
+        }
+      },
+      "visit": {
+        "eyebrow": "Visita",
+        "title": "Con cita, sin prisas.",
+        "text": "Atendemos con cita previa para dedicarte el tiempo que haga falta: ver el coche a solas, probarlo y resolver dudas de financiación o importación.",
+        "address": "Dirección",
+        "hours": "Horario",
+        "hoursText": "Lunes a viernes de 9:30 a 13:30 y de 16:00 a 19:30 · Sábados por la mañana con cita",
+        "phone": "Teléfono",
+        "cta": "Pedir cita",
+        "directions": "Cómo llegar",
+        "imageAlt": "Fachada del showroom de noche"
+      }
     },
     "import": {
+      "eyebrow": "Importación a medida",
       "title": "El coche que buscas, encontrado.",
-      "lead": "Búsqueda europea bajo pedido. Seleccionamos, verificamos y gestionamos la importación de principio a fin."
+      "lead": "Si no está en el showroom, lo buscamos en toda Europa. Lo verificamos, lo traemos y lo matriculamos. Tú solo eliges.",
+      "imageAlt": "Sala trasera del showroom, zona de fotos",
+      "promise": {
+        "title": "Un precio cerrado antes de empezar.",
+        "text": "Sabrás lo que cuesta el coche puesto en Tàrrega, con transporte, impuestos y matriculación incluidos, antes de dar el primer paso. Sin sorpresas al final."
+      },
+      "how": {
+        "eyebrow": "Cómo funciona",
+        "title": "Cuatro pasos, sin sobresaltos.",
+        "steps": {
+          "0": {
+            "title": "Nos cuentas qué quieres",
+            "text": "Modelo, versión, año, kilómetros, color, presupuesto. O una idea aproximada: te asesoramos sobre qué versiones y años merecen la pena."
+          },
+          "1": {
+            "title": "Buscamos y seleccionamos",
+            "text": "Rastreamos los mercados alemán, belga, holandés e italiano. Te enviamos las mejores unidades con fotos, historial y precio final."
+          },
+          "2": {
+            "title": "Verificamos en origen",
+            "text": "Revisión mecánica y documental en el concesionario de origen: kilómetros, mantenimientos, golpes, equipamiento. Si no cuadra, no se compra."
+          },
+          "3": {
+            "title": "Lo traemos listo para conducir",
+            "text": "Transporte cerrado, IVA, ITV de importación, matriculación y tasas. Lo recoges en el showroom con placas españolas."
+          }
+        }
+      },
+      "includes": {
+        "eyebrow": "Qué incluye",
+        "title": "Todo lo que hay entre el anuncio y tu garaje.",
+        "items": {
+          "0": "Búsqueda y comparativa de unidades en toda Europa",
+          "1": "Verificación de historial y revisión técnica en origen",
+          "2": "Gestión de compra y pago seguro al vendedor",
+          "3": "Transporte en camión cerrado hasta Tàrrega",
+          "4": "IVA, impuesto de matriculación, ITV y placas",
+          "5": "Entrega en el showroom con la documentación al día"
+        }
+      },
+      "timing": {
+        "eyebrow": "Plazos",
+        "title": "Lo normal son cuatro a seis semanas.",
+        "text": "Depende del coche y de dónde esté. Las unidades disponibles en concesionario viajan en dos semanas; una búsqueda exigente puede llevar más. Te decimos el plazo real al cerrar el encargo.",
+        "items": {
+          "0": {
+            "value": "48 h",
+            "label": "primeras propuestas"
+          },
+          "1": {
+            "value": "2–3",
+            "label": "semanas de transporte"
+          },
+          "2": {
+            "value": "4–6",
+            "label": "semanas en total"
+          }
+        }
+      },
+      "faq": {
+        "eyebrow": "Preguntas",
+        "title": "Lo que nos suelen preguntar.",
+        "items": {
+          "0": {
+            "q": "¿Sale más barato importar?",
+            "a": "En deportivos y alta gama, casi siempre: más oferta, más unidades con poco uso y precios más ajustados. Te enseñamos la comparativa con el mercado español antes de decidir."
+          },
+          "1": {
+            "q": "¿Qué pasa con la garantía?",
+            "a": "La garantía oficial del fabricante es europea y sigue vigente en España. Para unidades fuera de garantía ofrecemos una garantía mecánica de 12 meses."
+          },
+          "2": {
+            "q": "¿Puedo ver el coche antes de comprarlo?",
+            "a": "Sí. Te enviamos fotos y vídeo detallados y, si quieres, organizamos la visita en origen. Y siempre puedes verlo en el showroom antes de pagar el resto."
+          },
+          "3": {
+            "q": "¿Qué pago y cuándo?",
+            "a": "Una señal al cerrar el encargo y el resto a la entrega en Tàrrega. Todo por transferencia, con contrato y factura de cada concepto."
+          }
+        }
+      },
+      "form": {
+        "eyebrow": "Encargo",
+        "title": "Dinos qué buscas.",
+        "text": "Te respondemos en 48 horas con las primeras propuestas y el precio estimado puesto en Tàrrega.",
+        "model": "Marca y modelo que buscas",
+        "budget": "Presupuesto aproximado (€)",
+        "year": "Año a partir de",
+        "messagePlaceholder": "Versión, color, kilómetros máximos, equipamiento imprescindible…"
+      }
     },
     "sell": {
-      "title": "Vende tu coche",
-      "lead": "Compramos deportivos y alta gama. Tasación en 24 horas."
+      "eyebrow": "Compramos tu coche",
+      "title": "Vende tu coche.",
+      "lead": "Compramos deportivos y alta gama. Tasación en 24 horas, pago inmediato y papeles resueltos.",
+      "how": {
+        "eyebrow": "Cómo funciona",
+        "title": "Tres pasos y el dinero en tu cuenta.",
+        "steps": {
+          "0": {
+            "title": "Cuéntanos qué coche es",
+            "text": "Marca, modelo, año y kilómetros. Con unas fotos del exterior, el interior y el cuadro nos basta para empezar."
+          },
+          "1": {
+            "title": "Te tasamos en 24 horas",
+            "text": "Precio firme, sin regateos posteriores. Si te encaja, quedamos para verlo en el showroom o vamos donde esté."
+          },
+          "2": {
+            "title": "Recogemos y pagamos",
+            "text": "Firmamos, transferimos y nos encargamos del cambio de nombre. Si tiene financiación pendiente, la cancelamos nosotros."
+          }
+        }
+      },
+      "why": {
+        "eyebrow": "Por qué con nosotros",
+        "title": "Sin intermediarios ni sorpresas.",
+        "items": {
+          "0": {
+            "title": "Pago inmediato",
+            "text": "Transferencia el mismo día de la firma."
+          },
+          "1": {
+            "title": "Precio firme",
+            "text": "La tasación que te damos es la que pagamos."
+          },
+          "2": {
+            "title": "Papeles incluidos",
+            "text": "Cambio de nombre, cancelación de reservas de dominio, todo gestionado."
+          },
+          "3": {
+            "title": "Sin compromiso",
+            "text": "Pides la tasación y decides con calma."
+          }
+        }
+      },
+      "wanted": {
+        "lead": "Nos interesan sobre todo:",
+        "list": "Porsche, Ferrari, Lamborghini, McLaren, Aston Martin, Mercedes-AMG, BMW M, Audi RS y ediciones especiales."
+      },
+      "form": {
+        "eyebrow": "Tasación gratuita",
+        "title": "Pide tu tasación.",
+        "text": "En 24 horas tienes el precio.",
+        "car": "Marca y modelo",
+        "year": "Año",
+        "km": "Kilómetros",
+        "messagePlaceholder": "Versión, color, extras, estado… y si tiene financiación pendiente.",
+        "or": "O si prefieres,",
+        "whatsappMessage": "Hola, quiero una tasación para vender mi coche."
+      }
     },
     "about": {
-      "title": "Cuarenta años en el motor",
-      "lead": "Un nombre de confianza en Lleida desde 1986. Más de 250 concesionarios han sido clientes."
+      "eyebrow": "Desde 1986",
+      "title": "Cuarenta años en el motor.",
+      "lead": "Un nombre de confianza en Lleida desde 1986. Más de 250 concesionarios han sido clientes.",
+      "imageAlt": "Sala principal del showroom reformado",
+      "story": {
+        "p1": "Tot Auto nació en Tàrrega en 1986 como especialista en equipamiento y accesorios para el automóvil. Durante cuatro décadas hemos trabajado con los concesionarios y talleres de toda la provincia: más de 250 empresas del motor han confiado en nosotros.",
+        "p2": "Ese oficio, el de saber qué coche está bien y cuál no, es el que hoy ponemos al servicio de un showroom distinto: pocos coches, elegidos uno a uno, verificados y presentados como lo que son.",
+        "p3": "Seguimos siendo una empresa familiar. Quien te atiende es quien ha elegido el coche, y quien te lo entrega es quien responde después."
+      },
+      "stats": {
+        "years": "años en el sector",
+        "dealers": "concesionarios clientes"
+      },
+      "timeline": {
+        "eyebrow": "Hitos",
+        "title": "De la tienda al showroom.",
+        "items": {
+          "0": {
+            "year": "1986",
+            "title": "Apertura en Tàrrega",
+            "text": "Accesorios, equipamiento y servicio de montaje para el automóvil."
+          },
+          "1": {
+            "year": "2000",
+            "title": "El local de Raval del Carme",
+            "text": "Reforma del local en esquina de dos plantas que hoy es el showroom."
+          },
+          "2": {
+            "year": "2010s",
+            "title": "Trabajo para profesionales",
+            "text": "Distribución a concesionarios y talleres de Lleida y Cataluña."
+          },
+          "3": {
+            "year": "2026",
+            "title": "Showroom de deportivos",
+            "text": "El local se reforma como galería y abre con los primeros cinco coches."
+          }
+        }
+      },
+      "values": {
+        "eyebrow": "Cómo trabajamos",
+        "title": "Tres reglas que no cambiamos.",
+        "items": {
+          "0": {
+            "title": "Pocos coches",
+            "text": "Solo entra lo que compraríamos nosotros. Cada unidad se elige, no se acumula."
+          },
+          "1": {
+            "title": "Todo verificado",
+            "text": "Historial, kilómetros, mantenimientos y estado real, comprobados antes de publicar."
+          },
+          "2": {
+            "title": "Trato directo",
+            "text": "Sin comerciales rotando ni letra pequeña. La misma persona de principio a fin."
+          }
+        }
+      },
+      "sold": {
+        "eyebrow": "Ya tienen dueño",
+        "title": "Los que ya se han ido."
+      },
+      "cta": {
+        "title": "¿Hablamos de tu próximo coche?",
+        "stock": "Ver el stock",
+        "contact": "Contacto"
+      }
     },
     "contact": {
       "title": "Contacto",
-      "lead": "Llámanos, escríbenos o pide cita para una visita privada."
+      "lead": "Llámanos, escríbenos o pide cita para una visita privada.",
+      "whatsapp": "Escribir ahora",
+      "whatsappMessage": "Hola, quiero información sobre el showroom de Tot Auto.",
+      "phone": "Teléfono",
+      "address": "Dirección",
+      "directions": "Cómo llegar",
+      "hours": "Horario",
+      "hoursText": "Lunes a viernes de 9:30 a 13:30 y de 16:00 a 19:30. Sábados por la mañana con cita previa.",
+      "form": {
+        "eyebrow": "Escríbenos",
+        "title": "¿En qué te ayudamos?",
+        "text": "Te respondemos en el día laborable siguiente como muy tarde.",
+        "messagePlaceholder": "Cuéntanos qué necesitas…"
+      }
     },
     "legalNotice": {
       "title": "Aviso legal"
