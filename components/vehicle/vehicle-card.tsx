@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { coverOf, formatKm, formatPrice, imageUrl, type VehicleWithImages } from "@/lib/vehicles";
+import { coverOf, formatKm, formatPrice, imageUrl, type VehicleWithImages } from "@/lib/vehicle-format";
 
 export function VehicleCard({ vehicle }: { vehicle: VehicleWithImages }) {
   const t = useTranslations("stock");

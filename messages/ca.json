@@ -181,6 +181,77 @@
     "gearbox": {
       "manual": "Manual",
       "automatico": "Automàtic"
+    },
+    "filters": {
+      "make": "Marca",
+      "anyMake": "Totes",
+      "fuel": "Combustible",
+      "anyFuel": "Tots",
+      "gearbox": "Canvi",
+      "anyGearbox": "Tots",
+      "priceMax": "Preu",
+      "anyPrice": "Sense límit",
+      "upTo": "Fins a {price}",
+      "sort": "Ordre",
+      "count": "{count, plural, =0 {Cap cotxe} one {# cotxe} other {# cotxes}}",
+      "clear": "Treure filtres"
+    },
+    "sort": {
+      "featured": "Destacats",
+      "price_asc": "Preu: de menor a major",
+      "price_desc": "Preu: de major a menor",
+      "year_desc": "Més nous",
+      "km_asc": "Menys quilòmetres"
     }
+  },
+  "vehicle": {
+    "backToStock": "Tornar a l'estoc",
+    "ctaWhatsapp": "Preguntar per WhatsApp",
+    "ctaCall": "Trucar",
+    "whatsappMessage": "Hola, m'interessa el {title} ({year}) que teniu al showroom.",
+    "metaDescription": "{title} de {year}, {km}. {price}. Seleccionat i verificat per Tot Auto, showroom d'esportius a Tàrrega.",
+    "specs": {
+      "year": "Any",
+      "km": "Quilòmetres",
+      "fuel": "Combustible",
+      "gearbox": "Canvi",
+      "power": "Potència",
+      "color": "Color",
+      "origin": "Origen",
+      "importedFrom": "Importat de {country}",
+      "national": "Nacional",
+      "registration": "Matriculació",
+      "registeredYes": "Matriculat a Espanya",
+      "registeredNo": "Pendent de matricular",
+      "warranty": "Garantia",
+      "vat": "IVA",
+      "vatYes": "Deduïble",
+      "vatNo": "Règim general",
+      "history": "Historial"
+    },
+    "askEyebrow": "T'interessa?",
+    "askTitle": "Pregunta per aquest cotxe.",
+    "askText": "Et responem el mateix dia. Si el vols veure, et proposem una visita privada.",
+    "askDefault": "M'interessa el {title} ({year}). Podem parlar?",
+    "related": "També et pot interessar",
+    "gallery": {
+      "open": "Veure a pantalla completa",
+      "close": "Tancar",
+      "prev": "Anterior",
+      "next": "Següent",
+      "photo": "Foto"
+    }
+  },
+  "leadForm": {
+    "name": "Nom",
+    "phone": "Telèfon",
+    "email": "Email (opcional)",
+    "message": "Missatge",
+    "consent": "Accepto que Tot Auto tracti les meves dades per respondre la consulta, segons la política de privacitat.",
+    "send": "Enviar",
+    "sending": "Enviant…",
+    "okTitle": "Rebut.",
+    "okText": "Et contactem aviat per telèfon o email.",
+    "errorText": "No s'ha pogut enviar. Prova per WhatsApp o torna-ho a intentar."
   }
 }

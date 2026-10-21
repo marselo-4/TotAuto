@@ -181,6 +181,77 @@
     "gearbox": {
       "manual": "Manual",
       "automatico": "Automático"
+    },
+    "filters": {
+      "make": "Marca",
+      "anyMake": "Todas",
+      "fuel": "Combustible",
+      "anyFuel": "Todos",
+      "gearbox": "Cambio",
+      "anyGearbox": "Todos",
+      "priceMax": "Precio",
+      "anyPrice": "Sin límite",
+      "upTo": "Hasta {price}",
+      "sort": "Orden",
+      "count": "{count, plural, =0 {Ningún coche} one {# coche} other {# coches}}",
+      "clear": "Quitar filtros"
+    },
+    "sort": {
+      "featured": "Destacados",
+      "price_asc": "Precio: menor a mayor",
+      "price_desc": "Precio: mayor a menor",
+      "year_desc": "Más nuevos",
+      "km_asc": "Menos kilómetros"
     }
+  },
+  "vehicle": {
+    "backToStock": "Volver al stock",
+    "ctaWhatsapp": "Preguntar por WhatsApp",
+    "ctaCall": "Llamar",
+    "whatsappMessage": "Hola, me interesa el {title} ({year}) que tenéis en el showroom.",
+    "metaDescription": "{title} de {year}, {km}. {price}. Seleccionado y verificado por Tot Auto, showroom de deportivos en Tàrrega.",
+    "specs": {
+      "year": "Año",
+      "km": "Kilómetros",
+      "fuel": "Combustible",
+      "gearbox": "Cambio",
+      "power": "Potencia",
+      "color": "Color",
+      "origin": "Origen",
+      "importedFrom": "Importado de {country}",
+      "national": "Nacional",
+      "registration": "Matriculación",
+      "registeredYes": "Matriculado en España",
+      "registeredNo": "Pendiente de matricular",
+      "warranty": "Garantía",
+      "vat": "IVA",
+      "vatYes": "Deducible",
+      "vatNo": "Régimen general",
+      "history": "Historial"
+    },
+    "askEyebrow": "¿Te interesa?",
+    "askTitle": "Pregunta por este coche.",
+    "askText": "Te contestamos en el día. Si quieres verlo, te proponemos una visita privada.",
+    "askDefault": "Me interesa el {title} ({year}). ¿Podemos hablar?",
+    "related": "También te puede interesar",
+    "gallery": {
+      "open": "Ver a pantalla completa",
+      "close": "Cerrar",
+      "prev": "Anterior",
+      "next": "Siguiente",
+      "photo": "Foto"
+    }
+  },
+  "leadForm": {
+    "name": "Nombre",
+    "phone": "Teléfono",
+    "email": "Email (opcional)",
+    "message": "Mensaje",
+    "consent": "Acepto que Tot Auto trate mis datos para responder a mi consulta, según la política de privacidad.",
+    "send": "Enviar",
+    "sending": "Enviando…",
+    "okTitle": "Recibido.",
+    "okText": "Te contactamos en breve por teléfono o email.",
+    "errorText": "No se ha podido enviar. Prueba por WhatsApp o inténtalo de nuevo."
   }
 }
