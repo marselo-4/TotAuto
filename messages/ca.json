@@ -416,7 +416,8 @@
     "rights": "Tot Auto. Tots els drets reservats.",
     "legalNotice": "Avís legal",
     "privacy": "Privacitat",
-    "cookies": "Galetes"
+    "cookies": "Galetes",
+    "panel": "Panell"
   },
   "common": {
     "soon": "Molt aviat",
@@ -532,5 +533,11 @@
   },
   "a11y": {
     "skip": "Salta al contingut"
+  },
+  "notFound": {
+    "title": "Aquesta pàgina no existeix.",
+    "text": "Pot ser que l'enllaç estigui malament o que el cotxe ja no estigui publicat.",
+    "home": "Tornar a l'inici",
+    "stock": "Veure l'estoc"
   }
 }

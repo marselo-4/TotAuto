@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import NextLink from "next/link";
 import { site } from "@/lib/site";
 import { Logo } from "@/components/layout/logo";
 import { CookieSettingsLink } from "@/components/providers/cookie-consent";
@@ -31,8 +32,9 @@ export function SiteFooter() {
           <li><Link href="/legal/cookies" className="hover:text-fg">{t("cookies")}</Link> · <CookieSettingsLink className="hover:text-fg" /></li>
         </ul>
       </div>
-      <div className="container-x border-t border-line py-5 text-xs text-fg-faint">
-        © {new Date().getFullYear()} {t("rights")}
+      <div className="container-x flex flex-wrap items-center justify-between gap-3 border-t border-line py-5 text-xs text-fg-faint">
+        <span>© {new Date().getFullYear()} {t("rights")}</span>
+        <NextLink href="/admin" className="hover:text-fg">{t("panel")}</NextLink>
       </div>
     </footer>
   );

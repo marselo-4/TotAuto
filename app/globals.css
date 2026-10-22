@@ -96,6 +96,15 @@ html.lenis body {
   text-wrap: balance;
 }
 
+/* Flecha de "desliza" */
+@keyframes nudge {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(4px); }
+}
+@utility animate-nudge {
+  animation: nudge 1.6s ease-in-out infinite;
+}
+
 /* Respeta "reducir movimiento" */
 @media (prefers-reduced-motion: reduce) {
   *,

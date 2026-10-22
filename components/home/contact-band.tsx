@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { Reveal } from "@/components/ui/reveal";
+import { SplitReveal } from "@/components/ui/split-reveal";
 import { site, whatsappLink } from "@/lib/site";
 
 export function ContactBand() {
@@ -12,7 +13,7 @@ export function ContactBand() {
       <Reveal className="container-x relative grid gap-10 py-24 md:grid-cols-2 md:items-end md:py-36">
         <div>
           <p className="eyebrow mb-4">{t("eyebrow")}</p>
-          <h2 className="display text-5xl md:text-7xl">{t("title")}</h2>
+          <SplitReveal as="h2" className="display text-5xl md:text-7xl">{t("title")}</SplitReveal>
           <p className="mt-6 max-w-md text-lg text-fg-muted">{t("lead")}</p>
         </div>
         <div className="grid gap-3 sm:grid-cols-2">

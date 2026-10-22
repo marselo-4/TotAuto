@@ -7,6 +7,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { Link } from "@/i18n/navigation";
+import { SplitReveal } from "@/components/ui/split-reveal";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -135,8 +136,8 @@ export function ShowroomHero({ copy }: { copy: HeroCopy }) {
         {copy.captions.map((c, i) => (
           <div
             key={i}
-            className={`pointer-events-none absolute inset-x-0 bottom-0 transition-opacity duration-700 ${
-              stage === i + 1 ? "opacity-100" : "opacity-0"
+            className={`pointer-events-none absolute inset-x-0 bottom-0 transition-[opacity,transform] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+              stage === i + 1 ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
             }`}
           >
             <div className="container-x pb-16 md:pb-24">
@@ -158,7 +159,7 @@ export function ShowroomHero({ copy }: { copy: HeroCopy }) {
         ))}
 
         <p className={`eyebrow absolute bottom-6 right-[var(--gutter)] hidden transition-opacity md:block ${stage === 0 ? "opacity-100" : "opacity-0"}`}>
-          {copy.scroll} ↓
+          {copy.scroll} <span className="inline-block animate-nudge">↓</span>
         </p>
       </div>
     </section>
@@ -169,7 +170,9 @@ function HeroIntro({ copy }: { copy: HeroCopy }) {
   return (
     <div className="container-x relative w-full pb-16 pt-40 md:pb-24">
       <p className="eyebrow mb-6">{copy.eyebrow}</p>
-      <h1 className="display max-w-5xl text-6xl md:text-8xl lg:text-[8.5rem]">{copy.title}</h1>
+      <SplitReveal as="h1" className="display max-w-5xl text-6xl md:text-8xl lg:text-[8.5rem]" delay={0.15} masked={false}>
+        {copy.title}
+      </SplitReveal>
       <p className="mt-8 max-w-xl text-lg text-fg-muted md:text-xl">{copy.lead}</p>
       <div className="mt-10 flex flex-wrap gap-3">
         <Link href="/stock" className="rounded-full bg-accent px-6 py-3 text-sm font-medium text-accent-ink transition-opacity hover:opacity-90">

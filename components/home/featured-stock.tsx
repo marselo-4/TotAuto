@@ -3,6 +3,7 @@ import { Link } from "@/i18n/navigation";
 import { listAvailableVehicles } from "@/lib/vehicles";
 import { VehicleCard } from "@/components/vehicle/vehicle-card";
 import { Reveal } from "@/components/ui/reveal";
+import { SplitReveal } from "@/components/ui/split-reveal";
 
 export async function FeaturedStock() {
   const t = await getTranslations("home.featured");
@@ -14,7 +15,7 @@ export async function FeaturedStock() {
       <Reveal className="mb-12 flex flex-wrap items-end justify-between gap-6 md:mb-16">
         <div>
           <p className="eyebrow mb-4">{t("eyebrow")}</p>
-          <h2 className="display text-5xl md:text-7xl">{t("title")}</h2>
+          <SplitReveal as="h2" className="display text-5xl md:text-7xl">{t("title")}</SplitReveal>
         </div>
         <Link href="/stock" className="group text-sm text-fg-muted transition-colors hover:text-fg">
           {t("all")} <span className="inline-block transition-transform group-hover:translate-x-1">→</span>

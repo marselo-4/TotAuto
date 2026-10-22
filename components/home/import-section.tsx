@@ -2,6 +2,7 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { Reveal } from "@/components/ui/reveal";
+import { SplitReveal } from "@/components/ui/split-reveal";
 
 export function ImportSection() {
   const t = useTranslations("home.import");
@@ -23,7 +24,7 @@ export function ImportSection() {
         <div className="md:order-1">
           <Reveal>
             <p className="eyebrow mb-4">{t("eyebrow")}</p>
-            <h2 className="display text-5xl md:text-7xl">{t("title")}</h2>
+            <SplitReveal as="h2" className="display text-5xl md:text-7xl">{t("title")}</SplitReveal>
             <p className="mt-6 max-w-lg text-lg text-fg-muted">{t("lead")}</p>
           </Reveal>
           <Reveal as="ul" stagger={0.12} className="mt-10 grid gap-5" delay={0.15}>

@@ -85,7 +85,7 @@ export default async function VehiclePage({ params }: Props) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <article className="container-x pb-24 pt-28 md:pt-36">
+      <article className="container-x pb-32 pt-28 md:pb-24 md:pt-36">
         <nav aria-label="breadcrumb" className="mb-6 text-sm text-fg-muted">
           <Link href="/stock" className="hover:text-fg">← {t("backToStock")}</Link>
         </nav>

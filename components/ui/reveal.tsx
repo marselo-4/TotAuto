@@ -10,13 +10,14 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
 /**
  * Revela el contenido al entrar en pantalla (subida suave + fundido).
  * Con `stagger`, anima los hijos directos en cascada. Respeta "reducir movimiento".
+ * Lo que ya está en pantalla al montar no se oculta nunca: solo se anima lo que llega después.
  */
 export function Reveal({
   children,
   className = "",
   as: Tag = "div",
   delay = 0,
-  y = 36,
+  y = 32,
   stagger,
 }: {
   children: ReactNode;
@@ -32,6 +33,9 @@ export function Reveal({
     () => {
       const el = ref.current;
       if (!el || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      // Si ya es visible (o casi), no hay revelado: el contenido se queda como está.
+      const top = el.getBoundingClientRect().top;
+      if (top < window.innerHeight * 0.92) return;
       const targets = stagger ? Array.from(el.children) : el;
       gsap.fromTo(
         targets,
@@ -39,11 +43,12 @@ export function Reveal({
         {
           opacity: 1,
           y: 0,
-          duration: 1.1,
+          duration: 0.9,
           ease: "power3.out",
           delay,
           stagger: stagger ?? 0,
-          scrollTrigger: { trigger: el, start: "top 85%", once: true },
+          clearProps: "transform",
+          scrollTrigger: { trigger: el, start: "top 90%", once: true },
         },
       );
     },

@@ -35,3 +35,12 @@ _22/10/2026._
 **Qué se cambió para llegar ahí:** el canvas 3D del hero se monta en escritorio tras `load` + `requestIdleCallback`, y en móvil o táctil solo en la primera interacción (scroll, toque, tecla). Antes de eso, la home móvil tenía 2,6 s de bloqueo y LCP de 6,8 s.
 
 **Pendiente:** en escritorio los 450 ms de bloqueo son la carga de three.js tras el idle; se puede partir el bundle o bajar más la calidad por defecto si se quiere subir de 79. El LCP móvil de 3,5 s es el póster del hero (338 KB): se puede servir una variante más ligera para móvil.
+
+## Revisión posterior (22/10/2026, tarde)
+
+Auditoría completa en escritorio y móvil y pulido:
+
+- **Fallos corregidos:** las rutas inexistentes rompían con «Missing <html> and <body>» (faltaba el 404 de raíz y un catch-all por idioma; ahora hay 404 traducido en `/es/...` y `/ca/...`); los revelados ocultaban contenido que ya estaba en pantalla (ahora solo se anima lo que llega con el scroll, y los disparadores se recalculan al cargar fuentes e imágenes); la barra fija de la ficha en móvil tapaba el final de la página.
+- **Movimiento añadido:** transición de entrada entre páginas (solo desplazamiento, sin fundido), titulares que entran línea a línea con SplitText (con máscara en las secciones; sin máscara sobre el pliegue), subtítulos del hero con subida, flecha de «desliza» con pulso.
+- **Lección medida:** una opacidad inicial de 0 en el HTML del servidor (transición con fundido, titular enmascarado) deja el contenido invisible hasta hidratar y disparó el LCP móvil de 3,5 s a 6,1 s. Con movimiento solo de desplazamiento, vuelve a 3,7 s. Y un `loading.tsx` con esqueleto en la ficha costaba 1 s de LCP (la imagen llega en un fragmento posterior del streaming) a cambio de nada, porque la consulta tarda décimas: eliminado.
+- **Resultado:** home 89, stock 89, ficha 89 en móvil; accesibilidad 100.

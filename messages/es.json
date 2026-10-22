@@ -416,7 +416,8 @@
     "rights": "Tot Auto. Todos los derechos reservados.",
     "legalNotice": "Aviso legal",
     "privacy": "Privacidad",
-    "cookies": "Cookies"
+    "cookies": "Cookies",
+    "panel": "Panel"
   },
   "common": {
     "soon": "Muy pronto",
@@ -532,5 +533,11 @@
   },
   "a11y": {
     "skip": "Saltar al contenido"
+  },
+  "notFound": {
+    "title": "Esta página no existe.",
+    "text": "Puede que el enlace esté mal o que el coche ya no esté publicado.",
+    "home": "Volver al inicio",
+    "stock": "Ver el stock"
   }
 }

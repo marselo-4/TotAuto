@@ -18,9 +18,15 @@ function LenisGsapBridge() {
     gsap.ticker.lagSmoothing(0);
     const onScroll = () => ScrollTrigger.update();
     lenis.on("scroll", onScroll);
+    // Las posiciones se calculan antes de que carguen fuentes e imágenes: recalcular al terminar
+    const refresh = () => ScrollTrigger.refresh();
+    if (document.readyState === "complete") refresh();
+    else window.addEventListener("load", refresh, { once: true });
+    document.fonts?.ready.then(refresh).catch(() => {});
     return () => {
       gsap.ticker.remove(update);
       lenis.off("scroll", onScroll);
+      window.removeEventListener("load", refresh);
     };
   }, [lenis]);
 
