@@ -2,9 +2,9 @@
 export const site = {
   name: "Tot Auto",
   legalEntity: "GUIXAGILS SL", // CIF y dirección fiscal pendientes
-  phone: "610 43 88 77",
-  // Número de WhatsApp del showroom: pendiente de Carlos (formato internacional sin "+")
-  whatsapp: process.env.NEXT_PUBLIC_WHATSAPP ?? "34610438877",
+  phone: "+34 690 609 107",
+  // Número de WhatsApp del showroom (formato internacional sin "+")
+  whatsapp: process.env.NEXT_PUBLIC_WHATSAPP ?? "34690609107",
   email: "info@totauto.net",
   address: {
     street: "Av. Raval del Carme, 79",

@@ -8,7 +8,7 @@ export const RESPONSIBLE = {
   address: "[Domicilio social pendiente]",
   registry: "[Datos registrales pendientes]",
   email: "info@totauto.net",
-  phone: "610 43 88 77",
+  phone: "+34 690 609 107",
   site: "totauto.net",
   brand: "Tot Auto",
   showroom: "Av. Raval del Carme 79, 25300 Tàrrega (Lleida)",
