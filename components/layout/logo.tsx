@@ -1,7 +1,10 @@
 import Image from "next/image";
 
+/** Proporción ancho/alto del SVG del logo. */
+export const LOGO_ASPECT = 6517.2 / 759.5;
+
 /**
- * Logo Tot Auto (propuesta A: Bodoni Moda + filete champán), SVG con texto en trazados.
+ * Logo Tot Auto (propuesta D: Archivo expandida + barra champán), SVG con texto en trazados.
  * `tone` elige la versión: color sobre fondo oscuro (por defecto), mono blanca o mono negra.
  */
 export function Logo({
@@ -16,8 +19,8 @@ export function Logo({
   priority?: boolean;
 }) {
   const src = tone === "white" ? "/brand/logo-mono-white.svg" : tone === "black" ? "/brand/logo-mono-black.svg" : "/brand/logo.svg";
-  // viewBox 726.94 × 151.9
-  const width = Math.round(height * (726.94 / 151.9));
+  // viewBox 6517.2 × 759.5 (ver docs/gen-wordmark.py)
+  const width = Math.round(height * LOGO_ASPECT);
   return (
     <Image
       src={src}
@@ -26,7 +29,7 @@ export function Logo({
       height={height}
       priority={priority}
       unoptimized
-      className={className}
+      className={`shrink-0 ${className}`}
     />
   );
 }

@@ -19,7 +19,7 @@ export default async function Page({ params }: Props) {
     <>
       <header className="container-x flex h-20 w-full items-center justify-between">
         <Link href="/" aria-label="Tot Auto">
-          <Logo height={20} priority />
+          <Logo height={18} priority />
         </Link>
         <Link href="/" className="text-xs uppercase tracking-[0.22em] text-fg-faint hover:text-fg">
           ← {t("back")}

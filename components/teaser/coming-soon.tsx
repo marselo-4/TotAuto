@@ -29,7 +29,7 @@ export async function ComingSoon() {
 
       <header className="container-x relative flex h-20 w-full items-center justify-between">
         <span className="rise" style={delay(0.1)}>
-          <Logo height={20} priority />
+          <Logo height={18} priority />
         </span>
         <nav
           aria-label={t("language")}
