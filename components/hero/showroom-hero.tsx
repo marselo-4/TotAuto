@@ -13,14 +13,17 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const ShowroomScene = dynamic(() => import("./showroom-scene").then((m) => m.ShowroomScene), { ssr: false });
 
-export type HeroCaption = { eyebrow: string; title: string; text?: string };
+/** Etapa intermedia del recorrido. `cta` enlaza la etapa con una acción (stock, importación…). */
+export type HeroCaption = { eyebrow: string; title: string; text?: string; cta?: { label: string; href: string } };
 
 export type HeroCopy = {
   eyebrow: string;
   title: string;
   lead: string;
   ctaStock: string;
+  ctaImport: string;
   ctaVisit: string;
+  findByMake: string;
   scroll: string;
   captions: HeroCaption[]; // etapas intermedias del recorrido
 };
@@ -47,7 +50,10 @@ const subscribe = () => () => {};
 const getMode = () => (cachedMode ??= detectMode());
 const getServerMode = (): Mode => "pending";
 
-export function ShowroomHero({ copy }: { copy: HeroCopy }) {
+const btnPrimary = "rounded-sm bg-accent px-6 py-3.5 btn-label text-accent-ink transition-opacity hover:opacity-90";
+const btnSecondary = "rounded-sm border border-line-strong px-6 py-3.5 btn-label transition-colors hover:border-fg";
+
+export function ShowroomHero({ copy, makes = [] }: { copy: HeroCopy; makes?: string[] }) {
   const section = useRef<HTMLElement>(null);
   const progress = useRef(0);
   const mode = useSyncExternalStore(subscribe, getMode, getServerMode);
@@ -109,13 +115,14 @@ export function ShowroomHero({ copy }: { copy: HeroCopy }) {
           className="object-cover opacity-70"
         />
         <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-bg via-bg/60 to-bg/20" />
-        <HeroIntro copy={copy} />
+        <HeroIntro copy={copy} makes={makes} />
       </section>
     );
   }
 
+  // Recorrido más corto que antes (400svh): el stock llega antes sin perder la entrada al local.
   return (
-    <section ref={section} className="relative" style={{ height: "520svh" }}>
+    <section ref={section} className="relative" style={{ height: "400svh" }}>
       <div className="sticky top-0 h-svh overflow-hidden">
         {/* Póster debajo mientras carga el canvas */}
         <Image src="/img/hero-poster.jpg" alt="" fill priority sizes="100vw" className="object-cover opacity-40" />
@@ -124,34 +131,39 @@ export function ShowroomHero({ copy }: { copy: HeroCopy }) {
 
         {/* Intro (etapa 0) */}
         <div className={`absolute inset-0 flex items-end transition-opacity duration-700 ${stage === 0 ? "opacity-100" : "pointer-events-none opacity-0"}`}>
-          <HeroIntro copy={copy} />
+          <HeroIntro copy={copy} makes={makes} />
         </div>
 
         {/* Etapas del recorrido */}
-        {copy.captions.map((c, i) => (
-          <div
-            key={i}
-            className={`pointer-events-none absolute inset-x-0 bottom-0 transition-[opacity,transform] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-              stage === i + 1 ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
-            }`}
-          >
-            <div className="container-x pb-16 md:pb-24">
-              <p className="eyebrow mb-4">{c.eyebrow}</p>
-              <h2 className="display max-w-4xl text-4xl md:text-6xl">{c.title}</h2>
-              {c.text && <p className="mt-5 max-w-lg text-fg-muted md:text-lg">{c.text}</p>}
-              {i === copy.captions.length - 1 && (
-                <div className="pointer-events-auto mt-8 flex flex-wrap gap-3">
-                  <Link href="/stock" className="rounded-sm bg-accent px-6 py-3.5 btn-label text-accent-ink hover:opacity-90">
-                    {copy.ctaStock}
-                  </Link>
-                  <Link href="/showroom" className="rounded-sm border border-line-strong px-6 py-3.5 btn-label hover:border-fg">
-                    {copy.ctaVisit}
-                  </Link>
-                </div>
-              )}
+        {copy.captions.map((c, i) => {
+          const last = i === copy.captions.length - 1;
+          return (
+            <div
+              key={i}
+              className={`pointer-events-none absolute inset-x-0 bottom-0 transition-[opacity,transform] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                stage === i + 1 ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+              }`}
+            >
+              <div className="container-x pb-16 md:pb-24">
+                <p className="eyebrow mb-4">{c.eyebrow}</p>
+                <h2 className="display max-w-4xl text-4xl md:text-6xl">{c.title}</h2>
+                {c.text && <p className="mt-5 max-w-lg text-fg-muted md:text-lg">{c.text}</p>}
+                {last ? (
+                  <div className="pointer-events-auto mt-8 flex flex-wrap gap-3">
+                    <Link href="/stock" className={btnPrimary}>{copy.ctaStock}</Link>
+                    <Link href="/showroom" className={btnSecondary}>{copy.ctaVisit}</Link>
+                  </div>
+                ) : (
+                  c.cta && (
+                    <div className="pointer-events-auto mt-8">
+                      <Link href={c.cta.href} className={btnPrimary}>{c.cta.label}</Link>
+                    </div>
+                  )
+                )}
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
 
         <p className={`eyebrow absolute bottom-6 right-[var(--gutter)] hidden transition-opacity md:block ${stage === 0 ? "opacity-100" : "opacity-0"}`}>
           {copy.scroll} <span className="inline-block animate-nudge">↓</span>
@@ -161,7 +173,7 @@ export function ShowroomHero({ copy }: { copy: HeroCopy }) {
   );
 }
 
-function HeroIntro({ copy }: { copy: HeroCopy }) {
+function HeroIntro({ copy, makes }: { copy: HeroCopy; makes: string[] }) {
   return (
     <div className="container-x relative w-full pb-16 pt-40 md:pb-24">
       <p className="eyebrow mb-6">{copy.eyebrow}</p>
@@ -170,13 +182,23 @@ function HeroIntro({ copy }: { copy: HeroCopy }) {
       </SplitReveal>
       <p className="mt-8 max-w-xl text-lg text-fg-muted md:text-xl">{copy.lead}</p>
       <div className="mt-10 flex flex-wrap gap-3">
-        <Link href="/stock" className="rounded-sm bg-accent px-6 py-3.5 btn-label text-accent-ink transition-opacity hover:opacity-90">
-          {copy.ctaStock}
-        </Link>
-        <Link href="/showroom" className="rounded-sm border border-line-strong px-6 py-3.5 btn-label transition-colors hover:border-fg">
-          {copy.ctaVisit}
-        </Link>
+        <Link href="/stock" className={btnPrimary}>{copy.ctaStock}</Link>
+        <Link href="/importacion" className={btnSecondary}>{copy.ctaImport}</Link>
       </div>
+      {makes.length > 0 && (
+        <nav aria-label={copy.findByMake} className="mt-8 flex flex-wrap items-center gap-2">
+          <span className="eyebrow me-2">{copy.findByMake}</span>
+          {makes.map((m) => (
+            <Link
+              key={m}
+              href={`/stock?marca=${encodeURIComponent(m)}`}
+              className="rounded-full border border-line bg-bg/40 px-3.5 py-1.5 text-sm text-fg-muted backdrop-blur transition-colors hover:border-fg hover:text-fg"
+            >
+              {m}
+            </Link>
+          ))}
+        </nav>
+      )}
     </div>
   );
 }

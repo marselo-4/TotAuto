@@ -18,9 +18,9 @@ export function SiteFooter() {
         </div>
         <ul className="grid gap-2 text-sm text-fg-muted">
           <li><Link href="/stock" className="hover:text-fg">{nav("stock")}</Link></li>
-          <li><Link href="/showroom" className="hover:text-fg">{nav("showroom")}</Link></li>
           <li><Link href="/importacion" className="hover:text-fg">{nav("import")}</Link></li>
           <li><Link href="/vende-tu-coche" className="hover:text-fg">{nav("sell")}</Link></li>
+          <li><Link href="/showroom" className="hover:text-fg">{nav("showroom")}</Link></li>
           <li><Link href="/nosotros" className="hover:text-fg">{nav("about")}</Link></li>
           <li><Link href="/contacto" className="hover:text-fg">{nav("contact")}</Link></li>
         </ul>

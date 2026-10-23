@@ -14,10 +14,12 @@
     "cta": "Demanar cita",
     "menu": "Menú",
     "close": "Tancar",
-    "language": "Idioma"
+    "language": "Idioma",
+    "whatsapp": "WhatsApp",
+    "ctaStock": "Veure l'estoc"
   },
   "home": {
-    "eyebrow": "Showroom · Tàrrega",
+    "eyebrow": "Esportius i alta gamma · Tàrrega",
     "title": "Pocs cotxes. Tots triats.",
     "lead": "Esportius i alta gamma seleccionats un a un, verificats i a punt per conduir. Si no el tenim, el trobem.",
     "ctaStock": "Veure l'estoc",
@@ -32,23 +34,31 @@
       "1": {
         "eyebrow": "Sala principal",
         "title": "Cada cotxe, una peça.",
-        "text": "Llum de galeria, fons neutre i espai al voltant. Res que distregui."
+        "text": "Seleccionats un a un, verificats i amb historial. Tots amb el preu a la vista.",
+        "cta": "Veure l'estoc"
       },
       "2": {
-        "eyebrow": "Cap a la sala del darrere",
-        "title": "N'hi ha més al darrere.",
-        "text": "Rere l'envà, la segona sala: la zona de fotos i els cotxes que arriben."
+        "eyebrow": "Importació a mida",
+        "title": "I si no hi és, el portem.",
+        "text": "El busquem per tot Europa, el verifiquem a origen i el matriculem. Preu tancat abans de començar.",
+        "cta": "Encarregar una cerca"
       },
       "3": {
         "eyebrow": "Tàrrega · Lleida",
         "title": "Vine a veure'ls.",
-        "text": "Visita privada amb cita. Si no tenim el que busques, el trobem."
+        "text": "Visita privada amb cita, sense presses. I si no tenim el que busques, el trobem."
       }
     },
     "featured": {
-      "eyebrow": "Ara al showroom",
-      "title": "Seleccionats.",
-      "all": "Veure tot l'estoc"
+      "eyebrow": "Estoc",
+      "title": "Ara al showroom.",
+      "all": "Veure tot l'estoc",
+      "count": "{count, plural, =0 {Sense unitats publicades} one {# cotxe disponible} other {# cotxes disponibles}}",
+      "importLead": "No hi és el que busques?",
+      "importCta": "El busquem per tot Europa",
+      "emptyTitle": "Properes arribades.",
+      "emptyText": "Estem renovant l'estoc. Digue'ns què busques i t'avisem quan entri, o te'l portem a mida.",
+      "emptyCta": "Encarregar una cerca"
     },
     "import": {
       "eyebrow": "Importació a mida",
@@ -110,12 +120,28 @@
       "whatsappMessage": "Hola, m'interessa un cotxe del showroom de Tot Auto.",
       "phone": "Telèfon",
       "cta": "Demanar cita"
-    }
+    },
+    "ctaImport": "Importació a mida",
+    "findByMake": "Cercar per marca"
   },
   "pages": {
     "stock": {
       "title": "Estoc",
-      "lead": "Unitats disponibles ara mateix al showroom."
+      "lead": "Esportius i alta gamma seleccionats un a un, verificats i a punt per conduir. Si no hi és, l'importem a mida.",
+      "importCard": {
+        "eyebrow": "Importació a mida",
+        "title": "No hi és el que busques?",
+        "text": "El busquem per tot Europa, el verifiquem i el portem matriculat. Primeres propostes en 48 h.",
+        "cta": "Encarregar una cerca"
+      },
+      "sellCard": {
+        "eyebrow": "Comprem el teu cotxe",
+        "title": "Vens el teu?",
+        "text": "Taxació en 24 hores, pagament immediat i papers resolts.",
+        "cta": "Demanar taxació"
+      },
+      "emptyTitle": "Ara mateix no hi ha unitats publicades.",
+      "emptyText": "Digue'ns què busques: el tenim a punt d'entrar o el portem a mida."
     },
     "showroom": {
       "title": "El showroom",
@@ -423,7 +449,9 @@
     "soon": "Molt aviat",
     "whatsapp": "WhatsApp",
     "call": "Trucar",
-    "email": "Email"
+    "email": "Email",
+    "whatsappMessage": "Hola, vull informació sobre un cotxe de Tot Auto.",
+    "whatsappLabel": "Escriu-nos per WhatsApp"
   },
   "stock": {
     "empty": "Ara mateix no hi ha unitats publicades. Pregunta'ns pel que busques.",
@@ -505,7 +533,9 @@
       "prev": "Anterior",
       "next": "Següent",
       "photo": "Foto"
-    }
+    },
+    "importHint": "Una altra versió, color o quilometratge?",
+    "importHintCta": "Te'l busquem a mida"
   },
   "leadForm": {
     "name": "Nom",

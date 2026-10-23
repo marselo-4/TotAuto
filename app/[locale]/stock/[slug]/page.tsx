@@ -131,6 +131,13 @@ export default async function VehiclePage({ params }: Props) {
               </a>
             </div>
 
+            <p className="mt-4 text-sm text-fg-muted">
+              {t("importHint")}{" "}
+              <Link href="/importacion" className="text-fg underline-offset-4 hover:underline">
+                {t("importHintCta")} →
+              </Link>
+            </p>
+
             {description && <p className="mt-10 text-lg leading-relaxed text-fg-muted">{description}</p>}
 
             <dl className="mt-10 grid grid-cols-2 gap-x-6 border-t border-line">

@@ -5,18 +5,21 @@ import { useLocale, useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import { Logo } from "@/components/layout/logo";
+import { whatsappLink } from "@/lib/site";
 
+// Orden por prioridad de negocio: primero lo que vende (stock, importación, compra), luego el local.
 const NAV = [
   { href: "/stock", key: "stock" },
-  { href: "/showroom", key: "showroom" },
   { href: "/importacion", key: "import" },
   { href: "/vende-tu-coche", key: "sell" },
+  { href: "/showroom", key: "showroom" },
   { href: "/nosotros", key: "about" },
   { href: "/contacto", key: "contact" },
 ] as const;
 
 export function SiteHeader() {
   const t = useTranslations("nav");
+  const common = useTranslations("common");
   const locale = useLocale();
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
@@ -28,7 +31,7 @@ export function SiteHeader() {
           <Logo height={20} priority />
         </Link>
 
-        <nav className="hidden items-center gap-7 text-[0.8125rem] font-medium uppercase tracking-[0.12em] text-fg-muted lg:flex" aria-label="Principal">
+        <nav className="hidden items-center gap-5 whitespace-nowrap text-[0.8125rem] font-medium uppercase tracking-[0.12em] text-fg-muted lg:flex xl:gap-7" aria-label="Principal">
           {NAV.map((item) => {
             const active = pathname === item.href || pathname.startsWith(item.href + "/");
             return (
@@ -96,7 +99,20 @@ export function SiteHeader() {
               </li>
             ))}
           </ul>
-          <div className="mt-4 flex items-center gap-3 text-xs uppercase tracking-widest text-fg-faint">
+          <div className="mt-5 grid grid-cols-2 gap-3">
+            <Link href="/stock" className="rounded-sm bg-accent px-4 py-3.5 text-center btn-label text-accent-ink" onClick={() => setOpen(false)}>
+              {t("ctaStock")}
+            </Link>
+            <a
+              href={whatsappLink(common("whatsappMessage"))}
+              target="_blank"
+              rel="noopener"
+              className="rounded-sm border border-line-strong px-4 py-3.5 text-center btn-label"
+            >
+              {t("whatsapp")}
+            </a>
+          </div>
+          <div className="mt-5 flex items-center gap-3 text-xs uppercase tracking-widest text-fg-faint">
             {routing.locales.map((l) => (
               <Link key={l} href={pathname} locale={l} className={l === locale ? "text-fg" : ""} onClick={() => setOpen(false)}>
                 {l}

@@ -8,6 +8,7 @@ import { routing } from "@/i18n/routing";
 import { SmoothScroll } from "@/components/providers/smooth-scroll";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
+import { WhatsappFab } from "@/components/layout/whatsapp-fab";
 import { CookieConsent } from "@/components/providers/cookie-consent";
 import "../globals.css";
 
@@ -67,6 +68,7 @@ export default async function LocaleLayout({
             <main id="contenido" className="flex-1">{children}</main>
             <SiteFooter />
           </SmoothScroll>
+          <WhatsappFab />
           <CookieConsent />
         </NextIntlClientProvider>
       </body>

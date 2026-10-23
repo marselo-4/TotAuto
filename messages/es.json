@@ -14,10 +14,12 @@
     "cta": "Pedir cita",
     "menu": "Menú",
     "close": "Cerrar",
-    "language": "Idioma"
+    "language": "Idioma",
+    "whatsapp": "WhatsApp",
+    "ctaStock": "Ver el stock"
   },
   "home": {
-    "eyebrow": "Showroom · Tàrrega",
+    "eyebrow": "Deportivos y alta gama · Tàrrega",
     "title": "Pocos coches. Todos elegidos.",
     "lead": "Deportivos y alta gama seleccionados uno a uno, verificados y listos para conducir. Si no lo tenemos, lo encontramos.",
     "ctaStock": "Ver el stock",
@@ -32,23 +34,31 @@
       "1": {
         "eyebrow": "Sala principal",
         "title": "Cada coche, una pieza.",
-        "text": "Luz de galería, fondo neutro y espacio alrededor. Nada que distraiga."
+        "text": "Seleccionados uno a uno, verificados y con historial. Todos con precio a la vista.",
+        "cta": "Ver el stock"
       },
       "2": {
-        "eyebrow": "Hacia la sala trasera",
-        "title": "Hay más detrás.",
-        "text": "Tras el tabique, la segunda sala: la zona de fotos y los coches que llegan."
+        "eyebrow": "Importación a medida",
+        "title": "Y si no está, lo traemos.",
+        "text": "Lo buscamos en toda Europa, lo verificamos en origen y lo matriculamos. Precio cerrado antes de empezar.",
+        "cta": "Encargar una búsqueda"
       },
       "3": {
         "eyebrow": "Tàrrega · Lleida",
         "title": "Ven a verlos.",
-        "text": "Visita privada con cita. Si no tenemos lo que buscas, lo encontramos."
+        "text": "Visita privada con cita, sin prisas. Y si no tenemos lo que buscas, lo encontramos."
       }
     },
     "featured": {
-      "eyebrow": "Ahora en el showroom",
-      "title": "Seleccionados.",
-      "all": "Ver todo el stock"
+      "eyebrow": "Stock",
+      "title": "Ahora en el showroom.",
+      "all": "Ver todo el stock",
+      "count": "{count, plural, =0 {Sin unidades publicadas} one {# coche disponible} other {# coches disponibles}}",
+      "importLead": "¿No está el que buscas?",
+      "importCta": "Lo buscamos en toda Europa",
+      "emptyTitle": "Próximas llegadas.",
+      "emptyText": "Estamos renovando el stock. Dinos qué buscas y te avisamos en cuanto entre, o te lo traemos a medida.",
+      "emptyCta": "Encargar una búsqueda"
     },
     "import": {
       "eyebrow": "Importación a medida",
@@ -110,12 +120,28 @@
       "whatsappMessage": "Hola, me interesa un coche del showroom de Tot Auto.",
       "phone": "Teléfono",
       "cta": "Pedir cita"
-    }
+    },
+    "ctaImport": "Importación a medida",
+    "findByMake": "Buscar por marca"
   },
   "pages": {
     "stock": {
       "title": "Stock",
-      "lead": "Unidades disponibles ahora mismo en el showroom."
+      "lead": "Deportivos y alta gama seleccionados uno a uno, verificados y listos para conducir. Si no está aquí, lo importamos a medida.",
+      "importCard": {
+        "eyebrow": "Importación a medida",
+        "title": "¿No está el que buscas?",
+        "text": "Lo buscamos en toda Europa, lo verificamos y lo traemos matriculado. Primeras propuestas en 48 h.",
+        "cta": "Encargar una búsqueda"
+      },
+      "sellCard": {
+        "eyebrow": "Compramos tu coche",
+        "title": "¿Vendes el tuyo?",
+        "text": "Tasación en 24 horas, pago inmediato y papeles resueltos.",
+        "cta": "Pedir tasación"
+      },
+      "emptyTitle": "Ahora mismo no hay unidades publicadas.",
+      "emptyText": "Dinos qué buscas: lo tenemos a punto de entrar o lo traemos a medida."
     },
     "showroom": {
       "title": "El showroom",
@@ -423,7 +449,9 @@
     "soon": "Muy pronto",
     "whatsapp": "WhatsApp",
     "call": "Llamar",
-    "email": "Email"
+    "email": "Email",
+    "whatsappMessage": "Hola, quiero información sobre un coche de Tot Auto.",
+    "whatsappLabel": "Escríbenos por WhatsApp"
   },
   "stock": {
     "empty": "Ahora mismo no hay unidades publicadas. Pregúntanos por lo que buscas.",
@@ -505,7 +533,9 @@
       "prev": "Anterior",
       "next": "Siguiente",
       "photo": "Foto"
-    }
+    },
+    "importHint": "¿Otra versión, color o kilometraje?",
+    "importHintCta": "Te lo buscamos a medida"
   },
   "leadForm": {
     "name": "Nombre",
