@@ -19,8 +19,10 @@ precio de mercado español puesto en Tàrrega._
    actualizan km, precio de origen, estimación y fecha (el precio público solo mientras sigan en borrador);
    las que ya no están en seguimiento, o cuyo anuncio ya no está activo (`listing.active`, con respaldo de
    14 días sin verse), pasan de publicadas a borrador.
-5. Se lanza desde el panel (botón «Traer de ImportRadar», solo admin) o por cron de Vercel cada 6 horas
-   (`vercel.json` → `/api/importradar/sync`, cabecera `Authorization: Bearer CRON_SECRET`).
+5. Se lanza desde el panel (botón «Traer de ImportRadar», solo admin) o por cron de Vercel una vez al día a
+   las 07:00 UTC, después del rastreo nocturno de ImportRadar (`vercel.json` → `/api/importradar/sync`,
+   cabecera `Authorization: Bearer CRON_SECRET`). El plan Hobby de Vercel solo admite crons diarios: una
+   expresión más frecuente hace fallar el despliegue entero.
 
 ## En la web
 
