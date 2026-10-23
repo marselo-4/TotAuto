@@ -5,14 +5,11 @@ import { Geist, Bodoni_Moda } from "next/font/google";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
-import { SmoothScroll } from "@/components/providers/smooth-scroll";
-import { SiteHeader } from "@/components/layout/site-header";
-import { SiteFooter } from "@/components/layout/site-footer";
-import { CookieConsent } from "@/components/providers/cookie-consent";
+import { seoAlternates } from "@/lib/seo";
 import "../globals.css";
 
 const geist = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
-// Display: Bodoni Moda, la misma familia del logo (propuesta A). Fuente variable con eje óptico.
+// Display: Bodoni Moda, la misma familia del logo. Fuente variable con eje óptico.
 const display = Bodoni_Moda({
   variable: "--font-bodoni",
   style: ["normal", "italic"],
@@ -24,19 +21,18 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "meta" });
   return {
-    title: { default: t("defaultTitle"), template: `%s · ${t("siteName")}` },
-    description: t("defaultDescription"),
+    title: t("title"),
+    description: t("description"),
     metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
+    alternates: seoAlternates(locale, "/"),
     openGraph: {
       siteName: t("siteName"),
+      title: t("title"),
+      description: t("description"),
       type: "website",
       locale: locale === "ca" ? "ca_ES" : "es_ES",
       images: [{ url: "/og.jpg", width: 1200, height: 630, alt: t("siteName") }],
@@ -67,12 +63,7 @@ export default async function LocaleLayout({
           {a11y("skip")}
         </a>
         <NextIntlClientProvider>
-          <SmoothScroll>
-            <SiteHeader />
-            <main id="contenido" className="flex-1">{children}</main>
-            <SiteFooter />
-          </SmoothScroll>
-          <CookieConsent />
+          <main id="contenido" className="flex flex-1 flex-col">{children}</main>
         </NextIntlClientProvider>
       </body>
     </html>

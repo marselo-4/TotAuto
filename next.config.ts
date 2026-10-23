@@ -12,19 +12,12 @@ const nextConfig: NextConfig = {
       },
     },
   },
-  images: {
-    remotePatterns: [
-      // Fotos de coches en Supabase Storage (se concreta el host al crear el proyecto)
-      { protocol: "https", hostname: "*.supabase.co", pathname: "/storage/v1/object/public/**" },
-    ],
-  },
   async redirects() {
-    // URLs de la web antigua (sitemap 2024) → rutas nuevas, para no perder lo indexado
+    // URLs de la web antigua (sitemap 2024): mientras dure la landing, todas a la portada
     return [
-      { source: "/index.html", destination: "/", permanent: true },
-      { source: "/contacto.html", destination: "/contacto", permanent: true },
-      { source: "/catalogo.html", destination: "/stock", permanent: true },
-      { source: "/catalogo/:path*", destination: "/stock", permanent: true },
+      { source: "/index.html", destination: "/", permanent: false },
+      { source: "/:path*.html", destination: "/", permanent: false },
+      { source: "/catalogo/:path*", destination: "/", permanent: false },
     ];
   },
 };

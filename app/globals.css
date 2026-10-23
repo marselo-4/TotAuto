@@ -37,7 +37,6 @@
 /* ---------- Base ---------- */
 html {
   color-scheme: dark;
-  scroll-behavior: auto; /* Lenis se encarga del scroll suave */
 }
 
 body {
@@ -56,21 +55,6 @@ body {
 ::selection {
   background: var(--color-accent);
   color: var(--color-accent-ink);
-}
-
-/* Lenis */
-html.lenis,
-html.lenis body {
-  height: auto;
-}
-.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
-}
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
-}
-.lenis.lenis-stopped {
-  overflow: hidden;
 }
 
 /* ---------- Utilidades propias ---------- */
@@ -96,13 +80,70 @@ html.lenis body {
   text-wrap: balance;
 }
 
-/* Flecha de "desliza" */
-@keyframes nudge {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(4px); }
+/* ---------- Landing "próximamente": movimiento solo con CSS ----------
+   `--d` es el retardo de cada pieza. Con "reducir movimiento" todo salta al estado final. */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(22px); }
+  to { opacity: 1; transform: none; }
 }
-@utility animate-nudge {
-  animation: nudge 1.6s ease-in-out infinite;
+@keyframes draw {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+@keyframes drift {
+  0% { transform: translate(-6%, -4%) scale(1); }
+  50% { transform: translate(6%, 5%) scale(1.12); }
+  100% { transform: translate(-6%, -4%) scale(1); }
+}
+@keyframes breathe {
+  0%, 100% { opacity: 0.55; transform: rotate(45deg) scale(0.85); }
+  50% { opacity: 1; transform: rotate(45deg) scale(1.1); }
+}
+
+.rise {
+  animation: rise 1s var(--ease-out) both;
+  animation-delay: var(--d, 0s);
+}
+.draw {
+  animation: draw 1.4s var(--ease-out) both;
+  animation-delay: 0.8s;
+}
+.diamond {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  background: var(--color-accent);
+  animation: breathe 3.2s ease-in-out infinite;
+}
+.link-quiet {
+  color: var(--color-fg-muted);
+  transition: color 0.2s ease;
+}
+.link-quiet:hover {
+  color: var(--color-fg);
+}
+
+/* Foco champán muy tenue, desplazado hacia arriba a la derecha, que deriva despacio */
+.glow {
+  position: absolute;
+  top: -20vmax;
+  right: -15vmax;
+  width: 90vmax;
+  height: 90vmax;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(201, 169, 110, 0.16), rgba(201, 169, 110, 0.04) 45%, transparent 70%);
+  animation: drift 28s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Grano fino para que el degradado no "bandee" en pantallas oscuras */
+.grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.07;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.6 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 160px 160px;
 }
 
 /* Respeta "reducir movimiento" */
