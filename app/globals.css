@@ -21,9 +21,9 @@
   --color-accent: #c9a96e;
   --color-accent-ink: #0b0b0c;
 
-  /* Tipografía: las variables --font-geist-sans y --font-bodoni las pone next/font en <html> */
+  /* Tipografía: las variables --font-geist-sans y --font-archivo las pone next/font en <html> */
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-bodoni), Georgia, serif;
+  --font-display: var(--font-archivo), "Archivo", ui-sans-serif, system-ui, sans-serif;
 
   /* Ritmo */
   --radius-card: 0.75rem;
@@ -73,10 +73,12 @@ body {
 
 @utility display {
   font-family: var(--font-display);
-  font-weight: 500;
-  font-variation-settings: "opsz" 96;
-  line-height: 1;
-  letter-spacing: 0;
+  font-weight: 800;
+  font-stretch: 125%;
+  font-variation-settings: "wdth" 125;
+  text-transform: uppercase;
+  line-height: 0.92;
+  letter-spacing: -0.01em;
   text-wrap: balance;
 }
 
@@ -144,6 +146,15 @@ body {
   mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.6 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-size: 160px 160px;
+}
+
+/* Flecha de "baja" */
+@keyframes nudge {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(4px); }
+}
+@utility animate-nudge {
+  animation: nudge 1.6s ease-in-out infinite;
 }
 
 /* Respeta "reducir movimiento" */

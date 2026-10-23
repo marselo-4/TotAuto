@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { notFound } from "next/navigation";
-import { Geist, Bodoni_Moda } from "next/font/google";
+import { Geist, Archivo } from "next/font/google";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
@@ -9,12 +9,12 @@ import { seoAlternates } from "@/lib/seo";
 import "../globals.css";
 
 const geist = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
-// Display: Bodoni Moda, la misma familia del logo. Fuente variable con eje óptico.
-const display = Bodoni_Moda({
-  variable: "--font-bodoni",
-  style: ["normal", "italic"],
+// Display: Archivo variable (peso 100–900, anchura 62–125). Se usa expandida y muy negra:
+// tipografía moderna, de corte automovilístico, para los titulares. El logo sigue siendo el SVG.
+const display = Archivo({
+  variable: "--font-archivo",
   subsets: ["latin"],
-  axes: ["opsz"],
+  axes: ["wdth"],
 });
 
 export function generateStaticParams() {

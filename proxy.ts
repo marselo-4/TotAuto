@@ -5,11 +5,11 @@ import { routing } from "./i18n/routing";
 // Next 16 llama "proxy" a lo que antes era middleware.
 const intl = createMiddleware(routing);
 
-/** Landing de "próximamente": solo existe la portada en cada idioma. Todo lo demás vuelve a ella. */
+/** Landing de "próximamente": solo existen la portada y la política de privacidad (la pide el formulario). Todo lo demás vuelve a la portada. */
 export default function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
-  const isRoot = pathname === "/" || pathname === "/ca" || pathname === "/ca/";
-  if (!isRoot) {
+  const allowed = ["/", "/ca", "/ca/", "/legal/privacidad", "/ca/legal/privacidad"];
+  if (!allowed.includes(pathname)) {
     const url = request.nextUrl.clone();
     url.pathname = pathname.startsWith("/ca/") ? "/ca" : "/";
     url.search = "";

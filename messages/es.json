@@ -12,7 +12,9 @@
     "whatsapp": "WhatsApp",
     "whatsappMessage": "Hola, quiero saber más sobre Tot Auto.",
     "language": "Idioma",
-    "rights": "Tot Auto. Todos los derechos reservados."
+    "rights": "Tot Auto. Todos los derechos reservados.",
+    "title1": "Tu coche,",
+    "title2": "a la carta."
   },
   "a11y": {
     "skip": "Saltar al contenido"
@@ -21,5 +23,27 @@
     "title": "Esta página no existe.",
     "text": "Todavía no hay nada aquí. Muy pronto.",
     "home": "Volver al inicio"
+  },
+  "waitlist": {
+    "eyebrow": "Lista de espera · Inauguración",
+    "title": "Entérate antes que nadie.",
+    "text": "Déjanos tu contacto y te avisamos con la fecha de la inauguración y tu invitación.",
+    "name": "Nombre",
+    "email": "Email",
+    "phone": "Teléfono",
+    "optional": "opcional",
+    "consent": "Acepto que Tot Auto guarde mis datos para avisarme de la inauguración, según la <privacy>política de privacidad</privacy>.",
+    "submit": "Apuntarme",
+    "sending": "Enviando…",
+    "okTitle": "Estás en la lista.",
+    "okText": "Te avisamos en cuanto haya fecha.",
+    "already": "Este email ya estaba en la lista. Te avisamos igualmente.",
+    "errorInvalid": "Revisa los datos: nombre, email y la casilla de consentimiento.",
+    "errorServer": "No se ha podido guardar. Inténtalo de nuevo o escríbenos por WhatsApp."
+  },
+  "legal": {
+    "eyebrow": "Legal",
+    "updated": "Última actualización: {date}",
+    "back": "Volver"
   }
 }

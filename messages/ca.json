@@ -12,7 +12,9 @@
     "whatsapp": "WhatsApp",
     "whatsappMessage": "Hola, vull saber més sobre Tot Auto.",
     "language": "Idioma",
-    "rights": "Tot Auto. Tots els drets reservats."
+    "rights": "Tot Auto. Tots els drets reservats.",
+    "title1": "El teu cotxe,",
+    "title2": "a la carta."
   },
   "a11y": {
     "skip": "Salta al contingut"
@@ -21,5 +23,27 @@
     "title": "Aquesta pàgina no existeix.",
     "text": "Encara no hi ha res aquí. Molt aviat.",
     "home": "Tornar a l'inici"
+  },
+  "waitlist": {
+    "eyebrow": "Llista d'espera · Inauguració",
+    "title": "Assabenta-te'n abans que ningú.",
+    "text": "Deixa'ns el teu contacte i t'avisem amb la data de la inauguració i la teva invitació.",
+    "name": "Nom",
+    "email": "Email",
+    "phone": "Telèfon",
+    "optional": "opcional",
+    "consent": "Accepto que Tot Auto guardi les meves dades per avisar-me de la inauguració, segons la <privacy>política de privacitat</privacy>.",
+    "submit": "Apuntar-m'hi",
+    "sending": "Enviant…",
+    "okTitle": "Ja ets a la llista.",
+    "okText": "T'avisem tan bon punt hi hagi data.",
+    "already": "Aquest email ja era a la llista. T'avisem igualment.",
+    "errorInvalid": "Revisa les dades: nom, email i la casella de consentiment.",
+    "errorServer": "No s'ha pogut desar. Torna-ho a provar o escriu-nos per WhatsApp."
+  },
+  "legal": {
+    "eyebrow": "Legal",
+    "updated": "Darrera actualització: {date}",
+    "back": "Tornar"
   }
 }
