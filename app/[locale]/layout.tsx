@@ -5,7 +5,7 @@ import { Geist, Archivo } from "next/font/google";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
-import { seoAlternates } from "@/lib/seo";
+import { localizedUrl, seoAlternates } from "@/lib/seo";
 import "../globals.css";
 
 const geist = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
@@ -34,7 +34,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       title: t("title"),
       description: t("description"),
       type: "website",
+      url: localizedUrl(locale, "/"),
       locale: locale === "ca" ? "ca_ES" : "es_ES",
+      alternateLocale: locale === "ca" ? "es_ES" : "ca_ES",
       images: [{ url: "/og.jpg", width: 1200, height: 630, alt: t("siteName") }],
     },
     twitter: { card: "summary_large_image" },

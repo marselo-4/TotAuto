@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { routing } from "@/i18n/routing";
+import { site } from "@/lib/site";
 
 export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000").replace(/\/$/, "");
 
@@ -15,4 +16,46 @@ export function seoAlternates(locale: string, path: string): NonNullable<Metadat
   for (const l of routing.locales) languages[l] = localizedUrl(l, path);
   languages["x-default"] = localizedUrl(routing.defaultLocale, path);
   return { canonical: localizedUrl(locale, path), languages };
+}
+
+/** JSON-LD de la portada: el negocio (AutoDealer, para el panel local de Google) y el sitio. */
+export function homeJsonLd(locale: string, description: string) {
+  const url = localizedUrl(locale, "/");
+  const { address } = site;
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "AutoDealer",
+        "@id": `${SITE_URL}/#negocio`,
+        name: site.name,
+        legalName: site.legalEntity,
+        description,
+        url: SITE_URL,
+        logo: `${SITE_URL}/brand/logo-on-white.svg`,
+        image: `${SITE_URL}/og.jpg`,
+        telephone: site.phone,
+        email: site.email,
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: address.street,
+          postalCode: address.postalCode,
+          addressLocality: address.city,
+          addressRegion: address.region,
+          addressCountry: address.country,
+        },
+        geo: { "@type": "GeoCoordinates", latitude: address.lat, longitude: address.lng },
+        areaServed: ["Lleida", "Catalunya", "España"],
+        sameAs: site.sameAs,
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${SITE_URL}/#web`,
+        url,
+        name: site.name,
+        inLanguage: locale,
+        publisher: { "@id": `${SITE_URL}/#negocio` },
+      },
+    ],
+  };
 }

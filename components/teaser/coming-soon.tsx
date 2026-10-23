@@ -114,9 +114,14 @@ export async function ComingSoon() {
             </li>
           </ul>
         </div>
-        <p className="text-xs text-fg-faint">
-          © {year} {t("rights")}
-        </p>
+        <div className="text-xs text-fg-faint md:text-right">
+          <address className="not-italic">
+            {site.address.street} · {site.address.postalCode} {site.address.city} ({site.address.region})
+          </address>
+          <p className="mt-1">
+            © {year} {t("rights")}
+          </p>
+        </div>
       </footer>
     </div>
   );

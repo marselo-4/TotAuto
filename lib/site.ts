@@ -16,6 +16,8 @@ export const site = {
     lng: 1.143882,
   },
   gaId: "G-NPE0S5B82H",
+  // Perfiles públicos del negocio (JSON-LD sameAs)
+  sameAs: ["https://www.facebook.com/p/Tot-Auto-100057603603578/"],
 } as const;
 
 export function whatsappLink(message: string) {
