@@ -137,6 +137,9 @@ export function ShowroomHero({ copy, makes = [] }: { copy: HeroCopy; makes?: str
         {/* Etapas del recorrido */}
         {copy.captions.map((c, i) => {
           const last = i === copy.captions.length - 1;
+          // Los botones de una etapa solo reciben clics mientras esa etapa está visible; si no,
+          // los de las etapas ocultas (apiladas en el mismo sitio) taparían los chips de la intro.
+          const clickable = stage === i + 1 ? "pointer-events-auto" : "";
           return (
             <div
               key={i}
@@ -149,13 +152,13 @@ export function ShowroomHero({ copy, makes = [] }: { copy: HeroCopy; makes?: str
                 <h2 className="display max-w-4xl text-4xl md:text-6xl">{c.title}</h2>
                 {c.text && <p className="mt-5 max-w-lg text-fg-muted md:text-lg">{c.text}</p>}
                 {last ? (
-                  <div className="pointer-events-auto mt-8 flex flex-wrap gap-3">
+                  <div className={`${clickable} mt-8 flex flex-wrap gap-3`}>
                     <Link href="/stock" className={btnPrimary}>{copy.ctaStock}</Link>
                     <Link href="/showroom" className={btnSecondary}>{copy.ctaVisit}</Link>
                   </div>
                 ) : (
                   c.cta && (
-                    <div className="pointer-events-auto mt-8">
+                    <div className={`${clickable} mt-8`}>
                       <Link href={c.cta.href} className={btnPrimary}>{c.cta.label}</Link>
                     </div>
                   )
