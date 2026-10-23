@@ -487,7 +487,11 @@
       "upTo": "Fins a {price}",
       "sort": "Ordre",
       "count": "{count, plural, =0 {Cap cotxe} one {# cotxe} other {# cotxes}}",
-      "clear": "Treure filtres"
+      "clear": "Treure filtres",
+      "availability": "Disponibilitat",
+      "anyAvailability": "Tots",
+      "inStock": "Al showroom",
+      "onDemand": "Sota comanda"
     },
     "sort": {
       "featured": "Destacats",
@@ -495,7 +499,9 @@
       "price_desc": "Preu: de major a menor",
       "year_desc": "Més nous",
       "km_asc": "Menys quilòmetres"
-    }
+    },
+    "onDemand": "Sota comanda · Alemanya",
+    "onDemandPrice": "Posat a Tàrrega · 4–6 setmanes"
   },
   "vehicle": {
     "backToStock": "Tornar a l'estoc",
@@ -535,7 +541,20 @@
       "photo": "Foto"
     },
     "importHint": "Una altra versió, color o quilometratge?",
-    "importHintCta": "Te'l busquem a mida"
+    "importHintCta": "Te'l busquem a mida",
+    "whatsappMessageOnDemand": "Hola, m'interessa encarregar el {title} ({year}) que teniu sota comanda.",
+    "onDemand": {
+      "badge": "Sota comanda",
+      "price": "Preu final posat a Tàrrega, matriculat i amb la documentació al dia.",
+      "title": "A punt per portar d'Alemanya.",
+      "text": "Aquesta unitat és a Alemanya i l'hem verificada. Si l'encarregues, la comprem, la portem i la matriculem al teu nom.",
+      "items": {
+        "0": "Verificació a origen abans de pagar",
+        "1": "Transport, IVA, impost de matriculació i ITV inclosos",
+        "2": "Entrega al showroom en 4 a 6 setmanes"
+      },
+      "note": "Disponibilitat subjecta a confirmació: la unitat es pot vendre a origen abans de l'encàrrec."
+    }
   },
   "leadForm": {
     "name": "Nom",

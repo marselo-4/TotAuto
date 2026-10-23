@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { coverOf, formatKm, formatPrice, imageUrl, type VehicleWithImages } from "@/lib/vehicle-format";
+import { coverOf, formatKm, formatPrice, imageUrl, isOnDemand, type VehicleWithImages } from "@/lib/vehicle-format";
 
 export function VehicleCard({ vehicle, headingLevel = "h3" }: { vehicle: VehicleWithImages; headingLevel?: "h2" | "h3" }) {
   const Heading = headingLevel;
@@ -31,6 +31,7 @@ export function VehicleCard({ vehicle, headingLevel = "h3" }: { vehicle: Vehicle
             {vehicle.status === "reserved" && <Badge>{t("reserved")}</Badge>}
             {vehicle.status === "sold" && <Badge>{t("sold")}</Badge>}
             {vehicle.featured && vehicle.status === "available" && <Badge accent>{t("featured")}</Badge>}
+            {isOnDemand(vehicle) && vehicle.status !== "sold" && <Badge>{t("onDemand")}</Badge>}
           </div>
         </div>
         <div className="p-5">
@@ -48,8 +49,10 @@ export function VehicleCard({ vehicle, headingLevel = "h3" }: { vehicle: Vehicle
           <div className="mt-5 flex items-end justify-between gap-3">
             <div>
               <p className="text-xl">{formatPrice(vehicle.price_eur, locale)}</p>
-              {vehicle.vat_deductible && (
-                <p className="mt-0.5 text-[11px] uppercase tracking-wider text-fg-faint">{t("vatDeductible")}</p>
+              {isOnDemand(vehicle) ? (
+                <p className="mt-0.5 text-[11px] uppercase tracking-wider text-fg-faint">{t("onDemandPrice")}</p>
+              ) : (
+                vehicle.vat_deductible && <p className="mt-0.5 text-[11px] uppercase tracking-wider text-fg-faint">{t("vatDeductible")}</p>
               )}
             </div>
             <span className="shrink-0 text-sm text-accent">{t("viewCar")} →</span>

@@ -12,6 +12,7 @@ export async function listVehicles(filters: StockFilters = {}): Promise<VehicleW
   if (filters.fuel) q = q.eq("fuel", filters.fuel);
   if (filters.gearbox) q = q.eq("gearbox", filters.gearbox);
   if (filters.priceMax) q = q.lte("price_eur", filters.priceMax);
+  if (filters.availability) q = q.eq("availability", filters.availability);
 
   switch (filters.sort) {
     case "price_asc":
@@ -27,7 +28,8 @@ export async function listVehicles(filters: StockFilters = {}): Promise<VehicleW
       q = q.order("km", { ascending: true });
       break;
     default:
-      q = q.order("featured", { ascending: false }).order("created_at", { ascending: false });
+      // Los coches del showroom van antes que los "bajo pedido"; dentro de cada grupo, destacados y más recientes
+      q = q.order("availability", { ascending: true }).order("featured", { ascending: false }).order("created_at", { ascending: false });
   }
 
   const { data, error } = await q;
@@ -79,6 +81,7 @@ export async function listRelatedVehicles(excludeId: string, limit = 3): Promise
     .select("*, vehicle_images(*)")
     .in("status", ["available", "reserved"])
     .neq("id", excludeId)
+    .order("availability", { ascending: true })
     .order("featured", { ascending: false })
     .order("created_at", { ascending: false })
     .limit(limit);

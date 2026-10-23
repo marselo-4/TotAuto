@@ -5,6 +5,8 @@ import { revalidatePath } from "next/cache";
 import { z } from "zod";
 import { createClient } from "@/lib/supabase/server";
 import { Constants, type TablesInsert } from "@/lib/supabase/database.types";
+import { slugify } from "@/lib/slug";
+import { importRadarConfigured, syncFromImportRadar, type SyncResult } from "@/lib/importradar";
 
 /* ---------- Sesión ---------- */
 
@@ -50,16 +52,8 @@ const VehicleSchema = z.object({
   description_ca: z.string().trim().max(4000).optional(),
   featured: z.boolean(),
   status: z.enum(Constants.public.Enums.vehicle_status),
+  availability: z.enum(Constants.public.Enums.vehicle_availability).default("in_stock"),
 });
-
-function slugify(s: string) {
-  return s
-    .normalize("NFD")
-    .replace(/[̀-ͯ]/g, "")
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/(^-|-$)/g, "");
-}
 
 function parseVehicle(formData: FormData) {
   const raw: Record<string, unknown> = {};
@@ -92,6 +86,7 @@ function parseVehicle(formData: FormData) {
     description_ca: v.description_ca ?? null,
     featured: v.featured,
     status: v.status,
+    availability: v.availability,
     sold_at: v.status === "sold" ? new Date().toISOString().slice(0, 10) : null,
   };
   return { row } as const;
@@ -158,6 +153,29 @@ export async function deleteVehicle(id: string) {
   if (error) throw new Error(error.message);
   revalidatePublic();
   redirect("/admin");
+}
+
+/* ---------- ImportRadar ---------- */
+
+export type SyncState = { result?: SyncResult; error?: string } | undefined;
+
+/** Botón "Traer de ImportRadar" del panel: solo administradores. */
+export async function syncImportRadar(): Promise<SyncState> {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) return { error: "Sesión caducada." };
+  const { data: profile } = await supabase.from("profiles").select("role").eq("id", user.id).maybeSingle();
+  if (profile?.role !== "admin") return { error: "Solo el administrador puede sincronizar." };
+  if (!importRadarConfigured()) return { error: "Falta la clave de API de ImportRadar (IMPORTRADAR_API_KEY)." };
+  try {
+    const result = await syncFromImportRadar();
+    revalidatePublic();
+    return { result };
+  } catch (err) {
+    return { error: err instanceof Error ? err.message : String(err) };
+  }
 }
 
 /* ---------- Fotos ---------- */

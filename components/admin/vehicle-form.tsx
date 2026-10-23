@@ -64,6 +64,31 @@ export function VehicleForm({ vehicle }: { vehicle?: Vehicle }) {
             <Check label="Destacado en la home" name="featured" defaultChecked={v?.featured ?? false} />
           </div>
         </div>
+        <div className="grid gap-4 sm:grid-cols-3">
+          <div>
+            <label className={labelCls} htmlFor="availability">Disponibilidad</label>
+            <select id="availability" name="availability" defaultValue={v?.availability ?? "in_stock"} className={field}>
+              <option value="in_stock">En el showroom</option>
+              <option value="on_demand">Bajo pedido (se trae de Alemania)</option>
+            </select>
+          </div>
+          {v?.source === "importradar" && (
+            <div className="rounded-md border border-line bg-bg p-3 text-xs text-fg-muted sm:col-span-2">
+              <p className="mb-1 uppercase tracking-wider text-fg-faint">Origen · ImportRadar</p>
+              <p>
+                Anunciado en origen a <span className="text-fg">{v.source_price_eur?.toLocaleString("es-ES") ?? "—"} €</span>
+                {" · "}venta estimada en España <span className="text-fg">{v.market_price_eur?.toLocaleString("es-ES") ?? "—"} €</span>
+                {v.source_synced_at && <> · sincronizado el {new Date(v.source_synced_at).toLocaleString("es-ES")}</>}
+              </p>
+              <p className="mt-1">
+                {v.source_url && (
+                  <a href={v.source_url} target="_blank" rel="noopener" className="text-accent hover:underline">Ver el anuncio de origen ↗</a>
+                )}
+                {" · "}Los kilómetros y la estimación se actualizan solos; el precio público solo mientras esté en borrador.
+              </p>
+            </div>
+          )}
+        </div>
       </Section>
 
       <Section title="Origen y documentación">

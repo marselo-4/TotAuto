@@ -4,7 +4,7 @@ import { useTransition } from "react";
 import { useSearchParams } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/navigation";
-import { FUELS, GEARBOXES, PRICE_CAPS, SORT_OPTIONS, formatPrice, type StockFilters } from "@/lib/vehicle-format";
+import { FUELS, GEARBOXES, PRICE_CAPS, SORT_OPTIONS, availabilityParam, formatPrice, type StockFilters } from "@/lib/vehicle-format";
 
 export function StockFiltersBar({ makes, filters, count }: { makes: string[]; filters: StockFilters; count: number }) {
   const t = useTranslations("stock");
@@ -26,7 +26,7 @@ export function StockFiltersBar({ makes, filters, count }: { makes: string[]; fi
     startTransition(() => router.replace(pathname, { scroll: false }));
   }
 
-  const hasFilters = Boolean(filters.make || filters.fuel || filters.gearbox || filters.priceMax);
+  const hasFilters = Boolean(filters.make || filters.fuel || filters.gearbox || filters.priceMax || filters.availability);
 
   return (
     <div className={`flex flex-col gap-4 border-y border-line py-5 transition-opacity ${pending ? "opacity-60" : ""}`} aria-busy={pending}>
@@ -54,6 +54,11 @@ export function StockFiltersBar({ makes, filters, count }: { makes: string[]; fi
           {PRICE_CAPS.map((p) => (
             <option key={p} value={p}>{t("filters.upTo", { price: formatPrice(p, locale) })}</option>
           ))}
+        </Select>
+        <Select label={t("filters.availability")} value={filters.availability ? availabilityParam(filters.availability) : ""} onChange={(v) => set("disponibilidad", v)}>
+          <option value="">{t("filters.anyAvailability")}</option>
+          <option value="showroom">{t("filters.inStock")}</option>
+          <option value="pedido">{t("filters.onDemand")}</option>
         </Select>
         <div className="ms-auto flex items-center gap-3">
           <Select label={t("filters.sort")} value={filters.sort ?? "featured"} onChange={(v) => set("orden", v === "featured" ? "" : v)}>

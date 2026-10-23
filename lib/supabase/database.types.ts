@@ -124,6 +124,7 @@ export type Database = {
       };
       vehicles: {
         Row: {
+          availability: Database["public"]["Enums"]["vehicle_availability"];
           color: string | null;
           created_at: string;
           description_ca: string | null;
@@ -135,6 +136,7 @@ export type Database = {
           imported: boolean;
           km: number;
           make: string;
+          market_price_eur: number | null;
           model: string;
           origin_country: string | null;
           owner_id: string;
@@ -144,6 +146,11 @@ export type Database = {
           service_history: string | null;
           slug: string;
           sold_at: string | null;
+          source: string;
+          source_price_eur: number | null;
+          source_ref: string | null;
+          source_synced_at: string | null;
+          source_url: string | null;
           status: Database["public"]["Enums"]["vehicle_status"];
           updated_at: string;
           vat_deductible: boolean;
@@ -152,6 +159,7 @@ export type Database = {
           year: number;
         };
         Insert: {
+          availability?: Database["public"]["Enums"]["vehicle_availability"];
           color?: string | null;
           created_at?: string;
           description_ca?: string | null;
@@ -163,6 +171,7 @@ export type Database = {
           imported?: boolean;
           km?: number;
           make: string;
+          market_price_eur?: number | null;
           model: string;
           origin_country?: string | null;
           owner_id: string;
@@ -172,6 +181,11 @@ export type Database = {
           service_history?: string | null;
           slug: string;
           sold_at?: string | null;
+          source?: string;
+          source_price_eur?: number | null;
+          source_ref?: string | null;
+          source_synced_at?: string | null;
+          source_url?: string | null;
           status?: Database["public"]["Enums"]["vehicle_status"];
           updated_at?: string;
           vat_deductible?: boolean;
@@ -180,6 +194,7 @@ export type Database = {
           year: number;
         };
         Update: {
+          availability?: Database["public"]["Enums"]["vehicle_availability"];
           color?: string | null;
           created_at?: string;
           description_ca?: string | null;
@@ -191,6 +206,7 @@ export type Database = {
           imported?: boolean;
           km?: number;
           make?: string;
+          market_price_eur?: number | null;
           model?: string;
           origin_country?: string | null;
           owner_id?: string;
@@ -200,6 +216,11 @@ export type Database = {
           service_history?: string | null;
           slug?: string;
           sold_at?: string | null;
+          source?: string;
+          source_price_eur?: number | null;
+          source_ref?: string | null;
+          source_synced_at?: string | null;
+          source_url?: string | null;
           status?: Database["public"]["Enums"]["vehicle_status"];
           updated_at?: string;
           vat_deductible?: boolean;
@@ -227,6 +248,7 @@ export type Database = {
       gearbox_type: "manual" | "automatico";
       lead_type: "vehicle" | "import" | "sell" | "contact";
       user_role: "admin" | "seller";
+      vehicle_availability: "in_stock" | "on_demand";
       vehicle_status: "draft" | "available" | "reserved" | "sold";
     };
     CompositeTypes: { [_ in never]: never };
@@ -245,6 +267,7 @@ export const Constants = {
       gearbox_type: ["manual", "automatico"],
       lead_type: ["vehicle", "import", "sell", "contact"],
       user_role: ["admin", "seller"],
+      vehicle_availability: ["in_stock", "on_demand"],
       vehicle_status: ["draft", "available", "reserved", "sold"],
     },
   },

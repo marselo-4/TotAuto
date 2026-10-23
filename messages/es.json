@@ -487,7 +487,11 @@
       "upTo": "Hasta {price}",
       "sort": "Orden",
       "count": "{count, plural, =0 {Ningún coche} one {# coche} other {# coches}}",
-      "clear": "Quitar filtros"
+      "clear": "Quitar filtros",
+      "availability": "Disponibilidad",
+      "anyAvailability": "Todos",
+      "inStock": "En el showroom",
+      "onDemand": "Bajo pedido"
     },
     "sort": {
       "featured": "Destacados",
@@ -495,7 +499,9 @@
       "price_desc": "Precio: mayor a menor",
       "year_desc": "Más nuevos",
       "km_asc": "Menos kilómetros"
-    }
+    },
+    "onDemand": "Bajo pedido · Alemania",
+    "onDemandPrice": "Puesto en Tàrrega · 4–6 semanas"
   },
   "vehicle": {
     "backToStock": "Volver al stock",
@@ -535,7 +541,20 @@
       "photo": "Foto"
     },
     "importHint": "¿Otra versión, color o kilometraje?",
-    "importHintCta": "Te lo buscamos a medida"
+    "importHintCta": "Te lo buscamos a medida",
+    "whatsappMessageOnDemand": "Hola, me interesa encargar el {title} ({year}) que tenéis bajo pedido.",
+    "onDemand": {
+      "badge": "Bajo pedido",
+      "price": "Precio final puesto en Tàrrega, matriculado y con la documentación al día.",
+      "title": "Listo para traer de Alemania.",
+      "text": "Esta unidad está localizada en Alemania y la hemos verificado. Si la encargas, la compramos, la traemos y la matriculamos a tu nombre.",
+      "items": {
+        "0": "Verificación en origen antes de pagar",
+        "1": "Transporte, IVA, impuesto de matriculación e ITV incluidos",
+        "2": "Entrega en el showroom en 4 a 6 semanas"
+      },
+      "note": "Disponibilidad sujeta a confirmación: la unidad puede venderse en origen antes del encargo."
+    }
   },
   "leadForm": {
     "name": "Nombre",

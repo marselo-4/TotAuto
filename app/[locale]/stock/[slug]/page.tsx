@@ -11,6 +11,7 @@ import {
   formatPrice,
   getVehicleBySlug,
   imageUrl,
+  isOnDemand,
   listRelatedVehicles,
   sortedImages,
   vehicleTitle,
@@ -46,7 +47,8 @@ export default async function VehiclePage({ params }: Props) {
   const title = vehicleTitle(v);
   const images = sortedImages(v).map((img) => ({ src: imageUrl(img.path), alt: img.alt ?? title }));
   const description = (currentLocale === "ca" ? v.description_ca : v.description_es) ?? v.description_es ?? "";
-  const wa = whatsappLink(t("whatsappMessage", { title, year: v.year }));
+  const onDemand = isOnDemand(v);
+  const wa = whatsappLink(t(onDemand ? "whatsappMessageOnDemand" : "whatsappMessage", { title, year: v.year }));
 
   const specs: Array<[string, string | null]> = [
     [t("specs.year"), String(v.year)],
@@ -77,7 +79,7 @@ export default async function VehiclePage({ params }: Props) {
       "@type": "Offer",
       price: v.price_eur,
       priceCurrency: "EUR",
-      availability: v.status === "available" ? "https://schema.org/InStock" : "https://schema.org/SoldOut",
+      availability: v.status !== "available" ? "https://schema.org/SoldOut" : onDemand ? "https://schema.org/PreOrder" : "https://schema.org/InStock",
       seller: { "@type": "AutoDealer", name: site.name, telephone: site.phone, address: { "@type": "PostalAddress", streetAddress: site.address.street, postalCode: site.address.postalCode, addressLocality: site.address.city, addressCountry: site.address.country } },
     },
   };
@@ -119,8 +121,13 @@ export default async function VehiclePage({ params }: Props) {
               <p className="font-display tnum text-5xl">{formatPrice(v.price_eur, locale)}</p>
               {v.status === "reserved" && <span className="mb-2 rounded-sm bg-bg-elev-2 px-3 py-1 text-xs font-semibold uppercase tracking-wider">{stock("reserved")}</span>}
               {v.status === "sold" && <span className="mb-2 rounded-sm bg-bg-elev-2 px-3 py-1 text-xs font-semibold uppercase tracking-wider">{stock("sold")}</span>}
+              {onDemand && v.status === "available" && <span className="mb-2 rounded-sm border border-line-strong px-3 py-1 text-xs font-semibold uppercase tracking-wider">{t("onDemand.badge")}</span>}
             </div>
-            {v.vat_deductible && <p className="mt-1 text-xs uppercase tracking-wider text-fg-faint">{stock("vatDeductible")}</p>}
+            {onDemand ? (
+              <p className="mt-2 text-sm text-fg-muted">{t("onDemand.price")}</p>
+            ) : (
+              v.vat_deductible && <p className="mt-1 text-xs uppercase tracking-wider text-fg-faint">{stock("vatDeductible")}</p>
+            )}
 
             <div className="mt-8 grid gap-3 sm:grid-cols-2">
               <a href={wa} target="_blank" rel="noopener" className="rounded-sm bg-accent px-6 py-3.5 text-center btn-label text-accent-ink hover:opacity-90">
@@ -137,6 +144,23 @@ export default async function VehiclePage({ params }: Props) {
                 {t("importHintCta")} →
               </Link>
             </p>
+
+            {onDemand && (
+              <div className="mt-10 rounded-card border border-line bg-bg-elev p-6">
+                <p className="eyebrow mb-2">{stock("onDemand")}</p>
+                <p className="font-display text-2xl">{t("onDemand.title")}</p>
+                <p className="mt-3 text-sm text-fg-muted">{t("onDemand.text")}</p>
+                <ul className="mt-4 grid gap-2 text-sm">
+                  {[0, 1, 2].map((i) => (
+                    <li key={i} className="flex gap-3">
+                      <span className="text-accent">✓</span>
+                      <span>{t(`onDemand.items.${i}`)}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-4 text-xs text-fg-faint">{t("onDemand.note")}</p>
+              </div>
+            )}
 
             {description && <p className="mt-10 text-lg leading-relaxed text-fg-muted">{description}</p>}
 

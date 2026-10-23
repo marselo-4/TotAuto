@@ -3,6 +3,8 @@ import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import { coverOf, formatKm, formatPrice, imageUrl, type VehicleWithImages } from "@/lib/vehicle-format";
 import { StatusSelect } from "@/components/admin/status-select";
+import { SyncImportRadarButton } from "@/components/admin/sync-importradar";
+import { importRadarConfigured } from "@/lib/importradar";
 
 const STATUS_LABEL = { draft: "Borrador", available: "Disponible", reserved: "Reservado", sold: "Vendido" } as const;
 type Status = keyof typeof STATUS_LABEL;
@@ -13,7 +15,9 @@ export default async function AdminVehiclesPage({ searchParams }: { searchParams
   const supabase = await createClient();
   let q = supabase.from("vehicles").select("*, vehicle_images(*)").order("updated_at", { ascending: false });
   if (filter) q = q.eq("status", filter);
-  const [{ data, error }, { data: all }] = await Promise.all([q, supabase.from("vehicles").select("status")]);
+  const [{ data, error }, { data: all }, { data: { user } }] = await Promise.all([q, supabase.from("vehicles").select("status"), supabase.auth.getUser()]);
+  const { data: profile } = user ? await supabase.from("profiles").select("role").eq("id", user.id).maybeSingle() : { data: null };
+  const isAdmin = profile?.role === "admin";
   if (error) throw new Error(error.message);
   const vehicles = (data ?? []) as VehicleWithImages[];
   const counts = (all ?? []).reduce<Record<string, number>>((acc, v) => ((acc[v.status] = (acc[v.status] ?? 0) + 1), acc), {});
@@ -25,9 +29,12 @@ export default async function AdminVehiclesPage({ searchParams }: { searchParams
           <h1 className="display text-4xl">Coches</h1>
           <p className="mt-1 text-sm text-fg-muted">Ves tus coches; el admin los ve todos. Solo se publican los que no están en borrador.</p>
         </div>
-        <Link href="/admin/vehicles/new" className="rounded-sm bg-accent px-5 py-2.5 btn-label text-accent-ink hover:opacity-90">
-          + Nuevo coche
-        </Link>
+        <div className="flex flex-wrap items-center gap-3">
+          {isAdmin && importRadarConfigured() && <SyncImportRadarButton />}
+          <Link href="/admin/vehicles/new" className="rounded-sm bg-accent px-5 py-2.5 btn-label text-accent-ink hover:opacity-90">
+            + Nuevo coche
+          </Link>
+        </div>
       </div>
 
       <div className="mb-6 flex flex-wrap gap-2 text-sm">
@@ -59,6 +66,14 @@ export default async function AdminVehiclesPage({ searchParams }: { searchParams
                   <p className="mt-0.5 text-sm text-fg-muted">
                     {v.year} · {formatKm(v.km, "es")} · {formatPrice(v.price_eur, "es")}
                     {v.featured && <span className="ml-2 rounded-full bg-accent/15 px-2 py-0.5 text-[10px] uppercase tracking-wider text-accent">Destacado</span>}
+                    {v.availability === "on_demand" && (
+                      <span className="ml-2 rounded-full border border-line px-2 py-0.5 text-[10px] uppercase tracking-wider text-fg-muted">
+                        Bajo pedido · {v.origin_country ?? "DE"}
+                      </span>
+                    )}
+                    {v.source_url && (
+                      <a href={v.source_url} target="_blank" rel="noopener" className="ml-2 text-xs text-fg-faint hover:text-fg">anuncio ↗</a>
+                    )}
                     <span className="ml-2 text-fg-faint">{v.vehicle_images.length} fotos</span>
                   </p>
                 </div>

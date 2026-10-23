@@ -7,6 +7,9 @@ export type VehicleImage = Database["public"]["Tables"]["vehicle_images"]["Row"]
 export type VehicleWithImages = Vehicle & { vehicle_images: VehicleImage[] };
 export type Fuel = Database["public"]["Enums"]["fuel_type"];
 export type Gearbox = Database["public"]["Enums"]["gearbox_type"];
+export type Availability = Database["public"]["Enums"]["vehicle_availability"];
+
+export const isOnDemand = (v: Pick<Vehicle, "availability">) => v.availability === "on_demand";
 
 const STORAGE_PUBLIC = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/vehicles/`;
 
@@ -36,8 +39,13 @@ export type StockFilters = {
   fuel?: Fuel;
   gearbox?: Gearbox;
   priceMax?: number;
+  availability?: Availability;
   sort?: SortOption;
 };
+
+/** Valores de la URL (?disponibilidad=) para el filtro de disponibilidad. */
+export const AVAILABILITY_PARAM: Record<string, Availability> = { showroom: "in_stock", pedido: "on_demand" };
+export const availabilityParam = (a: Availability) => (a === "in_stock" ? "showroom" : "pedido");
 
 export const FUELS: Fuel[] = ["gasolina", "diesel", "hibrido", "hibrido_enchufable", "electrico"];
 export const GEARBOXES: Gearbox[] = ["manual", "automatico"];
@@ -54,6 +62,8 @@ export function parseStockFilters(params: Record<string, string | string[] | und
   if (gearbox && GEARBOXES.includes(gearbox as Gearbox)) f.gearbox = gearbox as Gearbox;
   const price = Number(one("precio"));
   if (PRICE_CAPS.includes(price as (typeof PRICE_CAPS)[number])) f.priceMax = price;
+  const availability = one("disponibilidad");
+  if (availability && AVAILABILITY_PARAM[availability]) f.availability = AVAILABILITY_PARAM[availability];
   const sort = one("orden");
   if (sort && SORT_OPTIONS.includes(sort as SortOption)) f.sort = sort as SortOption;
   return f;
