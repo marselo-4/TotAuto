@@ -116,17 +116,17 @@ export default async function VehiclePage({ params }: Props) {
             </div>
 
             <div className="mt-8 flex items-end gap-3">
-              <p className="font-display text-5xl">{formatPrice(v.price_eur, locale)}</p>
-              {v.status === "reserved" && <span className="mb-2 rounded-full bg-bg-elev-2 px-3 py-1 text-xs uppercase tracking-wider">{stock("reserved")}</span>}
-              {v.status === "sold" && <span className="mb-2 rounded-full bg-bg-elev-2 px-3 py-1 text-xs uppercase tracking-wider">{stock("sold")}</span>}
+              <p className="font-display tnum text-5xl">{formatPrice(v.price_eur, locale)}</p>
+              {v.status === "reserved" && <span className="mb-2 rounded-sm bg-bg-elev-2 px-3 py-1 text-xs font-semibold uppercase tracking-wider">{stock("reserved")}</span>}
+              {v.status === "sold" && <span className="mb-2 rounded-sm bg-bg-elev-2 px-3 py-1 text-xs font-semibold uppercase tracking-wider">{stock("sold")}</span>}
             </div>
             {v.vat_deductible && <p className="mt-1 text-xs uppercase tracking-wider text-fg-faint">{stock("vatDeductible")}</p>}
 
             <div className="mt-8 grid gap-3 sm:grid-cols-2">
-              <a href={wa} target="_blank" rel="noopener" className="rounded-full bg-accent px-6 py-3 text-center text-sm font-medium text-accent-ink hover:opacity-90">
+              <a href={wa} target="_blank" rel="noopener" className="rounded-sm bg-accent px-6 py-3.5 text-center btn-label text-accent-ink hover:opacity-90">
                 {t("ctaWhatsapp")}
               </a>
-              <a href={`tel:${site.phone.replace(/\s/g, "")}`} className="rounded-full border border-line-strong px-6 py-3 text-center text-sm hover:border-fg">
+              <a href={`tel:${site.phone.replace(/\s/g, "")}`} className="rounded-sm border border-line-strong px-6 py-3.5 text-center btn-label hover:border-fg">
                 {t("ctaCall")} · {site.phone}
               </a>
             </div>
@@ -181,10 +181,10 @@ export default async function VehiclePage({ params }: Props) {
 
       {/* Barra fija en móvil */}
       <div className="fixed inset-x-0 bottom-0 z-40 flex gap-2 border-t border-line bg-bg/90 p-3 backdrop-blur md:hidden">
-        <a href={wa} target="_blank" rel="noopener" className="flex-1 rounded-full bg-accent px-4 py-3 text-center text-sm font-medium text-accent-ink">
+        <a href={wa} target="_blank" rel="noopener" className="flex-1 rounded-sm bg-accent px-4 py-3.5 text-center btn-label text-accent-ink">
           WhatsApp
         </a>
-        <a href={`tel:${site.phone.replace(/\s/g, "")}`} className="flex-1 rounded-full border border-line-strong px-4 py-3 text-center text-sm">
+        <a href={`tel:${site.phone.replace(/\s/g, "")}`} className="flex-1 rounded-sm border border-line-strong px-4 py-3.5 text-center btn-label">
           {t("ctaCall")}
         </a>
       </div>

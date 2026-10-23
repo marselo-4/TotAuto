@@ -48,7 +48,7 @@ export function SplitReveal({
             stagger: 0.09,
             delay,
             // Al terminar se deshace la partición: el DOM vuelve a ser el texto original,
-            // sin máscaras que recorten los descendentes de la Bodoni.
+            // sin máscaras que recorten descendentes ni acentos.
             onComplete: () => split?.revert(),
             ...(inView ? {} : { scrollTrigger: { trigger: el, start: "top 90%", once: true } }),
           },

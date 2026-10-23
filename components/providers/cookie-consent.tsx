@@ -96,10 +96,10 @@ gtag('js',new Date());gtag('config','${GA_ID}',{anonymize_ip:true});`}
             <Link href="/legal/cookies" className="text-fg underline underline-offset-4">{t("more")}</Link>
           </p>
           <div className="mt-4 flex flex-wrap gap-2">
-            <button type="button" onClick={() => decide("granted")} className="rounded-full bg-accent px-5 py-2 text-sm font-medium text-accent-ink hover:opacity-90">
+            <button type="button" onClick={() => decide("granted")} className="rounded-sm bg-accent px-5 py-2.5 btn-label text-accent-ink hover:opacity-90">
               {t("accept")}
             </button>
-            <button type="button" onClick={() => decide("denied")} className="rounded-full border border-line-strong px-5 py-2 text-sm hover:border-fg">
+            <button type="button" onClick={() => decide("denied")} className="rounded-sm border border-line-strong px-5 py-2.5 btn-label hover:border-fg">
               {t("reject")}
             </button>
           </div>

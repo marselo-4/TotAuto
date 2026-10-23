@@ -59,7 +59,7 @@ export function Showroom3D() {
               <button
                 type="button"
                 onClick={() => setStarted(true)}
-                className="rounded-full bg-accent px-6 py-3 text-sm font-medium text-accent-ink shadow-lg transition-opacity hover:opacity-90"
+                className="rounded-sm bg-accent px-6 py-3.5 btn-label text-accent-ink shadow-lg transition-opacity hover:opacity-90"
               >
                 {t("start")}
               </button>

@@ -80,8 +80,8 @@ export default async function ShowroomPage({ params }: Props) {
             </div>
           </dl>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link href="/contacto" className="rounded-full bg-accent px-6 py-3 text-sm font-medium text-accent-ink hover:opacity-90">{t("visit.cta")}</Link>
-            <a href={mapsUrl} target="_blank" rel="noopener" className="rounded-full border border-line-strong px-6 py-3 text-sm hover:border-fg">{t("visit.directions")}</a>
+            <Link href="/contacto" className="rounded-sm bg-accent px-6 py-3.5 btn-label text-accent-ink hover:opacity-90">{t("visit.cta")}</Link>
+            <a href={mapsUrl} target="_blank" rel="noopener" className="rounded-sm border border-line-strong px-6 py-3.5 btn-label hover:border-fg">{t("visit.directions")}</a>
           </div>
         </Reveal>
         <Reveal delay={0.1} className="relative aspect-[4/3] overflow-hidden rounded-card">

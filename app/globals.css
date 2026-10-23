@@ -21,12 +21,14 @@
   --color-accent: #c9a96e;
   --color-accent-ink: #0b0b0c;
 
-  /* Tipografía: las variables --font-geist-sans y --font-bodoni las pone next/font en <html> */
-  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-bodoni), Georgia, serif;
+  /* Tipografía: una sola familia (Archivo, variable con eje de anchura); la variable
+     --font-archivo la pone next/font en <html>. Titulares anchos y en mayúsculas,
+     texto corrido en anchura normal, etiquetas condensadas. */
+  --font-sans: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
 
-  /* Ritmo */
-  --radius-card: 0.75rem;
+  /* Ritmo: esquinas cortas, más técnicas que redondas */
+  --radius-card: 0.5rem;
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -44,6 +46,8 @@ body {
   background: var(--color-bg);
   color: var(--color-fg);
   font-family: var(--font-sans);
+  font-stretch: 100%;
+  font-variation-settings: "wdth" 100;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -80,20 +84,51 @@ html.lenis body {
   max-width: 90rem;
 }
 
+/* Etiqueta pequeña: condensada, semibold, muy espaciada (como las placas de datos técnicos) */
 @utility eyebrow {
   font-size: 0.75rem;
-  letter-spacing: 0.22em;
+  font-weight: 600;
+  font-stretch: 88%;
+  font-variation-settings: "wdth" 88;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--color-fg-muted);
 }
 
+/* Titular: ancho, negrita, mayúsculas, interlineado apretado */
 @utility display {
   font-family: var(--font-display);
-  font-weight: 500;
-  font-variation-settings: "opsz" 96;
-  line-height: 1;
-  letter-spacing: 0;
+  font-weight: 700;
+  font-stretch: 118%;
+  font-variation-settings: "wdth" 118;
+  text-transform: uppercase;
+  line-height: 0.94;
+  letter-spacing: -0.01em;
   text-wrap: balance;
+}
+
+/* Subtitulares, cifras y títulos de tarjeta: ancho medio, sin forzar mayúsculas.
+   Sustituye a la utilidad font-display que genera el tema (misma familia, más peso y anchura). */
+@utility font-display {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-stretch: 110%;
+  font-variation-settings: "wdth" 110;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+}
+
+/* Botones y enlaces de acción: etiqueta corta en mayúsculas con tracking */
+@utility btn-label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Cifras alineadas (precios, contadores, años) */
+@utility tnum {
+  font-variant-numeric: tabular-nums;
 }
 
 /* Flecha de "desliza" */

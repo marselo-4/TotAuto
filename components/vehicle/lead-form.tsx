@@ -121,7 +121,7 @@ export function LeadForm({
       <button
         type="submit"
         disabled={status === "sending"}
-        className="rounded-full bg-accent px-6 py-3 text-sm font-medium text-accent-ink transition-opacity hover:opacity-90 disabled:opacity-60"
+        className="rounded-sm bg-accent px-6 py-3.5 btn-label text-accent-ink transition-opacity hover:opacity-90 disabled:opacity-60"
       >
         {status === "sending" ? t("sending") : t("send")}
       </button>

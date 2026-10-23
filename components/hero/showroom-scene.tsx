@@ -1,14 +1,26 @@
 "use client";
 
-import { Suspense, useState, type MutableRefObject } from "react";
+import { Suspense, useEffect, useState, type MutableRefObject } from "react";
+import dynamic from "next/dynamic";
 import { Canvas } from "@react-three/fiber";
 import { AdaptiveDpr, PerformanceMonitor, Preload } from "@react-three/drei";
-import { EffectComposer, Bloom, Vignette } from "@react-three/postprocessing";
 import * as THREE from "three";
 import { ShowroomGeometry } from "./showroom-geometry";
 import { Car } from "./car";
 import { CameraRig } from "./camera-rig";
 import { CARS, CEIL_Y } from "@/lib/hero/showroom-layout";
+
+// El postprocesado va en un chunk aparte y entra un segundo después de la escena
+const ShowroomEffects = dynamic(() => import("./showroom-effects").then((m) => m.ShowroomEffects), { ssr: false });
+
+function DeferredEffects({ delay = 1200 }: { delay?: number }) {
+  const [on, setOn] = useState(false);
+  useEffect(() => {
+    const t = window.setTimeout(() => setOn(true), delay);
+    return () => window.clearTimeout(t);
+  }, [delay]);
+  return on ? <ShowroomEffects /> : null;
+}
 
 function Lights() {
   return (
@@ -73,12 +85,7 @@ export function ShowroomScene({
           <Car key={c.id} spec={c} />
         ))}
         <CameraRig progress={progress} />
-        {high && (
-          <EffectComposer multisampling={4}>
-            <Bloom intensity={0.55} luminanceThreshold={1.1} luminanceSmoothing={0.3} mipmapBlur />
-            <Vignette eskil={false} offset={0.25} darkness={0.75} />
-          </EffectComposer>
-        )}
+        {high && <DeferredEffects />}
         <Preload all />
       </Suspense>
     </Canvas>

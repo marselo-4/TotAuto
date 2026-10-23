@@ -13,7 +13,7 @@ export function ContactBand() {
       <Reveal className="container-x relative grid gap-10 py-24 md:grid-cols-2 md:items-end md:py-36">
         <div>
           <p className="eyebrow mb-4">{t("eyebrow")}</p>
-          <SplitReveal as="h2" className="display text-5xl md:text-7xl">{t("title")}</SplitReveal>
+          <SplitReveal as="h2" className="display text-4xl md:text-6xl">{t("title")}</SplitReveal>
           <p className="mt-6 max-w-md text-lg text-fg-muted">{t("lead")}</p>
         </div>
         <div className="grid gap-3 sm:grid-cols-2">

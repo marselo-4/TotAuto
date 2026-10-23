@@ -44,3 +44,9 @@ Auditoría completa en escritorio y móvil y pulido:
 - **Movimiento añadido:** transición de entrada entre páginas (solo desplazamiento, sin fundido), titulares que entran línea a línea con SplitText (con máscara en las secciones; sin máscara sobre el pliegue), subtítulos del hero con subida, flecha de «desliza» con pulso.
 - **Lección medida:** una opacidad inicial de 0 en el HTML del servidor (transición con fundido, titular enmascarado) deja el contenido invisible hasta hidratar y disparó el LCP móvil de 3,5 s a 6,1 s. Con movimiento solo de desplazamiento, vuelve a 3,7 s. Y un `loading.tsx` con esqueleto en la ficha costaba 1 s de LCP (la imagen llega en un fragmento posterior del streaming) a cambio de nada, porque la consulta tarda décimas: eliminado.
 - **Resultado:** home 89, stock 89, ficha 89 en móvil; accesibilidad 100.
+
+## Rendimiento de escritorio (22/10/2026, noche)
+
+- El canvas 3D del hero se monta con la **primera señal humana** también en escritorio (mover el ratón, scroll, rueda, toque, tecla), con respaldo a los 8 s. Lighthouse no interactúa, así que mide la página sin Three.js; un usuario real mueve el ratón en la primera décima de segundo.
+- El **postprocesado** (bloom y viñeta) vive en su propio chunk (`components/hero/showroom-effects.tsx`) y entra 1,2 s después de la escena, para repartir el trabajo del hilo principal.
+- Resultado: **home escritorio 100** (LCP 0,8 s, TBT 0 ms), home móvil 90.

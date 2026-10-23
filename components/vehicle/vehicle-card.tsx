@@ -63,7 +63,7 @@ export function VehicleCard({ vehicle, headingLevel = "h3" }: { vehicle: Vehicle
 function Badge({ children, accent = false }: { children: React.ReactNode; accent?: boolean }) {
   return (
     <span
-      className={`rounded-full px-3 py-1 text-[11px] uppercase tracking-wider backdrop-blur ${
+      className={`rounded-sm px-3 py-1 text-[11px] font-semibold uppercase tracking-wider backdrop-blur ${
         accent ? "bg-accent text-accent-ink" : "bg-bg/70 text-fg"
       }`}
     >

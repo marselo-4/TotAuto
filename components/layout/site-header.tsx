@@ -28,7 +28,7 @@ export function SiteHeader() {
           <Logo height={20} priority />
         </Link>
 
-        <nav className="hidden items-center gap-7 text-sm text-fg-muted lg:flex" aria-label="Principal">
+        <nav className="hidden items-center gap-7 text-[0.8125rem] font-medium uppercase tracking-[0.12em] text-fg-muted lg:flex" aria-label="Principal">
           {NAV.map((item) => {
             const active = pathname === item.href || pathname.startsWith(item.href + "/");
             return (
@@ -61,7 +61,7 @@ export function SiteHeader() {
           </div>
           <Link
             href="/contacto"
-            className="hidden rounded-full border border-accent px-4 py-2 text-sm text-accent transition-colors hover:bg-accent hover:text-accent-ink md:inline-flex"
+            className="hidden rounded-sm border border-accent px-4 py-2 btn-label text-accent transition-colors hover:bg-accent hover:text-accent-ink md:inline-flex"
           >
             {t("cta")}
           </Link>
@@ -88,7 +88,7 @@ export function SiteHeader() {
               <li key={item.key}>
                 <Link
                   href={item.href}
-                  className="block py-3 font-display text-3xl"
+                  className="block py-3 display text-3xl"
                   onClick={() => setOpen(false)}
                 >
                   {t(item.key)}

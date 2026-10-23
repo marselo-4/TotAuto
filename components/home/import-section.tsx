@@ -24,7 +24,7 @@ export function ImportSection() {
         <div className="md:order-1">
           <Reveal>
             <p className="eyebrow mb-4">{t("eyebrow")}</p>
-            <SplitReveal as="h2" className="display text-5xl md:text-7xl">{t("title")}</SplitReveal>
+            <SplitReveal as="h2" className="display text-4xl md:text-6xl">{t("title")}</SplitReveal>
             <p className="mt-6 max-w-lg text-lg text-fg-muted">{t("lead")}</p>
           </Reveal>
           <Reveal as="ul" stagger={0.12} className="mt-10 grid gap-5" delay={0.15}>
@@ -39,7 +39,7 @@ export function ImportSection() {
             ))}
           </Reveal>
           <Reveal delay={0.3} className="mt-10">
-            <Link href="/importacion" className="rounded-full bg-accent px-6 py-3 text-sm font-medium text-accent-ink hover:opacity-90">
+            <Link href="/importacion" className="rounded-sm bg-accent px-6 py-3.5 btn-label text-accent-ink hover:opacity-90">
               {t("cta")}
             </Link>
           </Reveal>

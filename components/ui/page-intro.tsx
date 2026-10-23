@@ -9,7 +9,7 @@ export function PageIntro({ eyebrow, title, lead }: { eyebrow?: string; title: s
           <p className="eyebrow mb-5">{eyebrow}</p>
         </Reveal>
       )}
-      <SplitReveal as="h1" className="display text-5xl md:text-7xl lg:text-8xl" delay={0.1} masked={false}>
+      <SplitReveal as="h1" className="display text-4xl md:text-6xl lg:text-7xl" delay={0.1} masked={false}>
         {title}
       </SplitReveal>
       {lead && (

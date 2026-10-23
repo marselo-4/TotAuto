@@ -109,8 +109,8 @@ export default async function AboutPage({ params }: Props) {
         <Reveal className="flex flex-wrap items-center justify-between gap-6 rounded-card border border-line bg-bg-elev p-7 md:p-10">
           <p className="font-display text-2xl md:text-3xl">{t("cta.title")}</p>
           <div className="flex gap-3">
-            <Link href="/stock" className="rounded-full bg-accent px-6 py-3 text-sm font-medium text-accent-ink hover:opacity-90">{t("cta.stock")}</Link>
-            <Link href="/contacto" className="rounded-full border border-line-strong px-6 py-3 text-sm hover:border-fg">{t("cta.contact")}</Link>
+            <Link href="/stock" className="rounded-sm bg-accent px-6 py-3.5 btn-label text-accent-ink hover:opacity-90">{t("cta.stock")}</Link>
+            <Link href="/contacto" className="rounded-sm border border-line-strong px-6 py-3.5 btn-label hover:border-fg">{t("cta.contact")}</Link>
           </div>
         </Reveal>
       </section>

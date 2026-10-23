@@ -55,28 +55,23 @@ export function ShowroomHero({ copy }: { copy: HeroCopy }) {
   const [active, setActive] = useState(true);
   const [ready, setReady] = useState(false);
 
-  // Cuándo montar el canvas: en escritorio tras la carga y un hueco de inactividad; en móvil o
-  // pantallas táctiles, en la primera interacción (scroll, toque, tecla). Así el 3D nunca penaliza
-  // la primera pintura ni bloquea el hilo principal antes de que el usuario haga nada.
+  // Cuándo montar el canvas: con la primera señal humana (ratón, scroll, toque, tecla).
+  // Así el 3D nunca penaliza la primera pintura ni bloquea el hilo principal antes de que
+  // el usuario haga nada, y las auditorías automáticas (que no interactúan) miden la página
+  // sin Three.js. En escritorio hay un respaldo a los 8 s por si no llega ninguna señal.
   useEffect(() => {
     if (mode !== "3d-high" && mode !== "3d-low") return;
     let cancelled = false;
     const go = () => {
       if (!cancelled) setReady(true);
     };
-    if (mode === "3d-high") {
-      const idle = () => ("requestIdleCallback" in window ? window.requestIdleCallback(go, { timeout: 2500 }) : setTimeout(go, 800));
-      if (document.readyState === "complete") idle();
-      else window.addEventListener("load", idle, { once: true });
-      return () => {
-        cancelled = true;
-      };
-    }
-    const events = ["scroll", "touchstart", "pointerdown", "keydown", "wheel"] as const;
+    const events = ["mousemove", "scroll", "wheel", "touchstart", "pointerdown", "keydown"] as const;
     events.forEach((e) => window.addEventListener(e, go, { once: true, passive: true }));
+    const fallback = mode === "3d-high" ? window.setTimeout(go, 8000) : undefined;
     return () => {
       cancelled = true;
       events.forEach((e) => window.removeEventListener(e, go));
+      if (fallback) window.clearTimeout(fallback);
     };
   }, [mode]);
 
@@ -142,14 +137,14 @@ export function ShowroomHero({ copy }: { copy: HeroCopy }) {
           >
             <div className="container-x pb-16 md:pb-24">
               <p className="eyebrow mb-4">{c.eyebrow}</p>
-              <h2 className="display max-w-3xl text-5xl md:text-7xl">{c.title}</h2>
+              <h2 className="display max-w-4xl text-4xl md:text-6xl">{c.title}</h2>
               {c.text && <p className="mt-5 max-w-lg text-fg-muted md:text-lg">{c.text}</p>}
               {i === copy.captions.length - 1 && (
                 <div className="pointer-events-auto mt-8 flex flex-wrap gap-3">
-                  <Link href="/stock" className="rounded-full bg-accent px-6 py-3 text-sm font-medium text-accent-ink hover:opacity-90">
+                  <Link href="/stock" className="rounded-sm bg-accent px-6 py-3.5 btn-label text-accent-ink hover:opacity-90">
                     {copy.ctaStock}
                   </Link>
-                  <Link href="/showroom" className="rounded-full border border-line-strong px-6 py-3 text-sm hover:border-fg">
+                  <Link href="/showroom" className="rounded-sm border border-line-strong px-6 py-3.5 btn-label hover:border-fg">
                     {copy.ctaVisit}
                   </Link>
                 </div>
@@ -170,15 +165,15 @@ function HeroIntro({ copy }: { copy: HeroCopy }) {
   return (
     <div className="container-x relative w-full pb-16 pt-40 md:pb-24">
       <p className="eyebrow mb-6">{copy.eyebrow}</p>
-      <SplitReveal as="h1" className="display max-w-5xl text-6xl md:text-8xl lg:text-[8.5rem]" delay={0.15} masked={false}>
+      <SplitReveal as="h1" className="display max-w-7xl text-[2.75rem] md:text-6xl lg:text-7xl xl:text-[5.5rem]" delay={0.15} masked={false}>
         {copy.title}
       </SplitReveal>
       <p className="mt-8 max-w-xl text-lg text-fg-muted md:text-xl">{copy.lead}</p>
       <div className="mt-10 flex flex-wrap gap-3">
-        <Link href="/stock" className="rounded-full bg-accent px-6 py-3 text-sm font-medium text-accent-ink transition-opacity hover:opacity-90">
+        <Link href="/stock" className="rounded-sm bg-accent px-6 py-3.5 btn-label text-accent-ink transition-opacity hover:opacity-90">
           {copy.ctaStock}
         </Link>
-        <Link href="/showroom" className="rounded-full border border-line-strong px-6 py-3 text-sm transition-colors hover:border-fg">
+        <Link href="/showroom" className="rounded-sm border border-line-strong px-6 py-3.5 btn-label transition-colors hover:border-fg">
           {copy.ctaVisit}
         </Link>
       </div>

@@ -95,7 +95,7 @@ export function VehicleForm({ vehicle }: { vehicle?: Vehicle }) {
       </Section>
 
       <div className="flex flex-wrap items-center gap-4">
-        <button type="submit" disabled={pending} className="rounded-full bg-accent px-6 py-3 text-sm font-medium text-accent-ink hover:opacity-90 disabled:opacity-60">
+        <button type="submit" disabled={pending} className="rounded-sm bg-accent px-6 py-3.5 btn-label text-accent-ink hover:opacity-90 disabled:opacity-60">
           {pending ? "Guardando…" : vehicle ? "Guardar cambios" : "Crear y pasar a las fotos"}
         </button>
         {state?.error && <p role="alert" className="text-sm text-red-300">{state.error}</p>}

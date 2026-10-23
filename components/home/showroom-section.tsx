@@ -13,7 +13,7 @@ export function ShowroomSection() {
     <section className="container-x py-24 md:py-36">
       <Reveal className="mb-12 max-w-3xl md:mb-16">
         <p className="eyebrow mb-4">{t("eyebrow")}</p>
-        <SplitReveal as="h2" className="display text-5xl md:text-7xl">{t("title")}</SplitReveal>
+        <SplitReveal as="h2" className="display text-4xl md:text-6xl">{t("title")}</SplitReveal>
         <p className="mt-6 max-w-xl text-lg text-fg-muted">{t("lead")}</p>
       </Reveal>
 
@@ -40,7 +40,7 @@ export function ShowroomSection() {
             <p className="text-sm text-fg-muted">
               {site.address.street} · {site.address.postalCode} {site.address.city}
             </p>
-            <Link href="/showroom" className="rounded-full border border-line-strong px-5 py-2.5 text-sm hover:border-fg">
+            <Link href="/showroom" className="rounded-sm border border-line-strong px-5 py-3 btn-label hover:border-fg">
               {t("cta")}
             </Link>
           </div>

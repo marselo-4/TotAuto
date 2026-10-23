@@ -107,6 +107,8 @@ Login con Supabase Auth. Lista de coches con estado y portada; formulario de alt
 
 Sistema oscuro: fondo grafito, texto blanco roto, un acento (a decidir en la propuesta de logo), tipografía display para titulares y sans neutra para texto; tarjetas de coche con foto a sangre; galería de ficha pensada para móvil (deslizar, zoom). Propuesta de logo: 3 variantes de wordmark "TOT AUTO" en SVG para que Carlos elija, antes de la fase 1.
 
+**Cambio del 23/10/2026 (pedido por Carlos):** aire deportivo y moderno en vez de lujo clásico, manteniendo los colores. Una sola familia variable, Archivo (eje de anchura): titulares anchos (wdth 118), negrita y en mayúsculas (`display`); subtítulos y cifras en anchura media (`font-display`); texto corrido en anchura normal; etiquetas condensadas (`eyebrow`). Botones con esquina corta (`rounded-sm`) y etiqueta en mayúsculas (`btn-label`); navegación en mayúsculas con tracking; radio de tarjeta 0,5 rem. Logo: el mismo día Carlos eligió el wordmark D (Archivo expandida + barra champán), ya integrado; ver `docs/logo-propuestas.md`.
+
 ## Referencias (investigadas el 21/10/2026)
 
 Tres barridos (España, EE. UU., técnicas 3D) y revisión en el navegador de Maison Automotive, FJ Motors, Gunther Werks, Otherlife, Scout Motors, duPont Registry, Spyker y Lusion Gemini.

@@ -25,7 +25,7 @@ export default async function AdminVehiclesPage({ searchParams }: { searchParams
           <h1 className="display text-4xl">Coches</h1>
           <p className="mt-1 text-sm text-fg-muted">Ves tus coches; el admin los ve todos. Solo se publican los que no están en borrador.</p>
         </div>
-        <Link href="/admin/vehicles/new" className="rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-accent-ink hover:opacity-90">
+        <Link href="/admin/vehicles/new" className="rounded-sm bg-accent px-5 py-2.5 btn-label text-accent-ink hover:opacity-90">
           + Nuevo coche
         </Link>
       </div>

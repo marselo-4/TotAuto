@@ -15,7 +15,7 @@ export async function FeaturedStock() {
       <Reveal className="mb-12 flex flex-wrap items-end justify-between gap-6 md:mb-16">
         <div>
           <p className="eyebrow mb-4">{t("eyebrow")}</p>
-          <SplitReveal as="h2" className="display text-5xl md:text-7xl">{t("title")}</SplitReveal>
+          <SplitReveal as="h2" className="display text-4xl md:text-6xl">{t("title")}</SplitReveal>
         </div>
         <Link href="/stock" className="group text-sm text-fg-muted transition-colors hover:text-fg">
           {t("all")} <span className="inline-block transition-transform group-hover:translate-x-1">→</span>

@@ -67,7 +67,7 @@ export function PhotoManager({ vehicleId, ownerId, images }: { vehicleId: string
   return (
     <div className="grid gap-4">
       <div className="flex flex-wrap items-center gap-3">
-        <label className="cursor-pointer rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-accent-ink hover:opacity-90">
+        <label className="cursor-pointer rounded-sm bg-accent px-5 py-2.5 btn-label text-accent-ink hover:opacity-90">
           {uploading ?? "+ Añadir fotos"}
           <input ref={input} type="file" accept="image/*" multiple className="hidden" disabled={!!uploading} onChange={(e) => onFiles(e.target.files)} />
         </label>
