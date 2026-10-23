@@ -28,3 +28,19 @@ Las fuentes variables se descargan del repo `google/fonts` (`ofl/bodonimoda`, `o
 ## Decisión
 
 **21/10/2026 · Carlos elige la propuesta A** (Bodoni Moda + filete champán `#C9A96E`). Integrada en la web: SVG en `public/brand/`, favicon en `app/icon.svg`, Bodoni Moda como tipografía display y champán como acento en `app/globals.css`. Las propuestas B y C se conservan en `public/brand/propuestas/` como referencia.
+
+## Segunda ronda (23/10/2026) · wordmark deportivo en Archivo
+
+Tras cambiar la tipografía de la web a Archivo (ancha, negrita, mayúsculas), la Bodoni del logo A desentona. Tres propuestas nuevas, mismos colores (tinta `#F4F2EE`, grafito, champán `#C9A96E`), en `public/brand/propuestas/{d,e,f}/` con los mismos archivos que la primera ronda. Página: `public/brand/propuestas/wordmark.html` (en desarrollo, `http://localhost:3000/brand/propuestas/wordmark.html`). Script: `docs/gen-wordmark.py` (fontTools + HarfBuzz; fuentes de `google/fonts/ofl/archivo`).
+
+| Propuesta | Composición | A favor | En contra |
+|---|---|---|---|
+| **D · Expandida** | Archivo 800, anchura 125, tracking −0,014 em; barra champán inclinada entre las palabras | La misma voz que los titulares; robusta en corpóreas y a 16 px; la barra da velocidad sin dibujar "coche" | La más larga en cabecera móvil; sin símbolo propio (T + barra) |
+| **E · Itálica** | Archivo Italic 700, anchura 118; línea de velocidad champán bajo la base | La que más dice "deportivo"; guiña al logo original itálico; compacta | La cursiva envejece peor y acerca a taller/tuning; la línea desaparece a 16 px |
+| **F · Técnica** | Archivo 600, anchura 100, tracking 0,15 em; "TOT" tinta, "AUTO" champán | Registro premium-técnico (Polestar, Lucid); el acento va en el nombre; monograma TA claro | Menos contundente que los titulares; el tracking pide ancho en móvil |
+
+Recomendación: **D** si se quiere una sola voz en toda la marca; **F** si se prefiere que el logo sea más discreto que los titulares.
+
+### Decisión
+
+**23/10/2026 · Carlos elige la propuesta D** (Archivo 800 expandida + barra champán). Integrada: SVG en `public/brand/` (logo, on-white, mono, mark, favicon), `app/icon.svg`, proporción `LOGO_ASPECT` en `components/layout/logo.tsx` (la usa también el rótulo 3D de `components/hero/logo-sign.tsx`) y PNG de email `public/brand/logo-email-{dark,light}{,@2x}.png` regenerados con sharp (220 y 440 px de ancho). La propuesta A queda en `public/brand/propuestas/a/`.

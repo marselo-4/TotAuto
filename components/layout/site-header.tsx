@@ -28,10 +28,10 @@ export function SiteHeader() {
     <header className="fixed inset-x-0 top-0 z-50 border-b border-line bg-bg/70 backdrop-blur-md">
       <div className="container-x flex h-16 items-center justify-between gap-6">
         <Link href="/" className="flex items-center" aria-label="Tot Auto · Inicio" onClick={() => setOpen(false)}>
-          <Logo height={20} priority />
+          <Logo height={18} priority />
         </Link>
 
-        <nav className="hidden items-center gap-5 whitespace-nowrap text-[0.8125rem] font-medium uppercase tracking-[0.12em] text-fg-muted lg:flex xl:gap-7" aria-label="Principal">
+        <nav className="hidden items-center gap-5 whitespace-nowrap text-[0.8125rem] font-medium uppercase tracking-[0.12em] text-fg-muted xl:flex 2xl:gap-7" aria-label="Principal">
           {NAV.map((item) => {
             const active = pathname === item.href || pathname.startsWith(item.href + "/");
             return (
@@ -70,7 +70,7 @@ export function SiteHeader() {
           </Link>
           <button
             type="button"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-line lg:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-line xl:hidden"
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label={open ? t("close") : t("menu")}
@@ -85,7 +85,7 @@ export function SiteHeader() {
       </div>
 
       {open && (
-        <nav id="mobile-nav" className="container-x border-t border-line bg-bg pb-6 pt-4 lg:hidden" aria-label="Principal móvil">
+        <nav id="mobile-nav" className="container-x border-t border-line bg-bg pb-6 pt-4 xl:hidden" aria-label="Principal móvil">
           <ul className="flex flex-col gap-1">
             {NAV.map((item) => (
               <li key={item.key}>

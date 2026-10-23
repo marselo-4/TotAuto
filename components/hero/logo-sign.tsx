@@ -2,8 +2,7 @@
 
 import { useEffect, useState } from "react";
 import * as THREE from "three";
-
-const LOGO_ASPECT = 726.94 / 151.9;
+import { LOGO_ASPECT } from "@/components/layout/logo";
 
 /** Rasteriza el SVG del logo a una textura nítida (el ImageLoader de three lo haría a 300×150). */
 function useLogoTexture(src: string, width = 2048) {

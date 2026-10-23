@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tot Auto · Propuestas de wordmark deportivo</title>
+<link rel="icon" href="d/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0E0F11; --graphite:#1B1C1F; --graphite-2:#232428; --line:#2C2D32;
+    --ink:#ECEAE4; --muted:#8E8F95; --white:#FFFFFF;
+    --acc-a:#C9A96E; --acc-b:#B23A40; --acc-c:#B5BEC8;
+  }
+  *{box-sizing:border-box}
+  html{background:var(--bg)}
+  body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 Inter,system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
+  header.top{padding:48px 40px 28px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap}
+  header.top h1{font-weight:500;font-size:28px;margin:0 0 6px;letter-spacing:-.01em}
+  header.top p{margin:0;color:var(--muted);max-width:720px}
+  .actual{display:flex;align-items:center;gap:14px;color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.12em}
+  .actual img{height:40px;background:#fff;padding:6px 14px;border-radius:4px}
+
+  .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border-bottom:1px solid var(--line)}
+  @media (max-width:1180px){.grid{grid-template-columns:1fr}}
+  .col{background:var(--bg);padding:32px 28px 40px;display:flex;flex-direction:column;gap:22px}
+  .col-head{display:flex;align-items:baseline;gap:14px;margin-bottom:4px}
+  .col-head .letter{font-size:44px;font-weight:600;line-height:1;letter-spacing:-.03em}
+  .col-head h2{font-size:17px;font-weight:600;margin:0}
+  .col-head .meta{color:var(--muted);font-size:13px;margin-top:3px}
+  .swatch{display:inline-flex;align-items:center;gap:8px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;color:var(--muted)}
+  .swatch i{width:14px;height:14px;border-radius:50%;display:inline-block;border:1px solid rgba(255,255,255,.12)}
+
+  .label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+  .panel{border-radius:6px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .panel.dark{background:var(--graphite)}
+  .panel.light{background:var(--white)}
+  .big{height:220px;padding:36px}
+  .big img{width:100%;max-height:150px;object-fit:contain}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .mid{height:84px;padding:18px 26px}
+  .mid img{height:30px;width:100%;object-fit:contain}
+  .sm{height:64px;padding:14px 22px}
+  .sm img{height:18px;width:100%;object-fit:contain}
+
+  .fav{background:var(--graphite);border-radius:6px;padding:16px 18px;display:flex;align-items:center;gap:26px;flex-wrap:wrap}
+  .fav .f{display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--muted);font-size:11px}
+  .fav img{image-rendering:auto;display:block}
+  .tab{display:flex;align-items:center;gap:8px;background:#2B2C31;border-radius:8px 8px 0 0;padding:8px 14px 8px 10px;color:#CFCFD3;font-size:12px;margin-left:auto;align-self:flex-end;box-shadow:inset 0 -1px 0 #3A3B41}
+  .tab img{width:16px;height:16px}
+  .tab-wrap{background:#1F2024;border-radius:8px;padding:8px 8px 0;display:flex;flex-direction:column;align-items:flex-start}
+  .tab-wrap .url{background:#2B2C31;border-radius:0 0 6px 6px;width:170px;height:22px;display:flex;align-items:center;padding:0 10px;color:#86878D;font-size:11px}
+
+  /* Fachada */
+  .fachada{position:relative;overflow:hidden;border-radius:6px;aspect-ratio:4/3;background:#444}
+  .fachada .inner{position:absolute;width:300%;left:-75%;top:-70%;aspect-ratio:4/3}
+  .fachada .inner>img.foto{width:100%;height:100%;display:block}
+  .fachada .sign{position:absolute;left:32.3%;top:27.4%;width:19.3%;height:23.4%;background:linear-gradient(100deg,#141517,#0d0e10 60%,#111214);clip-path:polygon(0 0,100% 12%,100% 100%,0 96%);box-shadow:inset 0 0 40px rgba(0,0,0,.6)}
+  .fachada .sign img{position:absolute;left:7%;top:9%;width:86%;height:80%;object-fit:contain;transform-origin:left center;transform:perspective(900px) skewY(4deg) rotateY(12deg);filter:drop-shadow(0 0 1px rgba(255,255,255,.45)) drop-shadow(2px 3px 0 rgba(0,0,0,.6)) drop-shadow(0 0 16px rgba(255,255,255,.22))}
+  .fachada .cap{position:absolute;left:12px;bottom:10px;font-size:11px;color:rgba(255,255,255,.75);background:rgba(0,0,0,.45);padding:3px 8px;border-radius:4px;backdrop-filter:blur(4px)}
+
+  /* Cabecera web */
+  .web{background:var(--graphite);border-radius:6px;overflow:hidden;border:1px solid var(--line)}
+  .web nav{display:flex;align-items:center;justify-content:space-between;padding:0 22px;height:64px;border-bottom:1px solid rgba(255,255,255,.06)}
+  .web nav img{height:26px;width:auto;display:block}
+  .web nav ul{list-style:none;margin:0;padding:0;display:flex;gap:22px;font-family:Jost,Inter,sans-serif;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:#B9B9BE}
+  .web nav ul li:last-child{color:var(--ink)}
+  .web .hero{height:118px;position:relative;background:radial-gradient(ellipse 70% 120% at 70% 110%,rgba(255,255,255,.07),transparent 60%),linear-gradient(180deg,#1B1C1F,#121316);padding:22px 22px}
+  .web .hero h3{margin:0;font-family:Jost,Inter,sans-serif;font-weight:400;font-size:22px;letter-spacing:.02em;color:var(--ink);max-width:70%}
+  .web .hero p{margin:6px 0 0;color:var(--muted);font-size:12px;max-width:60%}
+  .web .hero .cta{position:absolute;right:22px;bottom:22px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:9px 14px;border:1px solid rgba(255,255,255,.25);border-radius:2px}
+
+  section.compare{padding:40px 40px 56px}
+  section.compare h2{font-size:17px;font-weight:600;margin:0 0 18px}
+  .strip{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  .strip .panel{height:120px;padding:24px 30px}
+  .strip img{height:46px;width:100%;object-fit:contain}
+  .notes{color:var(--muted);font-size:13px;max-width:900px;margin-top:22px}
+  .notes code{font-family:ui-monospace,Menlo,monospace;font-size:12px;color:#B9B9BE}
+  footer{padding:0 40px 40px;color:var(--muted);font-size:12px}
+
+  body{font-family:Archivo,Inter,system-ui,sans-serif}
+  .web nav ul{font-family:Archivo,sans-serif;font-weight:500;font-size:11.5px;letter-spacing:.12em}
+  .web .hero h3{font-family:Archivo,sans-serif;font-weight:700;font-stretch:118%;font-variation-settings:"wdth" 118;text-transform:uppercase;font-size:26px;line-height:.94;letter-spacing:-.01em;max-width:78%}
+  .web .hero .cta{font-weight:600;letter-spacing:.08em;border-radius:4px;background:var(--acc-a);color:#0B0B0C;border:0}
+  .web nav ul li:last-child{color:var(--acc-a);border:1px solid var(--acc-a);padding:6px 10px;border-radius:4px}
+  .web nav img{height:20px}
+  .web nav ul{gap:16px}
+  .strip{grid-template-columns:repeat(4,1fr)}
+  .strip .panel{position:relative}
+  .strip .panel span{position:absolute;left:12px;top:10px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .pros{margin:0;padding:0;list-style:none;color:var(--muted);font-size:13px;line-height:1.55}
+  .pros li{padding-left:14px;position:relative}
+  .pros li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:2px;background:var(--acc-a)}
+  .pros li.con::before{background:#6b6c72}
+</style>
+</head>
+<body>
+<header class="top">
+  <div>
+    <h1>Tot Auto · wordmark deportivo (segunda ronda)</h1>
+    <p>Tres direcciones en Archivo, la misma fuente variable que ahora usa la web, manteniendo los colores aprobados: tinta blanco roto, grafito y champán. Cada una sobre grafito y sobre blanco, a tres tamaños, en favicon, en el rótulo de la fachada y en la cabecera actual de la web. Texto convertido a trazados: sin dependencia de fuentes.</p>
+  </div>
+  <div class="actual"><span>Logo actual (A)</span><img src="a/logo-on-white.svg" alt="Propuesta A, Bodoni"></div>
+</header>
+<div class="grid">
+  <article class="col" id="d">
+    <div class="col-head">
+      <div class="letter" style="color:var(--acc-a)">D</div>
+      <div><h2>Expandida · Archivo 800, anchura 125</h2><div class="meta">Mayúsculas anchas y negras, tracking negativo; barra champán inclinada en el hueco entre palabras. <span class="swatch"><i style="background:var(--acc-a)"></i>#C9A96E champán · #F4F2EE tinta</span></div></div>
+    </div>
+    <div><p class="label">Grande · grafito</p><div class="panel dark big"><img src="d/logo.svg" alt="Propuesta D sobre grafito"></div></div>
+    <div><p class="label">Grande · blanco</p><div class="panel light big"><img src="d/logo-on-white.svg" alt="Propuesta D sobre blanco"></div></div>
+    <div><p class="label">Mediano y pequeño</p>
+      <div class="row">
+        <div class="panel dark mid"><img src="d/logo.svg" alt=""></div>
+        <div class="panel light mid"><img src="d/logo-on-white.svg" alt=""></div>
+        <div class="panel dark sm"><img src="d/logo-mono-white.svg" alt=""></div>
+        <div class="panel light sm"><img src="d/logo-mono-black.svg" alt=""></div>
+      </div>
+    </div>
+    <div><p class="label">Símbolo y favicon</p>
+      <div class="fav">
+        <div class="f"><img src="d/mark.svg" width="48" height="48" alt="">símbolo</div>
+        <div class="f"><img src="d/favicon.svg" width="48" height="48" alt="">48</div>
+        <div class="f"><img src="d/favicon.svg" width="32" height="32" alt="">32</div>
+        <div class="f"><img src="d/favicon.svg" width="16" height="16" alt="">16</div>
+        <div class="tab-wrap"><div class="tab"><img src="d/favicon.svg" alt="">Tot Auto · Showroom</div><div class="url">totauto.net</div></div>
+      </div>
+    </div>
+    <div><p class="label">Rótulo de fachada · letras corpóreas</p>
+      <div class="fachada"><div class="inner"><img class="foto" src="fachada.jpg" alt="Fachada de Tot Auto en Tàrrega"><div class="sign"><img src="d/logo-mono-white.svg" alt=""></div></div><span class="cap">Simulación · panel sobre el escaparate</span></div>
+    </div>
+    <div><p class="label">Cabecera de la web</p>
+      <div class="web">
+        <nav><img src="d/logo.svg" alt="Tot Auto"><ul><li>Stock</li><li>Showroom</li><li>Importación</li><li>Pedir cita</li></ul></nav>
+        <div class="hero"><h3>Pocos coches. Todos elegidos.</h3><p>Deportivos y alta gama seleccionados uno a uno.</p><span class="cta">VER EL STOCK</span></div>
+      </div>
+    </div>
+    <div><p class="label">A favor / en contra</p><ul class="pros"><li>La misma voz que los titulares de la web: una sola familia en todo.</li><li>Robusta a cualquier tamaño y en corpóreas: trazos gruesos y uniformes.</li><li>La barra inclinada da el gesto de velocidad sin dibujar nada "de coche".</li><li class="con">Es la más larga: en la cabecera móvil ocupa casi todo el ancho.</li><li class="con">Sin símbolo propio: el favicon es una T con barra.</li></ul></div>
+  </article>
+  <article class="col" id="e">
+    <div class="col-head">
+      <div class="letter" style="color:var(--acc-a)">E</div>
+      <div><h2>Itálica · Archivo Italic 700, anchura 118</h2><div class="meta">Cursiva mecánica con línea de velocidad champán bajo la base, afilada a la izquierda. <span class="swatch"><i style="background:var(--acc-a)"></i>#C9A96E champán · #F4F2EE tinta</span></div></div>
+    </div>
+    <div><p class="label">Grande · grafito</p><div class="panel dark big"><img src="e/logo.svg" alt="Propuesta E sobre grafito"></div></div>
+    <div><p class="label">Grande · blanco</p><div class="panel light big"><img src="e/logo-on-white.svg" alt="Propuesta E sobre blanco"></div></div>
+    <div><p class="label">Mediano y pequeño</p>
+      <div class="row">
+        <div class="panel dark mid"><img src="e/logo.svg" alt=""></div>
+        <div class="panel light mid"><img src="e/logo-on-white.svg" alt=""></div>
+        <div class="panel dark sm"><img src="e/logo-mono-white.svg" alt=""></div>
+        <div class="panel light sm"><img src="e/logo-mono-black.svg" alt=""></div>
+      </div>
+    </div>
+    <div><p class="label">Símbolo y favicon</p>
+      <div class="fav">
+        <div class="f"><img src="e/mark.svg" width="48" height="48" alt="">símbolo</div>
+        <div class="f"><img src="e/favicon.svg" width="48" height="48" alt="">48</div>
+        <div class="f"><img src="e/favicon.svg" width="32" height="32" alt="">32</div>
+        <div class="f"><img src="e/favicon.svg" width="16" height="16" alt="">16</div>
+        <div class="tab-wrap"><div class="tab"><img src="e/favicon.svg" alt="">Tot Auto · Showroom</div><div class="url">totauto.net</div></div>
+      </div>
+    </div>
+    <div><p class="label">Rótulo de fachada · letras corpóreas</p>
+      <div class="fachada"><div class="inner"><img class="foto" src="fachada.jpg" alt="Fachada de Tot Auto en Tàrrega"><div class="sign"><img src="e/logo-mono-white.svg" alt=""></div></div><span class="cap">Simulación · panel sobre el escaparate</span></div>
+    </div>
+    <div><p class="label">Cabecera de la web</p>
+      <div class="web">
+        <nav><img src="e/logo.svg" alt="Tot Auto"><ul><li>Stock</li><li>Showroom</li><li>Importación</li><li>Pedir cita</li></ul></nav>
+        <div class="hero"><h3>Pocos coches. Todos elegidos.</h3><p>Deportivos y alta gama seleccionados uno a uno.</p><span class="cta">VER EL STOCK</span></div>
+      </div>
+    </div>
+    <div><p class="label">A favor / en contra</p><ul class="pros"><li>Es la que más dice "deportivo" de un vistazo.</li><li>Guiña al logo original (itálico) sin su sombra 3D.</li><li>Compacta: cabe bien en la cabecera.</li><li class="con">La cursiva envejece peor y acerca la marca al registro de taller o tuning.</li><li class="con">La línea fina desaparece a 16 px.</li></ul></div>
+  </article>
+  <article class="col" id="f">
+    <div class="col-head">
+      <div class="letter" style="color:var(--acc-a)">F</div>
+      <div><h2>Técnica · Archivo 600, anchura 100, dos tonos</h2><div class="meta">Semibold con tracking amplio (0,15 em); "TOT" en tinta y "AUTO" en champán. <span class="swatch"><i style="background:var(--acc-a)"></i>#C9A96E champán · #F4F2EE tinta</span></div></div>
+    </div>
+    <div><p class="label">Grande · grafito</p><div class="panel dark big"><img src="f/logo.svg" alt="Propuesta F sobre grafito"></div></div>
+    <div><p class="label">Grande · blanco</p><div class="panel light big"><img src="f/logo-on-white.svg" alt="Propuesta F sobre blanco"></div></div>
+    <div><p class="label">Mediano y pequeño</p>
+      <div class="row">
+        <div class="panel dark mid"><img src="f/logo.svg" alt=""></div>
+        <div class="panel light mid"><img src="f/logo-on-white.svg" alt=""></div>
+        <div class="panel dark sm"><img src="f/logo-mono-white.svg" alt=""></div>
+        <div class="panel light sm"><img src="f/logo-mono-black.svg" alt=""></div>
+      </div>
+    </div>
+    <div><p class="label">Símbolo y favicon</p>
+      <div class="fav">
+        <div class="f"><img src="f/mark.svg" width="48" height="48" alt="">símbolo</div>
+        <div class="f"><img src="f/favicon.svg" width="48" height="48" alt="">48</div>
+        <div class="f"><img src="f/favicon.svg" width="32" height="32" alt="">32</div>
+        <div class="f"><img src="f/favicon.svg" width="16" height="16" alt="">16</div>
+        <div class="tab-wrap"><div class="tab"><img src="f/favicon.svg" alt="">Tot Auto · Showroom</div><div class="url">totauto.net</div></div>
+      </div>
+    </div>
+    <div><p class="label">Rótulo de fachada · letras corpóreas</p>
+      <div class="fachada"><div class="inner"><img class="foto" src="fachada.jpg" alt="Fachada de Tot Auto en Tàrrega"><div class="sign"><img src="f/logo-mono-white.svg" alt=""></div></div><span class="cap">Simulación · panel sobre el escaparate</span></div>
+    </div>
+    <div><p class="label">Cabecera de la web</p>
+      <div class="web">
+        <nav><img src="f/logo.svg" alt="Tot Auto"><ul><li>Stock</li><li>Showroom</li><li>Importación</li><li>Pedir cita</li></ul></nav>
+        <div class="hero"><h3>Pocos coches. Todos elegidos.</h3><p>Deportivos y alta gama seleccionados uno a uno.</p><span class="cta">VER EL STOCK</span></div>
+      </div>
+    </div>
+    <div><p class="label">A favor / en contra</p><ul class="pros"><li>Registro premium y técnico (Polestar, Lucid): sobria, no grita.</li><li>El champán entra en el propio nombre: no hace falta adorno.</li><li>Monograma TA claro para favicon y bordado.</li><li class="con">Menos contundente que los titulares: convive con ellos pero no los lidera.</li><li class="con">El tracking amplio pide más ancho en la cabecera móvil.</li></ul></div>
+  </article>
+</div>
+<section class="compare">
+  <h2>Las cuatro juntas</h2>
+  <div class="strip">
+    <div class="panel dark"><span>A · actual</span><img src="a/logo.svg" alt="A"></div>
+    <div class="panel dark"><span>D</span><img src="d/logo.svg" alt="D"></div>
+    <div class="panel dark"><span>E</span><img src="e/logo.svg" alt="E"></div>
+    <div class="panel dark"><span>F</span><img src="f/logo.svg" alt="F"></div>
+  </div>
+  <p class="notes">Archivos en <code>public/brand/propuestas/{d,e,f}/</code> con los mismos nombres que la primera ronda. Generados con <code>docs/gen-wordmark.py</code> (fontTools + HarfBuzz) a partir de la Archivo variable del repo de Google Fonts.</p>
+</section>
+<footer>Tot Auto · Tàrrega · propuestas de identidad, segunda ronda, octubre 2026</footer>
+</body>
+</html>
