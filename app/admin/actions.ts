@@ -170,7 +170,8 @@ export async function syncImportRadar(): Promise<SyncState> {
   if (profile?.role !== "admin") return { error: "Solo el administrador puede sincronizar." };
   if (!importRadarConfigured()) return { error: "Falta la clave de API de ImportRadar (IMPORTRADAR_API_KEY)." };
   try {
-    const result = await syncFromImportRadar();
+    // Con la sesión del administrador: las políticas RLS le dejan crear y editar cualquier coche
+    const result = await syncFromImportRadar(supabase);
     revalidatePublic();
     return { result };
   } catch (err) {

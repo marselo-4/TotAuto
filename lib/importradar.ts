@@ -1,6 +1,9 @@
+import type { SupabaseClient } from "@supabase/supabase-js";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { slugify } from "@/lib/slug";
-import type { Enums, TablesInsert } from "@/lib/supabase/database.types";
+import type { Database, Enums, TablesInsert } from "@/lib/supabase/database.types";
+
+type Db = SupabaseClient<Database>;
 
 /**
  * Coches "bajo pedido": las oportunidades que Carlos tiene en seguimiento en ImportRadar
@@ -191,18 +194,18 @@ export function mapOpportunity(o: ImportRadarOpportunity): VehicleRow {
 export type SyncResult = { fetched: number; created: number; updated: number; unpublished: number; stale: number };
 
 /**
- * Trae las oportunidades en seguimiento y las refleja en `vehicles`:
+ * Trae las oportunidades en seguimiento y las refleja en `vehicles`. Con el cliente del
+ * administrador con sesión (panel) escribe bajo RLS; sin cliente usa la clave secreta (cron).
  * - nuevas → borrador (Carlos revisa y publica desde el panel);
  * - existentes → se actualizan km, precio de origen, estimación y fecha; el precio público solo mientras siga en borrador;
  * - las que ya no están en seguimiento o cuyo anuncio lleva días sin verse → si estaban publicadas, vuelven a borrador.
  */
-export async function syncFromImportRadar(): Promise<SyncResult> {
+export async function syncFromImportRadar(supabase: Db = createAdminClient()): Promise<SyncResult> {
   const opportunities = await fetchWatchingOpportunities();
   const now = Date.now();
   const fresh = opportunities.filter((o) => listingAlive(o, now));
   const stale = opportunities.length - fresh.length;
 
-  const supabase = createAdminClient();
   const { data: existingRows, error } = await supabase
     .from("vehicles")
     .select("id, slug, status, source_ref")
@@ -214,7 +217,7 @@ export async function syncFromImportRadar(): Promise<SyncResult> {
   let updated = 0;
   let unpublished = 0;
 
-  const ownerId = await resolveOwnerId();
+  const ownerId = await resolveOwnerId(supabase);
 
   for (const o of fresh) {
     const row = mapOpportunity(o);
@@ -255,15 +258,14 @@ export async function syncFromImportRadar(): Promise<SyncResult> {
 }
 
 /** Dueño de las fichas importadas: IMPORTRADAR_OWNER_ID o el primer administrador. */
-async function resolveOwnerId(): Promise<string> {
+async function resolveOwnerId(supabase: Db): Promise<string> {
   if (process.env.IMPORTRADAR_OWNER_ID) return process.env.IMPORTRADAR_OWNER_ID;
-  const supabase = createAdminClient();
   const { data, error } = await supabase.from("profiles").select("id").eq("role", "admin").order("created_at").limit(1).maybeSingle();
   if (error || !data) throw new Error("No hay ningún administrador al que asignar los coches importados");
   return data.id;
 }
 
-async function uniqueSlug(supabase: ReturnType<typeof createAdminClient>, base: string) {
+async function uniqueSlug(supabase: Db, base: string) {
   let slug = base;
   for (let i = 2; i < 50; i++) {
     const { data } = await supabase.from("vehicles").select("id").eq("slug", slug).maybeSingle();

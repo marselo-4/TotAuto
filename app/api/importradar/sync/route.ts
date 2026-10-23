@@ -10,23 +10,25 @@ export const maxDuration = 60;
  * Sincroniza los coches "bajo pedido" con ImportRadar. La llama el cron de Vercel (cabecera
  * Authorization: Bearer CRON_SECRET) o un administrador con sesión desde el panel.
  */
+/** Cron (clave secreta, salta RLS) o administrador con sesión (escribe bajo RLS). */
 async function authorized(req: Request) {
   const secret = process.env.CRON_SECRET;
-  if (secret && req.headers.get("authorization") === `Bearer ${secret}`) return true;
+  if (secret && req.headers.get("authorization") === `Bearer ${secret}`) return { via: "cron" } as const;
   const supabase = await createClient();
   const {
     data: { user },
   } = await supabase.auth.getUser();
-  if (!user) return false;
+  if (!user) return null;
   const { data: profile } = await supabase.from("profiles").select("role").eq("id", user.id).maybeSingle();
-  return profile?.role === "admin";
+  return profile?.role === "admin" ? ({ via: "session", supabase } as const) : null;
 }
 
 async function handle(req: Request) {
-  if (!(await authorized(req))) return NextResponse.json({ error: "No autorizado" }, { status: 401 });
+  const auth = await authorized(req);
+  if (!auth) return NextResponse.json({ error: "No autorizado" }, { status: 401 });
   if (!importRadarConfigured()) return NextResponse.json({ error: "ImportRadar no está configurado (IMPORTRADAR_API_KEY)" }, { status: 503 });
   try {
-    const result = await syncFromImportRadar();
+    const result = await syncFromImportRadar(auth.via === "session" ? auth.supabase : undefined);
     if (result.created || result.updated || result.unpublished) {
       revalidatePath("/admin");
       revalidatePath("/", "layout");
