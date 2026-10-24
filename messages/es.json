@@ -354,7 +354,8 @@
       },
       "stats": {
         "years": "años en el sector",
-        "dealers": "concesionarios clientes"
+        "dealers": "concesionarios clientes",
+        "clients": "clientes en nuestro histórico"
       },
       "timeline": {
         "eyebrow": "Hitos",

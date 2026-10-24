@@ -354,7 +354,8 @@
       },
       "stats": {
         "years": "anys al sector",
-        "dealers": "concessionaris clients"
+        "dealers": "concessionaris clients",
+        "clients": "clients al nostre historial"
       },
       "timeline": {
         "eyebrow": "Fites",

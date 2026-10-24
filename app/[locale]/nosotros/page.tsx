@@ -45,6 +45,10 @@ export default async function AboutPage({ params }: Props) {
               <CountUp value={250} suffix="+" className="display text-6xl" />
               <p className="mt-1 text-sm text-fg-muted">{t("stats.dealers")}</p>
             </li>
+            <li className="col-span-2 border-t border-line pt-4">
+              <CountUp value={3400} suffix="+" className="display text-6xl" />
+              <p className="mt-1 text-sm text-fg-muted">{t("stats.clients")}</p>
+            </li>
           </ul>
           <div className="relative mt-8 aspect-[4/3] overflow-hidden rounded-card">
             <Image src="/img/showroom-principal.jpg" alt={t("imageAlt")} fill sizes="(min-width: 768px) 40vw, 100vw" className="object-cover" />
