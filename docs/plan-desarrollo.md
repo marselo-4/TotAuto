@@ -12,7 +12,7 @@ _Aprobado por Carlos el 21/10/2026. Fuente de verdad del proyecto; se actualiza 
 | F3 · Cierre | Hecha | Legales, cookies con Consent Mode, SEO, accesibilidad, Lighthouse móvil 90+ (`docs/f3-legales-seo-rendimiento.md`) |
 | F4 · Publicación | **Pendiente del dominio** | Vercel + totauto.net (DNS hoy en GitHub Pages), Resend con dominio verificado, Search Console |
 
-**Falta de Carlos:** CIF, domicilio social y datos registrales de GUIXAGILS SL (`lib/legal/types.ts`); número de WhatsApp del showroom (`NEXT_PUBLIC_WHATSAPP`); `SUPABASE_SECRET_KEY` en `.env.local` para que los formularios guarden; portal y formulario de HubSpot; horarios reales; email de Miquel; fotos reales de los coches. Nada de esto bloquea el despliegue salvo la clave secreta.
+**Falta de Carlos:** CIF, domicilio social y datos registrales de GUIXASGILS SL (`lib/legal/types.ts`); número de WhatsApp del showroom (`NEXT_PUBLIC_WHATSAPP`); `SUPABASE_SECRET_KEY` en `.env.local` para que los formularios guarden; portal y formulario de HubSpot; horarios reales; email de Miquel; fotos reales de los coches. Nada de esto bloquea el despliegue salvo la clave secreta.
 
 **Checklist de F4 (cuando llegue el dominio):**
 1. Proyecto en Vercel desde `marselo-4/TotAuto`, variables de `.env.example` con `NEXT_PUBLIC_SITE_URL=https://totauto.net`.
@@ -43,7 +43,7 @@ Contexto de negocio: `/Users/carlos/totauto_intel/contexto/totauto-tarrega-conte
 | Contacto | WhatsApp con mensaje precargado · formulario por email · lead en HubSpot · teléfono y email |
 | Secciones | Inicio, Stock, Ficha, Showroom/local, Importación a medida, Vende tu coche, Sobre nosotros + vendidos, Contacto, legales |
 | Estilo | Oscuro, tipo galería; logo rehecho (wordmark nuevo, mismo nombre) |
-| Legal | A nombre de GUIXAGILS SL (faltan CIF, dirección fiscal, email) |
+| Legal | A nombre de GUIXASGILS SL (faltan CIF, dirección fiscal, email) |
 | Portales | Exportación CSV/feed desde el panel (coches.net, AutoScout24, Wallapop) |
 | Base de datos | Proyecto nuevo en Supabase vía conector (plan gratuito) |
 | ImportRadar | SaaS aparte de Carlos; **no aparece** en la web |
@@ -163,7 +163,7 @@ Layout (cabecera, pie, selector de idioma, transiciones de página), inicio con 
 Auth y panel completo (CRUD, fotos, estados, export CSV). Páginas de importación a medida y vende tu coche con sus formularios. Cuenta para Miquel.
 
 **F3 · Cierre (semanas 8–9)**
-Legales de GUIXAGILS SL y banner de cookies, GA4, SEO (metadata, sitemap, JSON-LD, hreflang, redirecciones de URLs viejas), rendimiento (presupuesto de la sección 3D; Lighthouse móvil ≥ 85 home, ≥ 90 resto), `prefers-reduced-motion`, accesibilidad básica, pruebas en iPhone y Android reales y revisión de textos.
+Legales de GUIXASGILS SL y banner de cookies, GA4, SEO (metadata, sitemap, JSON-LD, hreflang, redirecciones de URLs viejas), rendimiento (presupuesto de la sección 3D; Lighthouse móvil ≥ 85 home, ≥ 90 resto), `prefers-reduced-motion`, accesibilidad básica, pruebas en iPhone y Android reales y revisión de textos.
 
 **F4 · Publicación (semana 10, cuando llegue el dominio)**
 Proyecto en Vercel desde GitHub, variables de entorno, dominio totauto.net (cambiar DNS desde GitHub Pages), dominio verificado en Resend, Search Console con el sitemap nuevo, comprobar redirecciones.
@@ -194,7 +194,7 @@ Ya instaladas en el Mac (`~/.claude/skills`): `design-taste-frontend`, `emil-des
 ## Lo que necesito de Carlos (no bloquea el arranque)
 
 1. Número de WhatsApp del showroom.
-2. Datos de GUIXAGILS SL para los legales (razón social, CIF, dirección, email).
+2. Datos de GUIXASGILS SL para los legales (razón social, CIF, dirección, email).
 3. Portal ID y form ID de HubSpot (o permiso para crear el formulario con el conector).
 4. Textos o notas para "Sobre nosotros" (40 años, 250 concesionarios, equipo) y horario de visitas.
 5. Email de Miquel para su cuenta del panel.

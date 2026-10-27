@@ -3,7 +3,7 @@
 _22/10/2026._
 
 ## Legales
-- Textos en `lib/legal/{es,ca}.ts` (aviso legal, privacidad, cookies) a nombre de **GUIXAGILS SL**. Los datos que faltan están entre corchetes en `lib/legal/types.ts` (`RESPONSIBLE`): CIF, domicilio social y datos registrales. Al rellenarlos se actualizan las tres páginas en los dos idiomas.
+- Textos en `lib/legal/{es,ca}.ts` (aviso legal, privacidad, cookies) a nombre de **GUIXASGILS SL**. Los datos que faltan están entre corchetes en `lib/legal/types.ts` (`RESPONSIBLE`): CIF, domicilio social y datos registrales. Al rellenarlos se actualizan las tres páginas en los dos idiomas.
 - Páginas en `/legal/aviso-legal`, `/legal/privacidad`, `/legal/cookies` (y `/ca/...`), indexables pero sin seguir enlaces.
 - La privacidad nombra a los encargados reales: Vercel, Supabase, Resend y HubSpot.
 
