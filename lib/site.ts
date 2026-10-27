@@ -1,7 +1,7 @@
 /** Datos fijos del negocio. Lo que falte se rellena cuando Carlos lo pase. */
 export const site = {
   name: "Tot Auto",
-  legalEntity: "GUIXAGILS SL", // CIF y dirección fiscal pendientes
+  legalEntity: "GUIXAGILS SL", // CIF B25697186, domicilio fiscal en el propio local
   phone: "+34 690 609 107",
   // Número de WhatsApp del showroom (formato internacional sin "+")
   whatsapp: process.env.NEXT_PUBLIC_WHATSAPP ?? "34690609107",

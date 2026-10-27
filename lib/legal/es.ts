@@ -53,7 +53,10 @@ export const privacidad: LegalDoc = {
   sections: [
     {
       heading: "Responsable del tratamiento",
-      paragraphs: [`${R.name} · CIF ${R.cif} · ${R.address} · ${R.email} · ${R.phone}.`],
+      paragraphs: [
+        `${R.name} · CIF ${R.cif} · ${R.address} · ${R.email} · ${R.phone}.`,
+        `Persona de contacto para cualquier cuestión sobre tus datos: ${R.contact.name} · ${R.contact.email} · ${R.contact.phone}.`,
+      ],
     },
     {
       heading: "Qué datos tratamos y de dónde proceden",

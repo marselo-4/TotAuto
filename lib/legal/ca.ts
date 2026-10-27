@@ -45,7 +45,13 @@ export const privacidad: LegalDoc = {
   updated: UPDATED,
   intro: `Aquesta política explica com ${R.name} tracta les dades personals de qui fa servir ${R.site} o contacta amb ${R.brand}, d'acord amb el Reglament (UE) 2016/679 (RGPD) i la Llei Orgànica 3/2018 (LOPDGDD).`,
   sections: [
-    { heading: "Responsable del tractament", paragraphs: [`${R.name} · CIF ${R.cif} · ${R.address} · ${R.email} · ${R.phone}.`] },
+    {
+      heading: "Responsable del tractament",
+      paragraphs: [
+        `${R.name} · CIF ${R.cif} · ${R.address} · ${R.email} · ${R.phone}.`,
+        `Persona de contacte per a qualsevol qüestió sobre les teves dades: ${R.contact.name} · ${R.contact.email} · ${R.contact.phone}.`,
+      ],
+    },
     {
       heading: "Quines dades tractem i d'on procedeixen",
       paragraphs: [`Les dades que ens facilites als formularis i canals de contacte del web (nom, telèfon, email, missatge i, si escau, dades del vehicle que busques o que vols vendre), i les que ens dónes per WhatsApp, telèfon o email.`],
